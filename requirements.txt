@@ -1,0 +1,9 @@
+numpy
+scipy
+matplotlib
+networkx
+pennylane
+scikit-learn
+coverage
+pytest
+# Track G additionally needs qemu-system-riscv64 and a RISC-V gcc toolchain (see trackG_xv6/TRACK_G_RESULTS.md).

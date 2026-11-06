@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+.venv/
+venv/
+ENV/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# xv6 build artifacts (trackG)
+trackG_xv6/xv6-riscv/*.o
+trackG_xv6/xv6-riscv/*.d
+trackG_xv6/xv6-riscv/*.asm
+trackG_xv6/xv6-riscv/*.sym
+trackG_xv6/xv6-riscv/kernel/kernel
+trackG_xv6/xv6-riscv/user/_*
+trackG_xv6/xv6-riscv/fs.img
