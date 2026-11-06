@@ -1,0 +1,3071 @@
+{
+ "note": "VM cost model is an assumption (mul=3, other=1). All numbers measured on the project's own VM.",
+ "ablation": {
+  "per_program": {
+   "sumsq_invariant": {
+    "none": {
+     "static": 18,
+     "dynamic": 2607,
+     "cost": 3807,
+     "correct": true,
+     "compile_ms": 0.000535999788553454
+    },
+    "all": {
+     "static": 14,
+     "dynamic": 1807,
+     "cost": 2207,
+     "correct": true,
+     "compile_ms": 0.7090989997777797
+    },
+    "only const_fold": {
+     "static": 18,
+     "dynamic": 2607,
+     "cost": 3407,
+     "correct": true,
+     "compile_ms": 0.016756999684730545
+    },
+    "only strength": {
+     "static": 18,
+     "dynamic": 2607,
+     "cost": 3407,
+     "correct": true,
+     "compile_ms": 0.005200000032345997
+    },
+    "only copy_prop": {
+     "static": 18,
+     "dynamic": 2607,
+     "cost": 3807,
+     "correct": true,
+     "compile_ms": 0.022189999981492292
+    },
+    "only cse": {
+     "static": 18,
+     "dynamic": 2607,
+     "cost": 3807,
+     "correct": true,
+     "compile_ms": 0.011255000117671443
+    },
+    "only licm": {
+     "static": 18,
+     "dynamic": 1811,
+     "cost": 2215,
+     "correct": true,
+     "compile_ms": 0.2047840002887824
+    },
+    "only dce": {
+     "static": 18,
+     "dynamic": 2607,
+     "cost": 3807,
+     "correct": true,
+     "compile_ms": 0.04685400017478969
+    },
+    "all minus const_fold": {
+     "static": 17,
+     "dynamic": 1810,
+     "cost": 2212,
+     "correct": true,
+     "compile_ms": 0.41943699989133165
+    },
+    "all minus strength": {
+     "static": 14,
+     "dynamic": 1807,
+     "cost": 2207,
+     "correct": true,
+     "compile_ms": 0.6295780003711116
+    },
+    "all minus copy_prop": {
+     "static": 14,
+     "dynamic": 1807,
+     "cost": 2207,
+     "correct": true,
+     "compile_ms": 0.7190189999164431
+    },
+    "all minus cse": {
+     "static": 14,
+     "dynamic": 1807,
+     "cost": 2207,
+     "correct": true,
+     "compile_ms": 0.5492320001394546
+    },
+    "all minus licm": {
+     "static": 16,
+     "dynamic": 2207,
+     "cost": 2607,
+     "correct": true,
+     "compile_ms": 0.21090200016260496
+    },
+    "all minus dce": {
+     "static": 18,
+     "dynamic": 1811,
+     "cost": 2211,
+     "correct": true,
+     "compile_ms": 0.4970969998794317
+    }
+   },
+   "repeated_subexpr": {
+    "none": {
+     "static": 20,
+     "dynamic": 1606,
+     "cost": 2606,
+     "correct": true,
+     "compile_ms": 0.00020199968275846913
+    },
+    "all": {
+     "static": 15,
+     "dynamic": 1007,
+     "cost": 1007,
+     "correct": true,
+     "compile_ms": 0.7300160000340838
+    },
+    "only const_fold": {
+     "static": 20,
+     "dynamic": 1606,
+     "cost": 2606,
+     "correct": true,
+     "compile_ms": 0.009285000032832613
+    },
+    "only strength": {
+     "static": 20,
+     "dynamic": 1606,
+     "cost": 2206,
+     "correct": true,
+     "compile_ms": 0.005241999588179169
+    },
+    "only copy_prop": {
+     "static": 20,
+     "dynamic": 1606,
+     "cost": 2606,
+     "correct": true,
+     "compile_ms": 0.02300100004504202
+    },
+    "only cse": {
+     "static": 20,
+     "dynamic": 1606,
+     "cost": 2406,
+     "correct": true,
+     "compile_ms": 0.025662000098236604
+    },
+    "only licm": {
+     "static": 20,
+     "dynamic": 1012,
+     "cost": 1220,
+     "correct": true,
+     "compile_ms": 0.21817100014231983
+    },
+    "only dce": {
+     "static": 20,
+     "dynamic": 1606,
+     "cost": 2606,
+     "correct": true,
+     "compile_ms": 0.04224999975122046
+    },
+    "all minus const_fold": {
+     "static": 17,
+     "dynamic": 1009,
+     "cost": 1013,
+     "correct": true,
+     "compile_ms": 0.5723830004171759
+    },
+    "all minus strength": {
+     "static": 15,
+     "dynamic": 1007,
+     "cost": 1207,
+     "correct": true,
+     "compile_ms": 0.8423210001637926
+    },
+    "all minus copy_prop": {
+     "static": 15,
+     "dynamic": 1007,
+     "cost": 1007,
+     "correct": true,
+     "compile_ms": 1.1741759999495116
+    },
+    "all minus cse": {
+     "static": 15,
+     "dynamic": 1007,
+     "cost": 1007,
+     "correct": true,
+     "compile_ms": 0.728389999949286
+    },
+    "all minus licm": {
+     "static": 17,
+     "dynamic": 1306,
+     "cost": 1706,
+     "correct": true,
+     "compile_ms": 0.37749800003439304
+    },
+    "all minus dce": {
+     "static": 20,
+     "dynamic": 1012,
+     "cost": 1012,
+     "correct": true,
+     "compile_ms": 0.44119900030636927
+    }
+   },
+   "nested_loops": {
+    "none": {
+     "static": 24,
+     "dynamic": 10207,
+     "cost": 13867,
+     "correct": true,
+     "compile_ms": 0.00030999990485724993
+    },
+    "all": {
+     "static": 24,
+     "dynamic": 9308,
+     "cost": 9308,
+     "correct": true,
+     "compile_ms": 1.1352500000612054
+    },
+    "only const_fold": {
+     "static": 24,
+     "dynamic": 10207,
+     "cost": 13867,
+     "correct": true,
+     "compile_ms": 0.01123000038205646
+    },
+    "only strength": {
+     "static": 24,
+     "dynamic": 10207,
+     "cost": 12007,
+     "correct": true,
+     "compile_ms": 0.005233000138105126
+    },
+    "only copy_prop": {
+     "static": 24,
+     "dynamic": 10207,
+     "cost": 13867,
+     "correct": true,
+     "compile_ms": 0.015035999695101054
+    },
+    "only cse": {
+     "static": 24,
+     "dynamic": 10207,
+     "cost": 13867,
+     "correct": true,
+     "compile_ms": 0.012999000318814069
+    },
+    "only licm": {
+     "static": 24,
+     "dynamic": 9308,
+     "cost": 11170,
+     "correct": true,
+     "compile_ms": 0.2327840002180892
+    },
+    "only dce": {
+     "static": 24,
+     "dynamic": 10207,
+     "cost": 13867,
+     "correct": true,
+     "compile_ms": 0.06189899977471214
+    },
+    "all minus const_fold": {
+     "static": 24,
+     "dynamic": 9308,
+     "cost": 9310,
+     "correct": true,
+     "compile_ms": 0.5650440002682444
+    },
+    "all minus strength": {
+     "static": 24,
+     "dynamic": 9308,
+     "cost": 11168,
+     "correct": true,
+     "compile_ms": 0.8216160003939876
+    },
+    "all minus copy_prop": {
+     "static": 24,
+     "dynamic": 9308,
+     "cost": 9308,
+     "correct": true,
+     "compile_ms": 0.7824489998711215
+    },
+    "all minus cse": {
+     "static": 24,
+     "dynamic": 9308,
+     "cost": 9308,
+     "correct": true,
+     "compile_ms": 1.1498280000523664
+    },
+    "all minus licm": {
+     "static": 24,
+     "dynamic": 10207,
+     "cost": 12007,
+     "correct": true,
+     "compile_ms": 0.25049299983948004
+    },
+    "all minus dce": {
+     "static": 24,
+     "dynamic": 9308,
+     "cost": 9308,
+     "correct": true,
+     "compile_ms": 0.549813999896287
+    }
+   },
+   "fib_dead_code": {
+    "none": {
+     "static": 19,
+     "dynamic": 567,
+     "cost": 727,
+     "correct": true,
+     "compile_ms": 0.00024600012693554163
+    },
+    "all": {
+     "static": 16,
+     "dynamic": 447,
+     "cost": 527,
+     "correct": true,
+     "compile_ms": 0.4073489999427693
+    },
+    "only const_fold": {
+     "static": 19,
+     "dynamic": 567,
+     "cost": 727,
+     "correct": true,
+     "compile_ms": 0.013235000096756266
+    },
+    "only strength": {
+     "static": 19,
+     "dynamic": 567,
+     "cost": 727,
+     "correct": true,
+     "compile_ms": 0.002136000148311723
+    },
+    "only copy_prop": {
+     "static": 19,
+     "dynamic": 567,
+     "cost": 727,
+     "correct": true,
+     "compile_ms": 0.028198999643791467
+    },
+    "only cse": {
+     "static": 19,
+     "dynamic": 567,
+     "cost": 727,
+     "correct": true,
+     "compile_ms": 0.011131000064779073
+    },
+    "only licm": {
+     "static": 19,
+     "dynamic": 567,
+     "cost": 727,
+     "correct": true,
+     "compile_ms": 0.05030700003771926
+    },
+    "only dce": {
+     "static": 17,
+     "dynamic": 487,
+     "cost": 567,
+     "correct": true,
+     "compile_ms": 0.1743200000419165
+    },
+    "all minus const_fold": {
+     "static": 16,
+     "dynamic": 447,
+     "cost": 527,
+     "correct": true,
+     "compile_ms": 0.4167669999333157
+    },
+    "all minus strength": {
+     "static": 16,
+     "dynamic": 447,
+     "cost": 527,
+     "correct": true,
+     "compile_ms": 0.3247029999329243
+    },
+    "all minus copy_prop": {
+     "static": 17,
+     "dynamic": 487,
+     "cost": 567,
+     "correct": true,
+     "compile_ms": 0.3361649996804772
+    },
+    "all minus cse": {
+     "static": 16,
+     "dynamic": 447,
+     "cost": 527,
+     "correct": true,
+     "compile_ms": 0.3096469999945839
+    },
+    "all minus licm": {
+     "static": 16,
+     "dynamic": 447,
+     "cost": 527,
+     "correct": true,
+     "compile_ms": 0.23499899998569163
+    },
+    "all minus dce": {
+     "static": 19,
+     "dynamic": 567,
+     "cost": 727,
+     "correct": true,
+     "compile_ms": 0.1796810001906124
+    }
+   },
+   "constant_chain": {
+    "none": {
+     "static": 19,
+     "dynamic": 19,
+     "cost": 29,
+     "correct": true,
+     "compile_ms": 0.0002689998837013263
+    },
+    "all": {
+     "static": 2,
+     "dynamic": 2,
+     "cost": 2,
+     "correct": true,
+     "compile_ms": 0.10531999987506424
+    },
+    "only const_fold": {
+     "static": 19,
+     "dynamic": 19,
+     "cost": 19,
+     "correct": true,
+     "compile_ms": 0.029633999929501442
+    },
+    "only strength": {
+     "static": 19,
+     "dynamic": 19,
+     "cost": 21,
+     "correct": true,
+     "compile_ms": 0.008644999979878776
+    },
+    "only copy_prop": {
+     "static": 19,
+     "dynamic": 19,
+     "cost": 29,
+     "correct": true,
+     "compile_ms": 0.034161000257881824
+    },
+    "only cse": {
+     "static": 19,
+     "dynamic": 19,
+     "cost": 27,
+     "correct": true,
+     "compile_ms": 0.0386179999622982
+    },
+    "only licm": {
+     "static": 19,
+     "dynamic": 19,
+     "cost": 29,
+     "correct": true,
+     "compile_ms": 0.00321100014843978
+    },
+    "only dce": {
+     "static": 19,
+     "dynamic": 19,
+     "cost": 29,
+     "correct": true,
+     "compile_ms": 0.029555999844887992
+    },
+    "all minus const_fold": {
+     "static": 10,
+     "dynamic": 10,
+     "cost": 12,
+     "correct": true,
+     "compile_ms": 0.32876799969017156
+    },
+    "all minus strength": {
+     "static": 2,
+     "dynamic": 2,
+     "cost": 2,
+     "correct": true,
+     "compile_ms": 0.10913699998127413
+    },
+    "all minus copy_prop": {
+     "static": 2,
+     "dynamic": 2,
+     "cost": 2,
+     "correct": true,
+     "compile_ms": 0.07938599992485251
+    },
+    "all minus cse": {
+     "static": 2,
+     "dynamic": 2,
+     "cost": 2,
+     "correct": true,
+     "compile_ms": 0.09546799992676824
+    },
+    "all minus licm": {
+     "static": 2,
+     "dynamic": 2,
+     "cost": 2,
+     "correct": true,
+     "compile_ms": 0.10067499988508644
+    },
+    "all minus dce": {
+     "static": 19,
+     "dynamic": 19,
+     "cost": 19,
+     "correct": true,
+     "compile_ms": 0.08658799970362452
+    }
+   },
+   "branchy": {
+    "none": {
+     "static": 27,
+     "dynamic": 940,
+     "cost": 1180,
+     "correct": true,
+     "compile_ms": 0.00028700014809146523
+    },
+    "all": {
+     "static": 24,
+     "dynamic": 760,
+     "cost": 760,
+     "correct": true,
+     "compile_ms": 0.7649190001757233
+    },
+    "only const_fold": {
+     "static": 27,
+     "dynamic": 940,
+     "cost": 1180,
+     "correct": true,
+     "compile_ms": 0.017251999906875426
+    },
+    "only strength": {
+     "static": 27,
+     "dynamic": 940,
+     "cost": 940,
+     "correct": true,
+     "compile_ms": 0.006619000032515032
+    },
+    "only copy_prop": {
+     "static": 27,
+     "dynamic": 940,
+     "cost": 1180,
+     "correct": true,
+     "compile_ms": 0.019880000309058232
+    },
+    "only cse": {
+     "static": 27,
+     "dynamic": 940,
+     "cost": 1180,
+     "correct": true,
+     "compile_ms": 0.017682000361674
+    },
+    "only licm": {
+     "static": 27,
+     "dynamic": 940,
+     "cost": 1180,
+     "correct": true,
+     "compile_ms": 0.11209199965378502
+    },
+    "only dce": {
+     "static": 24,
+     "dynamic": 760,
+     "cost": 880,
+     "correct": true,
+     "compile_ms": 0.404429999889544
+    },
+    "all minus const_fold": {
+     "static": 24,
+     "dynamic": 760,
+     "cost": 760,
+     "correct": true,
+     "compile_ms": 0.6226159998732328
+    },
+    "all minus strength": {
+     "static": 24,
+     "dynamic": 760,
+     "cost": 880,
+     "correct": true,
+     "compile_ms": 0.6897900002513779
+    },
+    "all minus copy_prop": {
+     "static": 24,
+     "dynamic": 760,
+     "cost": 760,
+     "correct": true,
+     "compile_ms": 0.6697180001538072
+    },
+    "all minus cse": {
+     "static": 24,
+     "dynamic": 760,
+     "cost": 760,
+     "correct": true,
+     "compile_ms": 0.5077830001027905
+    },
+    "all minus licm": {
+     "static": 24,
+     "dynamic": 760,
+     "cost": 760,
+     "correct": true,
+     "compile_ms": 0.38494900036312174
+    },
+    "all minus dce": {
+     "static": 27,
+     "dynamic": 822,
+     "cost": 822,
+     "correct": true,
+     "compile_ms": 0.6704990000798716
+    }
+   },
+   "register_pressure": {
+    "none": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.00023799975679139607
+    },
+    "all": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.48222299983535777
+    },
+    "only const_fold": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.017575000128999818
+    },
+    "only strength": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.004164000074524665
+    },
+    "only copy_prop": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.0529579997419205
+    },
+    "only cse": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.01870200003395439
+    },
+    "only licm": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.07371499987129937
+    },
+    "only dce": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.06709600029353169
+    },
+    "all minus const_fold": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.42695599995568045
+    },
+    "all minus strength": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.4424759999892558
+    },
+    "all minus copy_prop": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.20423799969648826
+    },
+    "all minus cse": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.42071100006069173
+    },
+    "all minus licm": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.3090879999945173
+    },
+    "all minus dce": {
+     "static": 38,
+     "dynamic": 1069,
+     "cost": 1069,
+     "correct": true,
+     "compile_ms": 0.339685000199097
+    }
+   }
+  },
+  "summary": {
+   "none": {
+    "cost_ratio_geomean": 1.0,
+    "dynamic_ratio_geomean": 1.0,
+    "static_ratio_geomean": 1.0,
+    "all_correct": true
+   },
+   "all": {
+    "cost_ratio_geomean": 0.46696466946221316,
+    "dynamic_ratio_geomean": 0.5956123595421826,
+    "static_ratio_geomean": 0.6440436350746572,
+    "all_correct": true
+   },
+   "only const_fold": {
+    "cost_ratio_geomean": 0.9265691516771292,
+    "dynamic_ratio_geomean": 1.0,
+    "static_ratio_geomean": 1.0,
+    "all_correct": true
+   },
+   "only strength": {
+    "cost_ratio_geomean": 0.8703734638219646,
+    "dynamic_ratio_geomean": 1.0,
+    "static_ratio_geomean": 1.0,
+    "all_correct": true
+   },
+   "only copy_prop": {
+    "cost_ratio_geomean": 1.0,
+    "dynamic_ratio_geomean": 1.0,
+    "static_ratio_geomean": 1.0,
+    "all_correct": true
+   },
+   "only cse": {
+    "cost_ratio_geomean": 0.9786162554859046,
+    "dynamic_ratio_geomean": 1.0,
+    "static_ratio_geomean": 1.0,
+    "all_correct": true
+   },
+   "only licm": {
+    "cost_ratio_geomean": 0.8051789614299886,
+    "dynamic_ratio_geomean": 0.8770500520160497,
+    "static_ratio_geomean": 1.0,
+    "all_correct": true
+   },
+   "only dce": {
+    "cost_ratio_geomean": 0.9255043690296477,
+    "dynamic_ratio_geomean": 0.9492398209027569,
+    "static_ratio_geomean": 0.9678138398593139,
+    "all_correct": true
+   },
+   "all minus const_fold": {
+    "cost_ratio_geomean": 0.6039080006624481,
+    "dynamic_ratio_geomean": 0.7499677284176274,
+    "static_ratio_geomean": 0.8483584138993586,
+    "all_correct": true
+   },
+   "all minus strength": {
+    "cost_ratio_geomean": 0.502252387927384,
+    "dynamic_ratio_geomean": 0.5956123595421826,
+    "static_ratio_geomean": 0.6440436350746572,
+    "all_correct": true
+   },
+   "all minus copy_prop": {
+    "cost_ratio_geomean": 0.4718706263468368,
+    "dynamic_ratio_geomean": 0.6029496529318886,
+    "static_ratio_geomean": 0.649645701973247,
+    "all_correct": true
+   },
+   "all minus cse": {
+    "cost_ratio_geomean": 0.46696466946221316,
+    "dynamic_ratio_geomean": 0.5956123595421826,
+    "static_ratio_geomean": 0.6440436350746572,
+    "all_correct": true
+   },
+   "all minus licm": {
+    "cost_ratio_geomean": 0.53471464492995,
+    "dynamic_ratio_geomean": 0.6444968377380155,
+    "static_ratio_geomean": 0.6682904218891735,
+    "all_correct": true
+   },
+   "all minus dce": {
+    "cost_ratio_geomean": 0.6826600099694741,
+    "dynamic_ratio_geomean": 0.8604033403523216,
+    "static_ratio_geomean": 1.0,
+    "all_correct": true
+   }
+  }
+ },
+ "fuzz": {
+  "programs_tested": 400,
+  "skipped_step_limit": 0,
+  "output_mismatches": {
+   "all": 0,
+   "only const_fold": 0,
+   "only strength": 0,
+   "only copy_prop": 0,
+   "only cse": 0,
+   "only licm": 0,
+   "only dce": 0
+  },
+  "cost_ratio_to_unoptimised": {
+   "all": {
+    "mean": 0.5650769495978659,
+    "std": 0.22551732401571536,
+    "n": 400
+   },
+   "only const_fold": {
+    "mean": 0.946821954056708,
+    "std": 0.06083151175807912,
+    "n": 400
+   },
+   "only strength": {
+    "mean": 0.9643352945143155,
+    "std": 0.033218135962377354,
+    "n": 400
+   },
+   "only copy_prop": {
+    "mean": 0.9978001023105127,
+    "std": 0.005829913456848228,
+    "n": 400
+   },
+   "only cse": {
+    "mean": 0.992614271341457,
+    "std": 0.016181962639676417,
+    "n": 400
+   },
+   "only licm": {
+    "mean": 0.9076407310818917,
+    "std": 0.0921707707182159,
+    "n": 400
+   },
+   "only dce": {
+    "mean": 0.910892313679129,
+    "std": 0.10991904504331183,
+    "n": 400
+   }
+  }
+ },
+ "regalloc": {
+  "sumsq_invariant [unoptimised]": {
+   "total_dynamic_refs": 5209.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 13,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 6,
+      "static_cost": 125.0,
+      "dynamic_memory_ops": 2407.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 11,
+      "static_cost": 202.0,
+      "dynamic_memory_ops": 4005.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 7,
+      "static_cost": 124.0,
+      "dynamic_memory_ops": 2405.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 7,
+      "static_cost": 124.0,
+      "dynamic_memory_ops": 2405.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.008994177000204218
+    },
+    {
+     "K": 3,
+     "variables": 13,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 4,
+      "static_cost": 85.0,
+      "dynamic_memory_ops": 1607.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 6,
+      "static_cost": 102.0,
+      "dynamic_memory_ops": 2003.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 5,
+      "static_cost": 84.0,
+      "dynamic_memory_ops": 1605.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 5,
+      "static_cost": 84.0,
+      "dynamic_memory_ops": 1605.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006122257000242826
+    },
+    {
+     "K": 4,
+     "variables": 13,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 44.0,
+      "dynamic_memory_ops": 805.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 4,
+      "static_cost": 62.0,
+      "dynamic_memory_ops": 1203.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 3,
+      "static_cost": 44.0,
+      "dynamic_memory_ops": 805.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 3,
+      "static_cost": 44.0,
+      "dynamic_memory_ops": 805.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006200523000188696
+    },
+    {
+     "K": 6,
+     "variables": 13,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 1,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 402.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 1,
+      "static_cost": 11.0,
+      "dynamic_memory_ops": 202.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 1,
+      "static_cost": 11.0,
+      "dynamic_memory_ops": 201.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 1,
+      "static_cost": 11.0,
+      "dynamic_memory_ops": 201.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0014233580000109214
+    },
+    {
+     "K": 8,
+     "variables": 13,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.5349999759782804e-05
+    }
+   ]
+  },
+  "sumsq_invariant [optimised]": {
+   "total_dynamic_refs": 3609.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 4,
+      "static_cost": 85.0,
+      "dynamic_memory_ops": 1607.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 7,
+      "static_cost": 122.0,
+      "dynamic_memory_ops": 2405.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 4,
+      "static_cost": 64.0,
+      "dynamic_memory_ops": 1205.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 4,
+      "static_cost": 64.0,
+      "dynamic_memory_ops": 1205.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0059980719997838605
+    },
+    {
+     "K": 3,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 74.0,
+      "dynamic_memory_ops": 1406.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 3,
+      "static_cost": 42.0,
+      "dynamic_memory_ops": 803.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 3,
+      "static_cost": 42.0,
+      "dynamic_memory_ops": 803.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 3,
+      "static_cost": 42.0,
+      "dynamic_memory_ops": 803.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.00661231999993106
+    },
+    {
+     "K": 4,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 2,
+      "static_cost": 33.0,
+      "dynamic_memory_ops": 604.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 2,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 403.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 2,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 403.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 2,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 403.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.001357901999654132
+    },
+    {
+     "K": 6,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 1.6135999885591445e-05
+    },
+    {
+     "K": 8,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 1.169300003311946e-05
+    }
+   ]
+  },
+  "repeated_subexpr [unoptimised]": {
+   "total_dynamic_refs": 3207.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 15,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 5,
+      "static_cost": 124.0,
+      "dynamic_memory_ops": 1205.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 13,
+      "static_cost": 261.0,
+      "dynamic_memory_ops": 2603.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 5,
+      "static_cost": 124.0,
+      "dynamic_memory_ops": 1205.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 5,
+      "static_cost": 124.0,
+      "dynamic_memory_ops": 1205.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005835563999880833
+    },
+    {
+     "K": 3,
+     "variables": 15,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 84.0,
+      "dynamic_memory_ops": 805.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 12,
+      "static_cost": 240.0,
+      "dynamic_memory_ops": 2402.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 4,
+      "static_cost": 83.0,
+      "dynamic_memory_ops": 803.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 4,
+      "static_cost": 83.0,
+      "dynamic_memory_ops": 803.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005742057000134082
+    },
+    {
+     "K": 4,
+     "variables": 15,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 2,
+      "static_cost": 43.0,
+      "dynamic_memory_ops": 403.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 5,
+      "static_cost": 100.0,
+      "dynamic_memory_ops": 1000.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 2,
+      "static_cost": 43.0,
+      "dynamic_memory_ops": 403.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 2,
+      "static_cost": 43.0,
+      "dynamic_memory_ops": 403.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005994260000079521
+    },
+    {
+     "K": 6,
+     "variables": 15,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.741900016189902e-05
+    },
+    {
+     "K": 8,
+     "variables": 15,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.3443000372935785e-05
+    }
+   ]
+  },
+  "repeated_subexpr [optimised]": {
+   "total_dynamic_refs": 2008.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 10,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 5,
+      "static_cost": 105.0,
+      "dynamic_memory_ops": 1006.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 8,
+      "static_cost": 142.0,
+      "dynamic_memory_ops": 1404.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 5,
+      "static_cost": 84.0,
+      "dynamic_memory_ops": 804.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 5,
+      "static_cost": 84.0,
+      "dynamic_memory_ops": 804.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0057983579999927315
+    },
+    {
+     "K": 3,
+     "variables": 10,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 4,
+      "static_cost": 85.0,
+      "dynamic_memory_ops": 806.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 4,
+      "static_cost": 62.0,
+      "dynamic_memory_ops": 602.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 4,
+      "static_cost": 62.0,
+      "dynamic_memory_ops": 602.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 4,
+      "static_cost": 62.0,
+      "dynamic_memory_ops": 602.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.00646524000012505
+    },
+    {
+     "K": 4,
+     "variables": 10,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 74.0,
+      "dynamic_memory_ops": 705.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 3,
+      "static_cost": 42.0,
+      "dynamic_memory_ops": 402.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 3,
+      "static_cost": 42.0,
+      "dynamic_memory_ops": 402.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 3,
+      "static_cost": 42.0,
+      "dynamic_memory_ops": 402.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006956780999644252
+    },
+    {
+     "K": 6,
+     "variables": 10,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 1,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 202.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 1,
+      "static_cost": 11.0,
+      "dynamic_memory_ops": 101.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 1,
+      "static_cost": 11.0,
+      "dynamic_memory_ops": 101.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 1,
+      "static_cost": 11.0,
+      "dynamic_memory_ops": 101.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0013289100002111809
+    },
+    {
+     "K": 8,
+     "variables": 10,
+     "max_live": 7,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.1999000182404416e-05
+    }
+   ]
+  },
+  "nested_loops [unoptimised]": {
+   "total_dynamic_refs": 22119.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 16,
+     "max_live": 9,
+     "linear_scan": {
+      "spilled_vars": 7,
+      "static_cost": 1275.0,
+      "dynamic_memory_ops": 11077.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 12,
+      "static_cost": 1883.0,
+      "dynamic_memory_ops": 16535.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 8,
+      "static_cost": 1265.0,
+      "dynamic_memory_ops": 11017.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 8,
+      "static_cost": 1265.0,
+      "dynamic_memory_ops": 11017.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005878730999938853
+    },
+    {
+     "K": 3,
+     "variables": 16,
+     "max_live": 9,
+     "linear_scan": {
+      "spilled_vars": 6,
+      "static_cost": 1075.0,
+      "dynamic_memory_ops": 9277.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 11,
+      "static_cost": 1682.0,
+      "dynamic_memory_ops": 14704.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 6,
+      "static_cost": 865.0,
+      "dynamic_memory_ops": 7417.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 6,
+      "static_cost": 865.0,
+      "dynamic_memory_ops": 7417.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005598909000127605
+    },
+    {
+     "K": 4,
+     "variables": 16,
+     "max_live": 9,
+     "linear_scan": {
+      "spilled_vars": 5,
+      "static_cost": 965.0,
+      "dynamic_memory_ops": 8347.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 6,
+      "static_cost": 862.0,
+      "dynamic_memory_ops": 7384.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 5,
+      "static_cost": 663.0,
+      "dynamic_memory_ops": 5615.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 5,
+      "static_cost": 664.0,
+      "dynamic_memory_ops": 5586.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005439358999865362
+    },
+    {
+     "K": 6,
+     "variables": 16,
+     "max_live": 9,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 514.0,
+      "dynamic_memory_ops": 4565.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 3,
+      "static_cost": 262.0,
+      "dynamic_memory_ops": 1984.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 3,
+      "static_cost": 262.0,
+      "dynamic_memory_ops": 1984.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 3,
+      "static_cost": 262.0,
+      "dynamic_memory_ops": 1984.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005750042000272515
+    },
+    {
+     "K": 8,
+     "variables": 16,
+     "max_live": 9,
+     "linear_scan": {
+      "spilled_vars": 1,
+      "static_cost": 202.0,
+      "dynamic_memory_ops": 1802.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 1,
+      "static_cost": 41.0,
+      "dynamic_memory_ops": 122.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 1,
+      "static_cost": 41.0,
+      "dynamic_memory_ops": 122.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 1,
+      "static_cost": 41.0,
+      "dynamic_memory_ops": 122.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0012570640001285938
+    }
+   ]
+  },
+  "nested_loops [optimised]": {
+   "total_dynamic_refs": 19420.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 16,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 8,
+      "static_cost": 1176.0,
+      "dynamic_memory_ops": 10178.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 12,
+      "static_cost": 1584.0,
+      "dynamic_memory_ops": 13836.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 8,
+      "static_cost": 966.0,
+      "dynamic_memory_ops": 8318.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 8,
+      "static_cost": 966.0,
+      "dynamic_memory_ops": 8318.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005866467000032571
+    },
+    {
+     "K": 3,
+     "variables": 16,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 7,
+      "static_cost": 976.0,
+      "dynamic_memory_ops": 8378.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 7,
+      "static_cost": 764.0,
+      "dynamic_memory_ops": 6516.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 7,
+      "static_cost": 764.0,
+      "dynamic_memory_ops": 6516.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 7,
+      "static_cost": 764.0,
+      "dynamic_memory_ops": 6516.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0058584620001056464
+    },
+    {
+     "K": 4,
+     "variables": 16,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 6,
+      "static_cost": 866.0,
+      "dynamic_memory_ops": 7448.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 6,
+      "static_cost": 564.0,
+      "dynamic_memory_ops": 4716.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 6,
+      "static_cost": 564.0,
+      "dynamic_memory_ops": 4716.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 6,
+      "static_cost": 564.0,
+      "dynamic_memory_ops": 4716.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006171718000132387
+    },
+    {
+     "K": 6,
+     "variables": 16,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 4,
+      "static_cost": 355.0,
+      "dynamic_memory_ops": 2887.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 4,
+      "static_cost": 254.0,
+      "dynamic_memory_ops": 1986.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 4,
+      "static_cost": 254.0,
+      "dynamic_memory_ops": 1986.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 4,
+      "static_cost": 263.0,
+      "dynamic_memory_ops": 1985.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006422601999929611
+    },
+    {
+     "K": 8,
+     "variables": 16,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 2,
+      "static_cost": 213.0,
+      "dynamic_memory_ops": 1834.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 2,
+      "static_cost": 52.0,
+      "dynamic_memory_ops": 154.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 2,
+      "static_cost": 52.0,
+      "dynamic_memory_ops": 154.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 2,
+      "static_cost": 52.0,
+      "dynamic_memory_ops": 154.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006272481999985757
+    }
+   ]
+  },
+  "fib_dead_code [unoptimised]": {
+   "total_dynamic_refs": 1088.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 12,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 4,
+      "static_cost": 125.0,
+      "dynamic_memory_ops": 486.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 10,
+      "static_cost": 202.0,
+      "dynamic_memory_ops": 804.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 4,
+      "static_cost": 125.0,
+      "dynamic_memory_ops": 486.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 4,
+      "static_cost": 125.0,
+      "dynamic_memory_ops": 486.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006135772999641631
+    },
+    {
+     "K": 3,
+     "variables": 12,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 94.0,
+      "dynamic_memory_ops": 365.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 9,
+      "static_cost": 171.0,
+      "dynamic_memory_ops": 683.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 3,
+      "static_cost": 84.0,
+      "dynamic_memory_ops": 324.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 3,
+      "static_cost": 84.0,
+      "dynamic_memory_ops": 324.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005985446999602573
+    },
+    {
+     "K": 4,
+     "variables": 12,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 2,
+      "static_cost": 73.0,
+      "dynamic_memory_ops": 284.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 8,
+      "static_cost": 150.0,
+      "dynamic_memory_ops": 602.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 2,
+      "static_cost": 52.0,
+      "dynamic_memory_ops": 202.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 2,
+      "static_cost": 52.0,
+      "dynamic_memory_ops": 202.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006214497999735613
+    },
+    {
+     "K": 6,
+     "variables": 12,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.1700999695895007e-05
+    },
+    {
+     "K": 8,
+     "variables": 12,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.205500004492933e-05
+    }
+   ]
+  },
+  "fib_dead_code [optimised]": {
+   "total_dynamic_refs": 848.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 4,
+      "static_cost": 115.0,
+      "dynamic_memory_ops": 446.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 7,
+      "static_cost": 143.0,
+      "dynamic_memory_ops": 565.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 4,
+      "static_cost": 94.0,
+      "dynamic_memory_ops": 364.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 4,
+      "static_cost": 94.0,
+      "dynamic_memory_ops": 364.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006175514000005933
+    },
+    {
+     "K": 3,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 84.0,
+      "dynamic_memory_ops": 325.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 6,
+      "static_cost": 121.0,
+      "dynamic_memory_ops": 483.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 3,
+      "static_cost": 63.0,
+      "dynamic_memory_ops": 243.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 3,
+      "static_cost": 63.0,
+      "dynamic_memory_ops": 243.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006316847000107373
+    },
+    {
+     "K": 4,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 2,
+      "static_cost": 63.0,
+      "dynamic_memory_ops": 244.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 5,
+      "static_cost": 100.0,
+      "dynamic_memory_ops": 402.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 2,
+      "static_cost": 41.0,
+      "dynamic_memory_ops": 161.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 2,
+      "static_cost": 41.0,
+      "dynamic_memory_ops": 161.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006016199999976379
+    },
+    {
+     "K": 6,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 1.6769000012573088e-05
+    },
+    {
+     "K": 8,
+     "variables": 9,
+     "max_live": 6,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 1.1365000318619423e-05
+    }
+   ]
+  },
+  "constant_chain [unoptimised]": {
+   "total_dynamic_refs": 38.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 17,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 10.0,
+      "dynamic_memory_ops": 10.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 11,
+      "static_cost": 23.0,
+      "dynamic_memory_ops": 23.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 3,
+      "static_cost": 10.0,
+      "dynamic_memory_ops": 10.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 3,
+      "static_cost": 10.0,
+      "dynamic_memory_ops": 10.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.00589156100022592
+    },
+    {
+     "K": 3,
+     "variables": 17,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 2,
+      "static_cost": 6.0,
+      "dynamic_memory_ops": 6.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 10,
+      "static_cost": 20.0,
+      "dynamic_memory_ops": 20.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 2,
+      "static_cost": 6.0,
+      "dynamic_memory_ops": 6.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 2,
+      "static_cost": 6.0,
+      "dynamic_memory_ops": 6.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0063578490003237675
+    },
+    {
+     "K": 4,
+     "variables": 17,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 1,
+      "static_cost": 3.0,
+      "dynamic_memory_ops": 3.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 3,
+      "static_cost": 6.0,
+      "dynamic_memory_ops": 6.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 1,
+      "static_cost": 3.0,
+      "dynamic_memory_ops": 3.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 1,
+      "static_cost": 3.0,
+      "dynamic_memory_ops": 3.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.007747230999939347
+    },
+    {
+     "K": 6,
+     "variables": 17,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 3.126199999314849e-05
+    },
+    {
+     "K": 8,
+     "variables": 17,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.650400028869626e-05
+    }
+   ]
+  },
+  "constant_chain [optimised]": {
+   "total_dynamic_refs": 0.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 0,
+     "max_live": 0,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.0080001377209555e-06
+    },
+    {
+     "K": 3,
+     "variables": 0,
+     "max_live": 0,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 9.810000847210176e-07
+    },
+    {
+     "K": 4,
+     "variables": 0,
+     "max_live": 0,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 9.140003385255113e-07
+    },
+    {
+     "K": 6,
+     "variables": 0,
+     "max_live": 0,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 6.69000201014569e-07
+    },
+    {
+     "K": 8,
+     "variables": 0,
+     "max_live": 0,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 6.969999049033504e-07
+    }
+   ]
+  },
+  "branchy [unoptimised]": {
+   "total_dynamic_refs": 1632.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 15,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 155.0,
+      "dynamic_memory_ops": 608.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 13,
+      "static_cost": 252.0,
+      "dynamic_memory_ops": 1028.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 5,
+      "static_cost": 124.0,
+      "dynamic_memory_ops": 366.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 5,
+      "static_cost": 124.0,
+      "dynamic_memory_ops": 366.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0059184349997849495
+    },
+    {
+     "K": 3,
+     "variables": 15,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 2,
+      "static_cost": 64.0,
+      "dynamic_memory_ops": 126.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 12,
+      "static_cost": 230.0,
+      "dynamic_memory_ops": 1024.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 2,
+      "static_cost": 64.0,
+      "dynamic_memory_ops": 126.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 2,
+      "static_cost": 64.0,
+      "dynamic_memory_ops": 126.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005991654999888851
+    },
+    {
+     "K": 4,
+     "variables": 15,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 1,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 4.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 3,
+      "static_cost": 60.0,
+      "dynamic_memory_ops": 240.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 1,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 4.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 1,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 4.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.001326396999957069
+    },
+    {
+     "K": 6,
+     "variables": 15,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 3.17149997499655e-05
+    },
+    {
+     "K": 8,
+     "variables": 15,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.580799991847016e-05
+    }
+   ]
+  },
+  "branchy [optimised]": {
+   "total_dynamic_refs": 1212.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 12,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 135.0,
+      "dynamic_memory_ops": 488.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 10,
+      "static_cost": 202.0,
+      "dynamic_memory_ops": 728.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 4,
+      "static_cost": 104.0,
+      "dynamic_memory_ops": 246.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 4,
+      "static_cost": 104.0,
+      "dynamic_memory_ops": 246.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006178616999932274
+    },
+    {
+     "K": 3,
+     "variables": 12,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 2,
+      "static_cost": 64.0,
+      "dynamic_memory_ops": 126.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 9,
+      "static_cost": 180.0,
+      "dynamic_memory_ops": 724.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 3,
+      "static_cost": 62.0,
+      "dynamic_memory_ops": 124.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 3,
+      "static_cost": 62.0,
+      "dynamic_memory_ops": 124.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006503052999960346
+    },
+    {
+     "K": 4,
+     "variables": 12,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 1,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 4.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 2,
+      "static_cost": 40.0,
+      "dynamic_memory_ops": 120.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 1,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 4.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 1,
+      "static_cost": 22.0,
+      "dynamic_memory_ops": 4.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0012536059998637938
+    },
+    {
+     "K": 6,
+     "variables": 12,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 6.840300011390354e-05
+    },
+    {
+     "K": 8,
+     "variables": 12,
+     "max_live": 5,
+     "linear_scan": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 0,
+      "static_cost": 0.0,
+      "dynamic_memory_ops": 0.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 2.901399966503959e-05
+    }
+   ]
+  },
+  "register_pressure [unoptimised]": {
+   "total_dynamic_refs": 2384.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 26,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 8,
+      "static_cost": 256.0,
+      "dynamic_memory_ops": 1216.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 18,
+      "static_cost": 425.0,
+      "dynamic_memory_ops": 2068.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 8,
+      "static_cost": 255.0,
+      "dynamic_memory_ops": 1216.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 8,
+      "static_cost": 256.0,
+      "dynamic_memory_ops": 1216.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006617965000259574
+    },
+    {
+     "K": 3,
+     "variables": 26,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 7,
+      "static_cost": 224.0,
+      "dynamic_memory_ops": 1064.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 17,
+      "static_cost": 393.0,
+      "dynamic_memory_ops": 1916.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 7,
+      "static_cost": 223.0,
+      "dynamic_memory_ops": 1064.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 7,
+      "static_cost": 224.0,
+      "dynamic_memory_ops": 1064.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0057775180002863635
+    },
+    {
+     "K": 4,
+     "variables": 26,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 6,
+      "static_cost": 192.0,
+      "dynamic_memory_ops": 912.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 16,
+      "static_cost": 361.0,
+      "dynamic_memory_ops": 1764.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 6,
+      "static_cost": 191.0,
+      "dynamic_memory_ops": 912.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 6,
+      "static_cost": 191.0,
+      "dynamic_memory_ops": 912.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.0056951320002553985
+    },
+    {
+     "K": 6,
+     "variables": 26,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 4,
+      "static_cost": 128.0,
+      "dynamic_memory_ops": 608.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 14,
+      "static_cost": 297.0,
+      "dynamic_memory_ops": 1460.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 4,
+      "static_cost": 127.0,
+      "dynamic_memory_ops": 608.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 4,
+      "static_cost": 128.0,
+      "dynamic_memory_ops": 608.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.00701291899986245
+    },
+    {
+     "K": 8,
+     "variables": 26,
+     "max_live": 10,
+     "linear_scan": {
+      "spilled_vars": 2,
+      "static_cost": 64.0,
+      "dynamic_memory_ops": 304.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 12,
+      "static_cost": 233.0,
+      "dynamic_memory_ops": 1156.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 2,
+      "static_cost": 63.0,
+      "dynamic_memory_ops": 304.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 2,
+      "static_cost": 64.0,
+      "dynamic_memory_ops": 304.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006756150000001071
+    }
+   ]
+  },
+  "register_pressure [optimised]": {
+   "total_dynamic_refs": 2384.0,
+   "rows": [
+    {
+     "K": 2,
+     "variables": 26,
+     "max_live": 11,
+     "linear_scan": {
+      "spilled_vars": 9,
+      "static_cost": 277.0,
+      "dynamic_memory_ops": 1318.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 18,
+      "static_cost": 425.0,
+      "dynamic_memory_ops": 2068.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 9,
+      "static_cost": 275.0,
+      "dynamic_memory_ops": 1316.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 9,
+      "static_cost": 275.0,
+      "dynamic_memory_ops": 1316.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005855600999893795
+    },
+    {
+     "K": 3,
+     "variables": 26,
+     "max_live": 11,
+     "linear_scan": {
+      "spilled_vars": 8,
+      "static_cost": 246.0,
+      "dynamic_memory_ops": 1166.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 17,
+      "static_cost": 393.0,
+      "dynamic_memory_ops": 1916.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 8,
+      "static_cost": 243.0,
+      "dynamic_memory_ops": 1164.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 8,
+      "static_cost": 244.0,
+      "dynamic_memory_ops": 1164.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005200426000101288
+    },
+    {
+     "K": 4,
+     "variables": 26,
+     "max_live": 11,
+     "linear_scan": {
+      "spilled_vars": 7,
+      "static_cost": 224.0,
+      "dynamic_memory_ops": 1064.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 16,
+      "static_cost": 361.0,
+      "dynamic_memory_ops": 1764.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 7,
+      "static_cost": 211.0,
+      "dynamic_memory_ops": 1012.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 7,
+      "static_cost": 211.0,
+      "dynamic_memory_ops": 1012.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005764255000030971
+    },
+    {
+     "K": 6,
+     "variables": 26,
+     "max_live": 11,
+     "linear_scan": {
+      "spilled_vars": 5,
+      "static_cost": 160.0,
+      "dynamic_memory_ops": 760.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 14,
+      "static_cost": 297.0,
+      "dynamic_memory_ops": 1460.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 5,
+      "static_cost": 147.0,
+      "dynamic_memory_ops": 708.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 5,
+      "static_cost": 148.0,
+      "dynamic_memory_ops": 708.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.005743574999996781
+    },
+    {
+     "K": 8,
+     "variables": 26,
+     "max_live": 11,
+     "linear_scan": {
+      "spilled_vars": 3,
+      "static_cost": 96.0,
+      "dynamic_memory_ops": 456.0,
+      "proven_optimal": null
+     },
+     "greedy_weight": {
+      "spilled_vars": 11,
+      "static_cost": 232.0,
+      "dynamic_memory_ops": 1154.0,
+      "proven_optimal": null
+     },
+     "ilp_static": {
+      "spilled_vars": 3,
+      "static_cost": 83.0,
+      "dynamic_memory_ops": 404.0,
+      "proven_optimal": true
+     },
+     "ilp_profile": {
+      "spilled_vars": 3,
+      "static_cost": 84.0,
+      "dynamic_memory_ops": 404.0,
+      "proven_optimal": true
+     },
+     "ilp_seconds": 0.006394548000116629
+    }
+   ]
+  }
+ },
+ "regalloc_summary_K4_optimised": {
+  "linear_scan": {
+   "total_dynamic_memory_ops": 10069.0,
+   "total_static_cost": 1282.0
+  },
+  "greedy_weight": {
+   "total_dynamic_memory_ops": 7807.0,
+   "total_static_cost": 1129.0
+  },
+  "ilp_static": {
+   "total_dynamic_memory_ops": 6698.0,
+   "total_static_cost": 902.0
+  },
+  "ilp_profile": {
+   "total_dynamic_memory_ops": 6698.0,
+   "total_static_cost": 902.0
+  }
+ },
+ "regalloc_summary_K4_unoptimised": {
+  "linear_scan": {
+   "total_dynamic_memory_ops": 10758.0,
+   "total_static_cost": 1342.0
+  },
+  "greedy_weight": {
+   "total_dynamic_memory_ops": 12199.0,
+   "total_static_cost": 1601.0
+  },
+  "ilp_static": {
+   "total_dynamic_memory_ops": 7944.0,
+   "total_static_cost": 1018.0
+  },
+  "ilp_profile": {
+   "total_dynamic_memory_ops": 7915.0,
+   "total_static_cost": 1019.0
+  }
+ },
+ "regalloc_fuzz": {
+  "K": 4,
+  "programs_needing_spills": 83,
+  "excess_static_spill_cost_pct_vs_ilp": {
+   "linear_scan": {
+    "mean": 41.39335039261069,
+    "std": 38.35913283919506,
+    "n": 83
+   },
+   "greedy_weight": {
+    "mean": 61.567580060601664,
+    "std": 71.15081002085714,
+    "n": 83
+   }
+  },
+  "matches_ilp": {
+   "linear_scan": "2/83",
+   "greedy_weight": "20/83"
+  }
+ }
+}
