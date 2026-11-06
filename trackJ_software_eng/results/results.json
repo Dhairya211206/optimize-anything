@@ -1,0 +1,457 @@
+{
+ "whole_suite": {
+  "lines_of_python": 5159,
+  "tests": 76,
+  "covered_lines": 1531,
+  "suite_seconds": 12.232,
+  "slowest_tests": [
+   {
+    "test": "test_track_c.test_depolarizing_noise_limits",
+    "seconds": 6.279,
+    "share": 0.5133257030739046
+   },
+   {
+    "test": "test_track_f.test_fuzz_each_pass_and_pipeline_match_reference_interpreter",
+    "seconds": 1.733,
+    "share": 0.1416775670372793
+   },
+   {
+    "test": "test_track_c.test_fast_simulator_matches_pennylane",
+    "seconds": 1.119,
+    "share": 0.09148136036625246
+   },
+   {
+    "test": "test_track_c.test_deep_global_cost_gradient_variance_shrinks_with_qubits",
+    "seconds": 0.628,
+    "share": 0.05134074558534991
+   },
+   {
+    "test": "test_track_e.test_ilp_matches_brute_force_on_tiny_instances",
+    "seconds": 0.45,
+    "share": 0.0367887508175278
+   },
+   {
+    "test": "test_track_e.test_anneal_never_returns_infeasible_and_never_worse_than_its_start",
+    "seconds": 0.327,
+    "share": 0.026733158927403536
+   }
+  ],
+  "methods": {
+   "ILP, minimise run time": {
+    "tests": 50,
+    "seconds": 5.478,
+    "line_coverage": 1.0,
+    "proven_optimal": true
+   },
+   "ILP, minimise test count": {
+    "tests": 42,
+    "seconds": 5.482,
+    "line_coverage": 1.0
+   },
+   "greedy, most new lines": {
+    "tests": 42,
+    "seconds": 5.5,
+    "line_coverage": 1.0
+   },
+   "greedy, new lines per second": {
+    "tests": 65,
+    "seconds": 5.613,
+    "line_coverage": 1.0
+   },
+   "original order until covered": {
+    "tests": 53,
+    "seconds": 12.105,
+    "line_coverage": 1.0
+   },
+   "fastest first until covered": {
+    "tests": 68,
+    "seconds": 5.752,
+    "line_coverage": 1.0
+   },
+   "random order until covered (500 draws)": {
+    "tests": {
+     "mean": 53.834,
+     "std": 3.0637304058940957,
+     "n": 500
+    },
+    "seconds": {
+     "mean": 6.999504000000001,
+     "std": 2.514931200248627,
+     "n": 500
+    },
+    "line_coverage": 1.0
+   }
+  },
+  "chosen_by_ilp": [
+   "test_optimizers.test_all_first_order_methods_decrease_quadratic",
+   "test_optimizers.test_analytic_gradients_match_finite_differences",
+   "test_optimizers.test_analytic_hessians_match_finite_differences_of_gradient",
+   "test_optimizers.test_backprop_matches_finite_differences",
+   "test_optimizers.test_gauss_newton_solves_linear_least_squares_in_one_step",
+   "test_optimizers.test_hutchinson_diag_close_to_true_diag",
+   "test_optimizers.test_newton_solves_quadratic_in_one_step",
+   "test_optimizers.test_power_iteration_finds_top_eigenvalue",
+   "test_track_b.test_exact_knapsack_solvers_agree_with_brute_force",
+   "test_track_b.test_feature_selection_qubo_matches_penalised_objective",
+   "test_track_b.test_greedy_can_be_arbitrarily_bad_on_known_instance",
+   "test_track_b.test_ising_conversion_on_a_random_dense_qubo",
+   "test_track_b.test_knapsack_edge_cases",
+   "test_track_b.test_maxcut_qubo_energy_is_minus_cut_for_every_assignment",
+   "test_track_b.test_simulated_annealing_finds_maxcut_optimum_on_small_graph",
+   "test_track_c.test_barren_simulator_matches_pennylane",
+   "test_track_c.test_deep_global_cost_gradient_variance_shrinks_with_qubits",
+   "test_track_c.test_fast_simulator_matches_pennylane",
+   "test_track_c.test_finite_shot_estimator_is_unbiased_and_has_sqrt_shots_variance",
+   "test_track_c.test_naive_shared_parameter_shift_is_wrong",
+   "test_track_c.test_qaoa_beats_random_guess_after_optimisation",
+   "test_track_c.test_spsa_minimises_a_quadratic",
+   "test_track_d.test_amdahl_inverse_roundtrip_and_limits",
+   "test_track_d.test_data_parallel_matches_serial_result",
+   "test_track_d.test_fedavg_with_one_client_equals_local_sgd_average_of_itself",
+   "test_track_d.test_gradnorm_and_mgda_weights_sum_to_two_and_training_reduces_loss",
+   "test_track_d.test_greedy_meets_one_minus_one_over_e_on_facility_location",
+   "test_track_d.test_lazy_greedy_matches_greedy_value_with_fewer_evaluations",
+   "test_track_d.test_model_parallel_output_equals_single_process",
+   "test_track_d.test_penalised_selection_is_submodular_but_not_monotone",
+   "test_track_d.test_pipeline_delivers_all_microbatches",
+   "test_track_d.test_simulated_schedules_respect_lower_bound_and_ordering",
+   "test_track_d.test_synergy_objective_is_detected_as_not_submodular",
+   "test_track_e.test_anneal_never_returns_infeasible_and_never_worse_than_its_start",
+   "test_track_e.test_ilp_matches_brute_force_on_tiny_instances",
+   "test_track_e.test_ilp_solution_is_feasible_on_medium_instance",
+   "test_track_f.test_32bit_wraparound",
+   "test_track_f.test_algebraic_identities",
+   "test_track_f.test_const_fold_folds_and_removes_constant_branch",
+   "test_track_f.test_cse_does_not_record_self_referential_expression",
+   "test_track_f.test_cse_removes_duplicate_but_respects_redefinition",
+   "test_track_f.test_dce_removes_dead_computation_keeps_prints",
+   "test_track_f.test_every_allocator_returns_a_valid_assignment",
+   "test_track_f.test_fuzz_each_pass_and_pipeline_match_reference_interpreter",
+   "test_track_f.test_ilp_never_worse_than_heuristics_on_static_cost",
+   "test_track_f.test_licm_does_not_hoist_value_read_before_definition_in_loop",
+   "test_track_f.test_licm_does_not_hoist_when_operand_changes_in_loop",
+   "test_track_f.test_parser_precedence_and_interpreter",
+   "test_track_f.test_strength_reduction_replaces_mul_by_power_of_two",
+   "test_track_f.test_syntax_error_reported"
+  ]
+ },
+ "fault_study_trackF": {
+  "code_lines_trackF": 1312,
+  "mutants_generated": 90,
+  "status_counts": {
+   "killed": 72,
+   "ok": 17,
+   "crash": 0,
+   "timeout": 1
+  },
+  "full_suite_mutation_score": 0.8089887640449438,
+  "survivors": [
+   [
+    "regalloc.py",
+    35
+   ],
+   [
+    "opt.py",
+    104
+   ],
+   [
+    "frontend.py",
+    111
+   ],
+   [
+    "opt.py",
+    168
+   ],
+   [
+    "regalloc.py",
+    7
+   ],
+   [
+    "opt.py",
+    146
+   ],
+   [
+    "opt.py",
+    172
+   ],
+   [
+    "opt.py",
+    187
+   ],
+   [
+    "opt.py",
+    142
+   ],
+   [
+    "regalloc.py",
+    46
+   ],
+   [
+    "regalloc.py",
+    2
+   ],
+   [
+    "opt.py",
+    202
+   ],
+   [
+    "frontend.py",
+    113
+   ],
+   [
+    "frontend.py",
+    41
+   ],
+   [
+    "opt.py",
+    120
+   ],
+   [
+    "frontend.py",
+    55
+   ],
+   [
+    "vm.py",
+    18
+   ]
+  ],
+  "mutation_seconds": 280.83728719100054,
+  "tests": 21,
+  "suite_seconds": 2.034,
+  "tests_that_are_sole_killer_of_mutants": {
+   "test_track_f.test_ilp_allocation_is_optimal_against_brute_force_on_random_intervals": 3,
+   "test_track_f.test_const_fold_folds_and_removes_constant_branch": 2,
+   "test_track_f.test_fuzz_each_pass_and_pipeline_match_reference_interpreter": 4,
+   "test_track_f.test_cse_removes_duplicate_but_respects_redefinition": 1,
+   "test_track_f.test_strength_reduction_replaces_mul_by_power_of_two": 1,
+   "test_track_f.test_every_allocator_returns_a_valid_assignment": 1
+  },
+  "subsets": {
+   "full suite": {
+    "tests": 21,
+    "seconds": 2.034,
+    "line_coverage": 1.0,
+    "mutation_score_of_subset": 1.0,
+    "fraction_of_full_suite_kills_kept": 1.0,
+    "tests_list": [
+     "test_track_f.test_32bit_wraparound",
+     "test_track_f.test_algebraic_identities",
+     "test_track_f.test_const_fold_folds_and_removes_constant_branch",
+     "test_track_f.test_cse_does_not_record_self_referential_expression",
+     "test_track_f.test_cse_removes_duplicate_but_respects_redefinition",
+     "test_track_f.test_dce_removes_dead_computation_keeps_prints",
+     "test_track_f.test_every_allocator_returns_a_valid_assignment",
+     "test_track_f.test_fuzz_each_pass_and_pipeline_match_reference_interpreter",
+     "test_track_f.test_ilp_allocation_is_optimal_against_brute_force_on_random_intervals",
+     "test_track_f.test_ilp_never_worse_than_heuristics_on_static_cost",
+     "test_track_f.test_licm_does_not_hoist_value_read_before_definition_in_loop",
+     "test_track_f.test_licm_does_not_hoist_when_operand_changes_in_loop",
+     "test_track_f.test_licm_hoists_invariant_and_preserves_output",
+     "test_track_f.test_licm_zero_iteration_loop_does_not_change_live_out_value",
+     "test_track_f.test_no_spills_when_enough_registers",
+     "test_track_f.test_optimiser_reaches_fixed_point",
+     "test_track_f.test_parser_precedence_and_interpreter",
+     "test_track_f.test_pipeline_preserves_output_on_benchmarks_and_improves_them",
+     "test_track_f.test_strength_reduction_replaces_mul_by_power_of_two",
+     "test_track_f.test_syntax_error_reported",
+     "test_track_f.test_unoptimised_ir_matches_interpreter_on_benchmarks"
+    ]
+   },
+   "ILP, minimise run time": {
+    "tests": 14,
+    "seconds": 1.84,
+    "line_coverage": 1.0,
+    "mutation_score_of_subset": 0.9583333333333334,
+    "fraction_of_full_suite_kills_kept": 0.9583333333333334,
+    "tests_list": [
+     "test_track_f.test_32bit_wraparound",
+     "test_track_f.test_algebraic_identities",
+     "test_track_f.test_const_fold_folds_and_removes_constant_branch",
+     "test_track_f.test_cse_does_not_record_self_referential_expression",
+     "test_track_f.test_cse_removes_duplicate_but_respects_redefinition",
+     "test_track_f.test_dce_removes_dead_computation_keeps_prints",
+     "test_track_f.test_every_allocator_returns_a_valid_assignment",
+     "test_track_f.test_fuzz_each_pass_and_pipeline_match_reference_interpreter",
+     "test_track_f.test_ilp_never_worse_than_heuristics_on_static_cost",
+     "test_track_f.test_licm_does_not_hoist_value_read_before_definition_in_loop",
+     "test_track_f.test_licm_does_not_hoist_when_operand_changes_in_loop",
+     "test_track_f.test_parser_precedence_and_interpreter",
+     "test_track_f.test_strength_reduction_replaces_mul_by_power_of_two",
+     "test_track_f.test_syntax_error_reported"
+    ]
+   },
+   "ILP, minimise test count": {
+    "tests": 6,
+    "seconds": 1.84,
+    "line_coverage": 1.0,
+    "mutation_score_of_subset": 0.9027777777777778,
+    "fraction_of_full_suite_kills_kept": 0.9027777777777778,
+    "tests_list": [
+     "test_track_f.test_dce_removes_dead_computation_keeps_prints",
+     "test_track_f.test_every_allocator_returns_a_valid_assignment",
+     "test_track_f.test_fuzz_each_pass_and_pipeline_match_reference_interpreter",
+     "test_track_f.test_ilp_never_worse_than_heuristics_on_static_cost",
+     "test_track_f.test_parser_precedence_and_interpreter",
+     "test_track_f.test_syntax_error_reported"
+    ]
+   },
+   "greedy, most new lines": {
+    "tests": 6,
+    "seconds": 1.84,
+    "line_coverage": 1.0,
+    "mutation_score_of_subset": 0.9305555555555556,
+    "fraction_of_full_suite_kills_kept": 0.9305555555555556,
+    "tests_list": [
+     "test_track_f.test_const_fold_folds_and_removes_constant_branch",
+     "test_track_f.test_every_allocator_returns_a_valid_assignment",
+     "test_track_f.test_fuzz_each_pass_and_pipeline_match_reference_interpreter",
+     "test_track_f.test_ilp_never_worse_than_heuristics_on_static_cost",
+     "test_track_f.test_parser_precedence_and_interpreter",
+     "test_track_f.test_syntax_error_reported"
+    ]
+   },
+   "greedy, new lines per second": {
+    "tests": 15,
+    "seconds": 1.855,
+    "line_coverage": 1.0,
+    "mutation_score_of_subset": 0.9583333333333334,
+    "fraction_of_full_suite_kills_kept": 0.9583333333333334,
+    "tests_list": [
+     "test_track_f.test_32bit_wraparound",
+     "test_track_f.test_algebraic_identities",
+     "test_track_f.test_const_fold_folds_and_removes_constant_branch",
+     "test_track_f.test_cse_does_not_record_self_referential_expression",
+     "test_track_f.test_cse_removes_duplicate_but_respects_redefinition",
+     "test_track_f.test_every_allocator_returns_a_valid_assignment",
+     "test_track_f.test_fuzz_each_pass_and_pipeline_match_reference_interpreter",
+     "test_track_f.test_ilp_never_worse_than_heuristics_on_static_cost",
+     "test_track_f.test_licm_does_not_hoist_value_read_before_definition_in_loop",
+     "test_track_f.test_licm_zero_iteration_loop_does_not_change_live_out_value",
+     "test_track_f.test_no_spills_when_enough_registers",
+     "test_track_f.test_parser_precedence_and_interpreter",
+     "test_track_f.test_strength_reduction_replaces_mul_by_power_of_two",
+     "test_track_f.test_syntax_error_reported",
+     "test_track_f.test_unoptimised_ir_matches_interpreter_on_benchmarks"
+    ]
+   },
+   "fastest first until covered": {
+    "tests": 17,
+    "seconds": 1.882,
+    "line_coverage": 1.0,
+    "mutation_score_of_subset": 0.9583333333333334,
+    "fraction_of_full_suite_kills_kept": 0.9583333333333334,
+    "tests_list": [
+     "test_track_f.test_32bit_wraparound",
+     "test_track_f.test_algebraic_identities",
+     "test_track_f.test_const_fold_folds_and_removes_constant_branch",
+     "test_track_f.test_cse_does_not_record_self_referential_expression",
+     "test_track_f.test_cse_removes_duplicate_but_respects_redefinition",
+     "test_track_f.test_every_allocator_returns_a_valid_assignment",
+     "test_track_f.test_fuzz_each_pass_and_pipeline_match_reference_interpreter",
+     "test_track_f.test_ilp_never_worse_than_heuristics_on_static_cost",
+     "test_track_f.test_licm_does_not_hoist_value_read_before_definition_in_loop",
+     "test_track_f.test_licm_does_not_hoist_when_operand_changes_in_loop",
+     "test_track_f.test_licm_zero_iteration_loop_does_not_change_live_out_value",
+     "test_track_f.test_no_spills_when_enough_registers",
+     "test_track_f.test_parser_precedence_and_interpreter",
+     "test_track_f.test_pipeline_preserves_output_on_benchmarks_and_improves_them",
+     "test_track_f.test_strength_reduction_replaces_mul_by_power_of_two",
+     "test_track_f.test_syntax_error_reported",
+     "test_track_f.test_unoptimised_ir_matches_interpreter_on_benchmarks"
+    ]
+   },
+   "drop the slowest test": {
+    "tests": 20,
+    "seconds": 0.29,
+    "line_coverage": 0.9874326750448833,
+    "mutation_score_of_subset": 0.9444444444444444,
+    "fraction_of_full_suite_kills_kept": 0.9444444444444444,
+    "tests_list": [
+     "test_track_f.test_32bit_wraparound",
+     "test_track_f.test_algebraic_identities",
+     "test_track_f.test_const_fold_folds_and_removes_constant_branch",
+     "test_track_f.test_cse_does_not_record_self_referential_expression",
+     "test_track_f.test_cse_removes_duplicate_but_respects_redefinition",
+     "test_track_f.test_dce_removes_dead_computation_keeps_prints",
+     "test_track_f.test_every_allocator_returns_a_valid_assignment",
+     "test_track_f.test_ilp_allocation_is_optimal_against_brute_force_on_random_intervals",
+     "test_track_f.test_ilp_never_worse_than_heuristics_on_static_cost",
+     "test_track_f.test_licm_does_not_hoist_value_read_before_definition_in_loop",
+     "test_track_f.test_licm_does_not_hoist_when_operand_changes_in_loop",
+     "test_track_f.test_licm_hoists_invariant_and_preserves_output",
+     "test_track_f.test_licm_zero_iteration_loop_does_not_change_live_out_value",
+     "test_track_f.test_no_spills_when_enough_registers",
+     "test_track_f.test_optimiser_reaches_fixed_point",
+     "test_track_f.test_parser_precedence_and_interpreter",
+     "test_track_f.test_pipeline_preserves_output_on_benchmarks_and_improves_them",
+     "test_track_f.test_strength_reduction_replaces_mul_by_power_of_two",
+     "test_track_f.test_syntax_error_reported",
+     "test_track_f.test_unoptimised_ir_matches_interpreter_on_benchmarks"
+    ]
+   }
+  },
+  "random_same_size_as_ilp": {
+   "size": 14,
+   "mutation_score": {
+    "mean": 0.9315277777777778,
+    "std": 0.04493887309239981,
+    "n": 500
+   },
+   "line_coverage": {
+    "mean": 0.9707504488330341,
+    "std": 0.03194454080433207,
+    "n": 500
+   }
+  },
+  "prioritisation": {
+   "original order": {
+    "apfd": 0.7876984126984127,
+    "seconds_until_every_detectable_mutant_is_caught": 2.021
+   },
+   "reverse order": {
+    "apfd": 0.7870370370370371,
+    "seconds_until_every_detectable_mutant_is_caught": 2.034
+   },
+   "fastest first": {
+    "apfd": 0.6865079365079365,
+    "seconds_until_every_detectable_mutant_is_caught": 2.034
+   },
+   "greedy, most new lines": {
+    "apfd": 0.8915343915343915,
+    "seconds_until_every_detectable_mutant_is_caught": 2.034
+   },
+   "greedy, new lines per second": {
+    "apfd": 0.8048941798941799,
+    "seconds_until_every_detectable_mutant_is_caught": 2.034
+   },
+   "ILP-minimal subset first": {
+    "apfd": 0.7830687830687831,
+    "seconds_until_every_detectable_mutant_is_caught": 1.989
+   },
+   "random order (500 draws)": {
+    "apfd": {
+     "mean": 0.8092949735449736,
+     "std": 0.04732072505845857,
+     "n": 500
+    },
+    "seconds_until_every_detectable_mutant_is_caught": {
+     "mean": 2.01754,
+     "std": 0.029275047395350137,
+     "n": 500
+    }
+   }
+  },
+  "wall_clock_seconds_pytest_including_startup": {
+   "full suite": {
+    "mean": 2.71550995666621,
+    "std": 0.08624268941043747,
+    "n": 3
+   },
+   "ILP, minimise run time": {
+    "mean": 2.5849012793335837,
+    "std": 0.09760807758180397,
+    "n": 3
+   }
+  }
+ }
+}
