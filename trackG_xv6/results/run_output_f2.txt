@@ -1,0 +1,22 @@
+built base
+built opt
+built base_t
+built lottery
+feature2 session=0 base_t done
+feature2 session=0 lottery done
+feature2 session=1 base_t done
+feature2 session=1 lottery done
+feature2 session=2 base_t done
+feature2 session=2 lottery done
+forkbench 3 40: ticks base 910387+-249065 opt 878997+-210274  spins base 120 opt 0
+forkbench 8 20: ticks base 1196067+-262781 opt 1278736+-233459  spins base 18712 opt 0
+membench 1 300 64: ticks base 3307354+-449955 opt 3473312+-363781  spins base 0 opt 0
+membench 3 300 64: ticks base 5927643+-288515 opt 5927125+-583495  spins base 503874 opt 0
+membench 8 100 64: ticks base 5117618+-488899 opt 5111205+-501930  spins base 568610 opt 0
+membench(1 CPU) 3 300 64: ticks base 9694414+-567501 opt 9832168+-835350  spins base 0 opt 0
+pipebench 3 400: ticks base 3654996+-385324 opt 3395803+-308381  spins base 7171 opt 0
+pipebench 8 150: ticks base 3629862+-208965 opt 3699184+-335787  spins base 17291 opt 0
+(1, 1, 1) {'base_t': ([32.8, 34.0, 33.1], 0.6), 'lottery': ([34.0, 35.4, 30.5], 2.5)}
+(1, 2, 4) {'base_t': ([32.9, 33.7, 33.2], 15.9), 'lottery': ([14.0, 28.6, 57.2], 1.2)}
+(10, 20, 70) {'base_t': ([33.2, 33.4, 33.2], 24.5), 'lottery': ([10.7, 19.6, 69.6], 2.6)}
+{'base': {'usertests_all_passed': True, 'memfull_pages': [32469, 32469]}, 'opt': {'usertests_all_passed': True, 'memfull_pages': [32469, 32469]}, 'base_t': {'usertests_all_passed': True}, 'lottery': {'usertests_all_passed': True}}
