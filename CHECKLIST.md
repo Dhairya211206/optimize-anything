@@ -8,11 +8,11 @@ Status: Done / Planned. Update "Result" with the real number or plot after each 
 
 | Technique | Track | Code | Result |
 |---|---|---|---|
-| ML as optimization (parameters, loss, regularization) | A | `trackA_continuous/run_track_a.py` (section 5) | Planned in report |
-| Continuous vs discrete | A, B | | |
+| ML as optimization (parameters, loss, regularization) | A | `trackA_continuous/run_track_a.py` (section 5), `mlp.py` | Done (see `report/TECHNICAL_REPORT.md` Sec 1) |
+| Continuous vs discrete | A, B | `trackA_continuous/`, `trackB_discrete/` | Done (see `report/TECHNICAL_REPORT.md` Sec 1) |
 | Convex vs non-convex landscapes | A | `objectives.py` (quadratic vs Rosenbrock/Himmelblau) | Done |
 | Local minima, global minima, saddle points | A | `objectives.py` (Himmelblau, saddle `x^2 - y^2`) | Done |
-| Basic quantum concepts, optimization in QML | C, I | | Planned |
+| Basic quantum concepts, optimization in QML | C, I | `trackC_quantum/`, `trackI_quantum_qml/` | Done (see `report/TECHNICAL_REPORT.md` Sec 1 & `FINAL_QUESTIONS.md`) |
 
 ## Continuous optimization (Track A)
 
@@ -62,7 +62,7 @@ Track C (all SIMULATED, no hardware):
 | Finite measurement shots | `run_track_c.py: exp_shots` | See results file |
 | Hardware noise (synthetic depolarizing model) | `run_track_c.py: exp_noise` | See results file |
 | Barren plateaus | `barren.py` | See results file |
-| Limits of QUBO on annealing hardware | Not run (no annealer). Discuss in the report | Planned |
+| Limits of QUBO on annealing hardware | `maxcut_qubo.py`, `trackB_discrete/qubo.py` | Done (analyzed in `report/TECHNICAL_REPORT.md` Sec 1 & `FINAL_QUESTIONS.md`) |
 
 Planned for Track I: Deutsch-Jozsa, Bernstein-Vazirani, Grover, QFT, QPE, Shor, variational classifier, quantum kernels, QNN. Include only the algorithms your course taught.
 
