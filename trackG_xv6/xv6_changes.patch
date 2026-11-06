@@ -1,0 +1,693 @@
+diff --git a/Makefile b/Makefile
+index a26f3db..9b95bf6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -65,6 +65,7 @@ DETFLAGS = -ffile-prefix-map=$(CURDIR)=.
+ 
+ CFLAGS = -Wall -Werror -Wno-unknown-attributes -O -fno-omit-frame-pointer -ggdb -gdwarf-2
+ CFLAGS += $(DETFLAGS)
++CFLAGS += $(XCFLAGS)
+ CFLAGS += -march=rv64gc
+ CFLAGS += -std=gnu99
+ CFLAGS += -MD
+@@ -132,6 +133,11 @@ mkfs/mkfs: mkfs/mkfs.c $K/fs.h $K/param.h
+ 
+ UPROGS=\
+ 	$U/_cat\
++	$U/_membench\
++	$U/_memfull\
++	$U/_forkbench\
++	$U/_pipebench\
++	$U/_schedbench\
+ 	$U/_echo\
+ 	$U/_forktest\
+ 	$U/_grep\
+diff --git a/kernel/defs.h b/kernel/defs.h
+index 0ae6896..52697c6 100644
+--- a/kernel/defs.h
++++ b/kernel/defs.h
+@@ -60,6 +60,7 @@ void            ireclaim(int);
+ void*           kalloc(void);
+ void            kfree(void *);
+ void            kinit(void);
++uint64          kmem_spins(void);
+ 
+ // log.c
+ void            initlog(int, struct superblock*);
+diff --git a/kernel/kalloc.c b/kernel/kalloc.c
+index 2fcec38..4b215fe 100644
+--- a/kernel/kalloc.c
++++ b/kernel/kalloc.c
+@@ -18,6 +18,8 @@ struct run {
+   struct run *next;
+ };
+ 
++#ifndef PERCPU_KALLOC
++// ---- baseline: one global free list protected by one lock ----
+ struct {
+   struct spinlock lock;
+   struct run *freelist;
+@@ -30,6 +32,12 @@ kinit()
+   freerange(end, (void *)PHYSTOP);
+ }
+ 
++uint64
++kmem_spins(void)
++{
++  return kmem.lock.nspin;
++}
++
+ void
+ freerange(void *pa_start, void *pa_end)
+ {
+@@ -80,3 +88,128 @@ kalloc(void)
+     memset((char *)r, 5, PGSIZE); // fill with junk
+   return (void *)r;
+ }
++
++#else
++// ---- optimisation (Track G): one free list and one lock per CPU, with batch stealing ----
++// kfree puts a page on the calling CPU's list; kalloc takes from the calling CPU's list. When the local
++// list is empty, kalloc steals up to STEAL_BATCH pages from another CPU. A CPU never holds two of these
++// locks at once, so there is no lock-ordering deadlock. Pages are handed out round-robin to the per-CPU
++// lists at boot.
++#define STEAL_BATCH 16
++
++struct {
++  struct spinlock lock;
++  struct run *freelist;
++} kmem[NCPU];
++
++static char kmem_names[NCPU][8];
++
++void
++kinit()
++{
++  for (int i = 0; i < NCPU; i++) {
++    kmem_names[i][0] = 'k'; kmem_names[i][1] = 'm'; kmem_names[i][2] = 'e';
++    kmem_names[i][3] = 'm'; kmem_names[i][4] = '0' + (i % 10); kmem_names[i][5] = 0;
++    initlock(&kmem[i].lock, kmem_names[i]);
++  }
++  freerange(end, (void *)PHYSTOP);
++}
++
++uint64
++kmem_spins(void)
++{
++  uint64 s = 0;
++  for (int i = 0; i < NCPU; i++)
++    s += kmem[i].lock.nspin; // approximate: read without the lock, for statistics only
++  return s;
++}
++
++static void
++kfree_to(int id, void *pa)
++{
++  struct run *r = (struct run *)pa;
++  acquire(&kmem[id].lock);
++  r->next = kmem[id].freelist;
++  kmem[id].freelist = r;
++  release(&kmem[id].lock);
++}
++
++void
++freerange(void *pa_start, void *pa_end)
++{
++  char *p;
++  int i = 0;
++  p = (char *)PGROUNDUP((uint64)pa_start);
++  for (; p + PGSIZE <= (char *)pa_end; p += PGSIZE) {
++    if (((uint64)p % PGSIZE) != 0 || p < end || (uint64)p >= PHYSTOP)
++      panic("freerange");
++    memset(p, 1, PGSIZE);
++    kfree_to(i, p);
++    i = (i + 1) % NCPU;
++  }
++}
++
++void
++kfree(void *pa)
++{
++  if (((uint64)pa % PGSIZE) != 0 || (char *)pa < end || (uint64)pa >= PHYSTOP)
++    panic("kfree");
++
++  memset(pa, 1, PGSIZE);
++
++  push_off(); // cpuid() is only stable with interrupts off
++  int id = cpuid();
++  kfree_to(id, pa);
++  pop_off();
++}
++
++void *
++kalloc(void)
++{
++  struct run *r;
++
++  push_off();
++  int id = cpuid();
++
++  acquire(&kmem[id].lock);
++  r = kmem[id].freelist;
++  if (r)
++    kmem[id].freelist = r->next;
++  release(&kmem[id].lock);
++
++  if (!r) {
++    // steal a batch from another CPU (own lock is not held while holding the victim's)
++    for (int k = 1; k < NCPU && !r; k++) {
++      int v = (id + k) % NCPU;
++      struct run *chain = 0;
++      int n = 0;
++      acquire(&kmem[v].lock);
++      while (kmem[v].freelist && n < STEAL_BATCH) {
++        struct run *x = kmem[v].freelist;
++        kmem[v].freelist = x->next;
++        x->next = chain;
++        chain = x;
++        n++;
++      }
++      release(&kmem[v].lock);
++      if (chain) {
++        r = chain;
++        chain = chain->next;
++        acquire(&kmem[id].lock);
++        while (chain) {
++          struct run *x = chain;
++          chain = x->next;
++          x->next = kmem[id].freelist;
++          kmem[id].freelist = x;
++        }
++        release(&kmem[id].lock);
++      }
++    }
++  }
++  pop_off();
++
++  if (r)
++    memset((char *)r, 5, PGSIZE); // fill with junk
++  return (void *)r;
++}
++#endif
+diff --git a/kernel/param.h b/kernel/param.h
+index 1d69801..8027320 100644
+--- a/kernel/param.h
++++ b/kernel/param.h
+@@ -1,3 +1,6 @@
++#ifndef TIMER_INTERVAL
++#define TIMER_INTERVAL 1000000 // timer-interrupt interval in timer units (10 MHz); xv6 default is about a tenth of a second
++#endif
+ #define NPROC       64                // maximum number of processes
+ #define NCPU        8                 // maximum number of CPUs
+ #define NOFILE      16                // open files per process
+diff --git a/kernel/proc.c b/kernel/proc.c
+index 31f23a3..0e589f6 100644
+--- a/kernel/proc.c
++++ b/kernel/proc.c
+@@ -123,6 +123,7 @@ allocproc(void)
+ 
+ found:
+   p->pid = allocpid();
++  p->tickets = 1;
+   p->state = USED;
+ 
+   // Allocate a trapframe page.
+@@ -298,6 +299,7 @@ kfork(void)
+   release(&wait_lock);
+ 
+   acquire(&np->lock);
++  np->tickets = p->tickets; // [Track G] children inherit tickets
+   np->state = RUNNABLE;
+   release(&np->lock);
+ 
+@@ -425,6 +427,70 @@ kwait(uint64 addr)
+ //  - swtch to start running that process.
+ //  - eventually that process transfers control
+ //    via swtch back to the scheduler.
++#ifdef LOTTERY_SCHED
++// ---- feature 2 (Track G): lottery scheduler. Each RUNNABLE process holds `tickets` tickets; every scheduling decision
++// draws a random ticket and runs the owner for one timer slice, so long-run CPU share is proportional to tickets. ----
++static struct spinlock lottery_lock;
++static uint64 lottery_state = 88172645463325252ULL;
++
++static uint64
++lottery_rand(void)
++{
++  acquire(&lottery_lock);
++  uint64 x = lottery_state;
++  x ^= x << 13;
++  x ^= x >> 7;
++  x ^= x << 17;
++  lottery_state = x;
++  release(&lottery_lock);
++  return x;
++}
++
++void
++scheduler(void)
++{
++  struct proc *p;
++  struct cpu *c = mycpu();
++
++  initlock(&lottery_lock, "lottery");
++  c->proc = 0;
++  for (;;) {
++    intr_on();
++    intr_off();
++
++    // pass 1: total tickets held by runnable processes
++    int total = 0;
++    for (p = proc; p < &proc[NPROC]; p++) {
++      acquire(&p->lock);
++      if (p->state == RUNNABLE)
++        total += p->tickets;
++      release(&p->lock);
++    }
++    if (total == 0) {
++      asm volatile("wfi");
++      continue;
++    }
++    // pass 2: find the owner of the winning ticket (state may have changed; if so just draw again)
++    int winner = (int)(lottery_rand() % (uint64)total), counter = 0;
++    for (p = proc; p < &proc[NPROC]; p++) {
++      acquire(&p->lock);
++      if (p->state == RUNNABLE) {
++        counter += p->tickets;
++        if (counter > winner) {
++          p->state = RUNNING;
++          c->proc = p;
++          swtch(&c->context, &p->context);
++          mycpu()->intena = 0;
++          c->proc = 0;
++          release(&p->lock);
++          break;
++        }
++      }
++      release(&p->lock);
++    }
++  }
++}
++#else
+ void
+ scheduler(void)
+ {
+@@ -468,6 +534,7 @@ scheduler(void)
+     }
+   }
+ }
++#endif
+ 
+ // Switch to scheduler.  Must hold only p->lock
+ // and have changed proc->state. Saves and restores
+diff --git a/kernel/proc.h b/kernel/proc.h
+index 5603697..5149336 100644
+--- a/kernel/proc.h
++++ b/kernel/proc.h
+@@ -101,4 +101,5 @@ struct proc {
+   struct file *ofile[NOFILE];  // Open files
+   struct inode *cwd;           // Current directory
+   char name[16];               // Process name (debugging)
++  int tickets;                 // [Track G] lottery tickets (p->lock held to change); used only with -DLOTTERY_SCHED
+ };
+diff --git a/kernel/spinlock.c b/kernel/spinlock.c
+index 9a6aab1..92928b4 100644
+--- a/kernel/spinlock.c
++++ b/kernel/spinlock.c
+@@ -14,6 +14,7 @@ initlock(struct spinlock *lk, char *name)
+   lk->name = name;
+   lk->locked = 0;
+   lk->cpu = 0;
++  lk->nspin = 0;
+ }
+ 
+ // Acquire the lock.
+@@ -34,8 +35,10 @@ acquire(struct spinlock *lk)
+   // the C compiler and the processor to not move loads or stores
+   // past this point, to ensure that the critical section's memory
+   // references happen strictly after the lock is acquired.
++  uint64 failed = 0; // [Track G instrumentation]
+   while (__atomic_exchange_n(&lk->locked, 1, __ATOMIC_ACQUIRE) != 0)
+-    ;
++    failed++;
++  lk->nspin += failed; // safe: we hold the lock now
+ 
+   // Record info about lock acquisition for holding() and debugging.
+   lk->cpu = mycpu();
+diff --git a/kernel/spinlock.h b/kernel/spinlock.h
+index 9c93b42..bb14353 100644
+--- a/kernel/spinlock.h
++++ b/kernel/spinlock.h
+@@ -1,6 +1,7 @@
+ // Mutual exclusion lock.
+ struct spinlock {
+   uint locked; // Is the lock held?
++  uint64 nspin; // [Track G instrumentation] failed lock attempts, updated while holding the lock
+ 
+   // For debugging:
+   char *name;      // Name of lock.
+diff --git a/kernel/start.c b/kernel/start.c
+index 62cce19..eaad0b4 100644
+--- a/kernel/start.c
++++ b/kernel/start.c
+@@ -62,5 +62,5 @@ timerinit()
+   w_mcounteren(r_mcounteren() | 2);
+ 
+   // ask for the very first timer interrupt.
+-  w_stimecmp(r_time() + 1000000);
++  w_stimecmp(r_time() + TIMER_INTERVAL);
+ }
+diff --git a/kernel/syscall.c b/kernel/syscall.c
+index 1800f20..39fffc5 100644
+--- a/kernel/syscall.c
++++ b/kernel/syscall.c
+@@ -103,6 +103,9 @@ extern uint64 sys_link(void);
+ extern uint64 sys_mkdir(void);
+ extern uint64 sys_close(void);
+ extern uint64 sys_sync(void);
++extern uint64 sys_rdtime(void);
++extern uint64 sys_kmemspins(void);
++extern uint64 sys_settickets(void);
+ 
+ // An array mapping syscall numbers from syscall.h
+ // to the function that handles the system call.
+@@ -130,6 +133,9 @@ static uint64 (*syscalls[])(void) = {
+   [SYS_mkdir]   = sys_mkdir,
+   [SYS_close]   = sys_close,
+   [SYS_sync]    = sys_sync,
++  [SYS_rdtime]  = sys_rdtime,
++  [SYS_kmemspins] = sys_kmemspins,
++  [SYS_settickets] = sys_settickets,
+   // clang-format on
+ };
+ 
+diff --git a/kernel/syscall.h b/kernel/syscall.h
+index 5a4a39f..d28fb01 100644
+--- a/kernel/syscall.h
++++ b/kernel/syscall.h
+@@ -21,3 +21,6 @@
+ #define SYS_mkdir  20
+ #define SYS_close  21
+ #define SYS_sync   22
++#define SYS_rdtime 23
++#define SYS_kmemspins 24
++#define SYS_settickets 25
+diff --git a/kernel/sysproc.c b/kernel/sysproc.c
+index cd25557..5d298fb 100644
+--- a/kernel/sysproc.c
++++ b/kernel/sysproc.c
+@@ -110,3 +110,33 @@ sys_uptime(void)
+   release(&tickslock);
+   return xticks;
+ }
++
++// [Track G instrumentation] cycle-counter-like timer (QEMU virt: 10 MHz)
++uint64
++sys_rdtime(void)
++{
++  return r_time();
++}
++
++// [Track G instrumentation] failed lock attempts summed over all physical-allocator locks
++uint64
++sys_kmemspins(void)
++{
++  return kmem_spins();
++}
++
++// [Track G] set the calling process's lottery tickets (effective only in a -DLOTTERY_SCHED kernel). Returns -1 if n < 1.
++uint64
++sys_settickets(void)
++{
++  int n;
++
++  argint(0, &n);
++  if (n < 1)
++    return -1;
++  struct proc *p = myproc();
++  acquire(&p->lock);
++  p->tickets = n;
++  release(&p->lock);
++  return 0;
++}
+diff --git a/kernel/trap.c b/kernel/trap.c
+index 00e99bc..0fbdc0e 100644
+--- a/kernel/trap.c
++++ b/kernel/trap.c
+@@ -176,7 +176,7 @@ clockintr()
+   // ask for the next timer interrupt. this also clears
+   // the interrupt request. 1000000 is about a tenth
+   // of a second.
+-  w_stimecmp(r_time() + 1000000);
++  w_stimecmp(r_time() + TIMER_INTERVAL);
+ }
+ 
+ // check if it's an external interrupt or software interrupt,
+diff --git a/user/forkbench.c b/user/forkbench.c
+new file mode 100644
+index 0000000..57bfbe5
+--- /dev/null
++++ b/user/forkbench.c
+@@ -0,0 +1,39 @@
++// [Track G] fork/exit churn: every fork allocates a page table, a trapframe page and copies memory (kalloc/kfree heavy).
++// usage: forkbench <procs> <rounds>
++#include "kernel/types.h"
++#include "kernel/stat.h"
++#include "user/user.h"
++
++int
++main(int argc, char *argv[])
++{
++  if (argc != 3) {
++    fprintf(2, "usage: forkbench procs rounds\n");
++    exit(1);
++  }
++  int procs = atoi(argv[1]), rounds = atoi(argv[2]);
++  uint64 t0 = rdtime(), s0 = kmemspins();
++  for (int i = 0; i < procs; i++) {
++    int pid = fork();
++    if (pid < 0) {
++      fprintf(2, "fork failed\n");
++      exit(1);
++    }
++    if (pid == 0) {
++      for (int r = 0; r < rounds; r++) {
++        int c = fork();
++        if (c < 0) exit(1);
++        if (c == 0) exit(0);
++        wait(0);
++      }
++      exit(0);
++    }
++  }
++  int bad = 0, st;
++  for (int i = 0; i < procs; i++) {
++    wait(&st);
++    if (st != 0) bad++;
++  }
++  printf("RESULT procs=%d rounds=%d pages=0 ticks=%d spins=%d bad=%d\n", procs, rounds, (int)(rdtime() - t0), (int)(kmemspins() - s0), bad);
++  exit(0);
++}
+diff --git a/user/membench.c b/user/membench.c
+new file mode 100644
+index 0000000..62648af
+--- /dev/null
++++ b/user/membench.c
+@@ -0,0 +1,45 @@
++// [Track G] allocator contention benchmark.
++// usage: membench <procs> <rounds> <pages>
++// Each of <procs> children runs <rounds> times: grow its heap by <pages> pages, then shrink it again.
++// Growing/shrinking calls kalloc/kfree once per page. Prints elapsed timer ticks (10 MHz) and the number of
++// failed attempts on the physical-allocator lock(s).
++#include "kernel/types.h"
++#include "kernel/stat.h"
++#include "user/user.h"
++
++int
++main(int argc, char *argv[])
++{
++  if (argc != 4) {
++    fprintf(2, "usage: membench procs rounds pages\n");
++    exit(1);
++  }
++  int procs = atoi(argv[1]), rounds = atoi(argv[2]), pages = atoi(argv[3]);
++  uint64 t0 = rdtime(), s0 = kmemspins();
++  for (int i = 0; i < procs; i++) {
++    int pid = fork();
++    if (pid < 0) {
++      fprintf(2, "fork failed\n");
++      exit(1);
++    }
++    if (pid == 0) {
++      for (int r = 0; r < rounds; r++) {
++        if (sbrk(pages * 4096) == (char *)-1) {
++          fprintf(2, "sbrk failed\n");
++          exit(1);
++        }
++        sbrk(-pages * 4096);
++      }
++      exit(0);
++    }
++  }
++  int bad = 0, st;
++  for (int i = 0; i < procs; i++) {
++    wait(&st);
++    if (st != 0) bad++;
++  }
++  uint64 t1 = rdtime(), s1 = kmemspins();
++  printf("RESULT procs=%d rounds=%d pages=%d ticks=%d spins=%d bad=%d\n", procs, rounds, pages,
++         (int)(t1 - t0), (int)(s1 - s0), bad);
++  exit(0);
++}
+diff --git a/user/memfull.c b/user/memfull.c
+new file mode 100644
+index 0000000..c779ea2
+--- /dev/null
++++ b/user/memfull.c
+@@ -0,0 +1,16 @@
++// [Track G] correctness check for the allocator: how many pages can ONE process obtain before sbrk fails?
++// With per-CPU free lists this only equals the baseline if stealing really reaches every CPU's list.
++#include "kernel/types.h"
++#include "kernel/stat.h"
++#include "user/user.h"
++
++int
++main(void)
++{
++  int n = 0;
++  while (sbrk(4096) != (char *)-1)
++    n++;
++  sbrk(-n * 4096);
++  printf("RESULT pages=%d\n", n);
++  exit(0);
++}
+diff --git a/user/pipebench.c b/user/pipebench.c
+new file mode 100644
+index 0000000..d6badb9
+--- /dev/null
++++ b/user/pipebench.c
+@@ -0,0 +1,44 @@
++// [Track G] pipe churn: every pipe() allocates a kernel page (kalloc) and every close frees it.
++// usage: pipebench <procs> <rounds>
++#include "kernel/types.h"
++#include "kernel/stat.h"
++#include "user/user.h"
++
++int
++main(int argc, char *argv[])
++{
++  if (argc != 3) {
++    fprintf(2, "usage: pipebench procs rounds\n");
++    exit(1);
++  }
++  int procs = atoi(argv[1]), rounds = atoi(argv[2]);
++  uint64 t0 = rdtime(), s0 = kmemspins();
++  for (int i = 0; i < procs; i++) {
++    int pid = fork();
++    if (pid < 0) {
++      fprintf(2, "fork failed\n");
++      exit(1);
++    }
++    if (pid == 0) {
++      char buf[64];
++      for (int r = 0; r < rounds; r++) {
++        int fds[2];
++        if (pipe(fds) < 0) exit(1);
++        memset(buf, r, sizeof(buf));
++        if (write(fds[1], buf, sizeof(buf)) != sizeof(buf)) exit(1);
++        if (read(fds[0], buf, sizeof(buf)) != sizeof(buf)) exit(1);
++        if (buf[0] != (char)r) exit(1);
++        close(fds[0]);
++        close(fds[1]);
++      }
++      exit(0);
++    }
++  }
++  int bad = 0, st;
++  for (int i = 0; i < procs; i++) {
++    wait(&st);
++    if (st != 0) bad++;
++  }
++  printf("RESULT procs=%d rounds=%d pages=0 ticks=%d spins=%d bad=%d\n", procs, rounds, (int)(rdtime() - t0), (int)(kmemspins() - s0), bad);
++  exit(0);
++}
+diff --git a/user/schedbench.c b/user/schedbench.c
+new file mode 100644
+index 0000000..8afc0e3
+--- /dev/null
++++ b/user/schedbench.c
+@@ -0,0 +1,49 @@
++// [Track G] proportional-share benchmark for the scheduler.
++// usage: schedbench <tickets1> <tickets2> <tickets3> <duration_ticks>
++// Three CPU-bound children each call settickets() and then block on a "go" pipe. Once all three exist, the parent sends every
++// child the same absolute deadline (now + duration timer ticks); each child counts loop iterations until that deadline and
++// reports its count. A child only counts while it is running, so its count is proportional to the CPU time it received.
++// (An earlier version let each child time itself from its own start; the one-ticket parent then forked the children slowly
++// and the last child started late, which biased the shares. The common deadline removes that artefact.)
++// With a lottery scheduler the shares should follow the ticket ratio; with the stock round-robin scheduler they stay near 1/3.
++#include "kernel/types.h"
++#include "kernel/stat.h"
++#include "user/user.h"
++
++int
++main(int argc, char *argv[])
++{
++  if (argc != 5) {
++    fprintf(2, "usage: schedbench t1 t2 t3 duration\n");
++    exit(1);
++  }
++  int dur = atoi(argv[4]);
++  int res[3][2], go[3][2];
++  for (int i = 0; i < 3; i++) {
++    pipe(res[i]);
++    pipe(go[i]);
++    int pid = fork();
++    if (pid == 0) {
++      settickets(atoi(argv[1 + i]));
++      uint deadline;
++      read(go[i][0], &deadline, sizeof(deadline));
++      uint64 count = 0;
++      while (uptime() < deadline)
++        count++;
++      write(res[i][1], &count, sizeof(count));
++      exit(0);
++    }
++  }
++  uint deadline = uptime() + dur;
++  for (int i = 0; i < 3; i++)
++    write(go[i][1], &deadline, sizeof(deadline));
++  uint64 c[3];
++  for (int i = 0; i < 3; i++) {
++    read(res[i][0], &c[i], sizeof(uint64));
++    wait(0);
++  }
++  uint64 tot = c[0] + c[1] + c[2];
++  printf("SHARE %d %d %d permille %d %d %d\n", atoi(argv[1]), atoi(argv[2]), atoi(argv[3]), (int)(c[0] * 1000 / tot),
++         (int)(c[1] * 1000 / tot), (int)(c[2] * 1000 / tot));
++  exit(0);
++}
+diff --git a/user/user.h b/user/user.h
+index 29aad59..0809de6 100644
+--- a/user/user.h
++++ b/user/user.h
+@@ -24,6 +24,9 @@ int getpid(void);
+ char *sys_sbrk(int, int);
+ int pause(int);
+ int uptime(void);
++uint64 rdtime(void);
++uint64 kmemspins(void);
++int settickets(int);
+ int sync(void);
+ 
+ // ulib.c
+diff --git a/user/usys.pl b/user/usys.pl
+index 4d054e8..94aad68 100755
+--- a/user/usys.pl
++++ b/user/usys.pl
+@@ -42,4 +42,7 @@ entry("getpid");
+ entry("sbrk");
+ entry("pause");
+ entry("uptime");
++entry("rdtime");
++entry("kmemspins");
++entry("settickets");
+ entry("sync");
