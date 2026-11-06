@@ -1,0 +1,56 @@
+built {'region': 5, 'nation': 25, 'supplier': 1000, 'customer': 15000, 'part': 20000, 'orders': 150000, 'lineitem': 600487} 16.0s
+  baseline Q1_pricing: 163.9 ms timeout=False
+  baseline Q3_shipping_priority: 45.9 ms timeout=False
+  baseline Q4_order_priority: 15.3 ms timeout=False
+  baseline Q5_local_supplier: 24.8 ms timeout=False
+  baseline Q6_forecast_revenue: 33.5 ms timeout=False
+  baseline Q10_returned_items: 56.8 ms timeout=False
+  baseline Q12_shipmode: 80.5 ms timeout=False
+  baseline Q14_promo_part: 33.9 ms timeout=False
+  baseline P1_customer_orders: 7.6 ms timeout=False
+  baseline P2_order_lines: 0.0 ms timeout=False
+  baseline P3_segment_nation: 0.6 ms timeout=False
+  baseline P4_part_search: 1.0 ms timeout=False
+  index li_orderkey_shipdate: 7.55 MB, best single-query saving 23 ms
+  index li_shipdate: 7.55 MB, best single-query saving 19 ms
+  index li_shipdate_disc_qty: 13.75 MB, best single-query saving 18 ms
+  index li_partkey: 7.56 MB, best single-query saving 19 ms
+  index li_partkey_shipdate: 9.36 MB, best single-query saving 11 ms
+  index li_suppkey: 7.49 MB, best single-query saving 19 ms
+  index li_returnflag_orderkey: 6.96 MB, best single-query saving 18 ms
+  index li_shipmode_shipdate: 10.69 MB, best single-query saving 56 ms
+  index li_shipmode: 8.90 MB, best single-query saving 14 ms
+  index li_returnflag: 6.96 MB, best single-query saving 21 ms
+  index o_custkey: 1.63 MB, best single-query saving 21 ms
+  index o_custkey_orderdate: 2.08 MB, best single-query saving 39 ms
+  index o_orderdate: 1.63 MB, best single-query saving 26 ms
+  index o_orderdate_custkey: 2.08 MB, best single-query saving 38 ms
+  index o_orderpriority: 2.58 MB, best single-query saving 17 ms
+  index o_orderdate_priority: 3.02 MB, best single-query saving 29 ms
+  index c_mktsegment: 0.26 MB, best single-query saving 19 ms
+  index c_nationkey: 0.14 MB, best single-query saving 19 ms
+  index c_nation_segment: 0.29 MB, best single-query saving 18 ms
+  index c_segment_custkey: 0.31 MB, best single-query saving 13 ms
+  index p_brand: 0.33 MB, best single-query saving 15 ms
+  index p_size: 0.18 MB, best single-query saving 13 ms
+  index p_brand_size: 0.36 MB, best single-query saving 17 ms
+  index s_nationkey: 0.02 MB, best single-query saving 15 ms
+  index n_regionkey: 0.00 MB, best single-query saving 17 ms
+[measure] finished in 100.5s
+budget 0.05 greedy_ratio: 10 idx, 4.0 MB, predicted 0.32s, measured saving 0.26s, speedup 1.52x, identical=True
+budget 0.05 knapsack_dp: 8 idx, 4.7 MB, predicted 0.32s, measured saving 0.28s, speedup 1.59x, identical=True
+budget 0.05 greedy_marginal: 9 idx, 5.0 MB, predicted 0.33s, measured saving 0.24s, speedup 1.46x, identical=True
+budget 0.05 ilp: 5 idx, 4.7 MB, predicted 0.33s, measured saving 0.24s, speedup 1.47x, identical=True
+budget 0.10 greedy_ratio: 13 idx, 9.3 MB, predicted 0.33s, measured saving 0.22s, speedup 1.43x, identical=True
+budget 0.10 knapsack_dp: 13 idx, 9.3 MB, predicted 0.33s, measured saving 0.25s, speedup 1.50x, identical=True
+budget 0.10 greedy_marginal: 10 idx, 8.1 MB, predicted 0.33s, measured saving 0.07s, speedup 1.11x, identical=True
+budget 0.10 ilp: 4 idx, 10.1 MB, predicted 0.34s, measured saving 0.25s, speedup 1.51x, identical=True
+budget 0.20 greedy_ratio: 15 idx, 19.9 MB, predicted 0.34s, measured saving 0.17s, speedup 1.29x, identical=True
+budget 0.20 knapsack_dp: 15 idx, 19.9 MB, predicted 0.34s, measured saving 0.16s, speedup 1.27x, identical=True
+budget 0.20 greedy_marginal: 12 idx, 19.0 MB, predicted 0.38s, measured saving -0.80s, speedup 0.48x, identical=True
+budget 0.20 ilp: 4 idx, 20.3 MB, predicted 0.38s, measured saving -1.14s, speedup 0.40x, identical=True
+budget 0.40 greedy_ratio: 18 idx, 40.1 MB, predicted 0.39s, measured saving -0.10s, speedup 0.88x, identical=True
+budget 0.40 knapsack_dp: 18 idx, 40.1 MB, predicted 0.39s, measured saving -0.02s, speedup 0.97x, identical=True
+budget 0.40 greedy_marginal: 13 idx, 38.2 MB, predicted 0.40s, measured saving -0.67s, speedup 0.53x, identical=True
+budget 0.40 ilp: 8 idx, 37.6 MB, predicted 0.40s, measured saving -0.86s, speedup 0.47x, identical=True
+[select] finished in 64.1s

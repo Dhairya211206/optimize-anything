@@ -1,0 +1,707 @@
+{
+ "dj_bv": {
+  "rows": [
+   {
+    "n": 2,
+    "dj_p0_constant": 0.9999999999999993,
+    "dj_p0_balanced": 3.872928019572694e-37,
+    "quantum_queries": 1,
+    "classical_deterministic_worst_case_dj": 3,
+    "bv_secret_found": true,
+    "bv_probability": 0.9999999999999993,
+    "bv_quantum_queries": 1,
+    "bv_classical_queries": 2
+   },
+   {
+    "n": 4,
+    "dj_p0_constant": 0.9999999999999987,
+    "dj_p0_balanced": 1.9810863737775663e-35,
+    "quantum_queries": 1,
+    "classical_deterministic_worst_case_dj": 9,
+    "bv_secret_found": true,
+    "bv_probability": 0.9999999999999987,
+    "bv_quantum_queries": 1,
+    "bv_classical_queries": 4
+   },
+   {
+    "n": 6,
+    "dj_p0_constant": 0.999999999999998,
+    "dj_p0_balanced": 1.4099337756807672e-35,
+    "quantum_queries": 1,
+    "classical_deterministic_worst_case_dj": 33,
+    "bv_secret_found": true,
+    "bv_probability": 0.999999999999998,
+    "bv_quantum_queries": 1,
+    "bv_classical_queries": 6
+   },
+   {
+    "n": 8,
+    "dj_p0_constant": 0.9999999999999976,
+    "dj_p0_balanced": 1.0137763125696959e-35,
+    "quantum_queries": 1,
+    "classical_deterministic_worst_case_dj": 129,
+    "bv_secret_found": true,
+    "bv_probability": 0.9999999999999976,
+    "bv_quantum_queries": 1,
+    "bv_classical_queries": 8
+   },
+   {
+    "n": 10,
+    "dj_p0_constant": 0.9999999999999969,
+    "dj_p0_balanced": 1.5436660884312337e-36,
+    "quantum_queries": 1,
+    "classical_deterministic_worst_case_dj": 513,
+    "bv_secret_found": true,
+    "bv_probability": 0.9999999999999969,
+    "bv_quantum_queries": 1,
+    "bv_classical_queries": 10
+   }
+  ],
+  "note": "One oracle query suffices in the ideal simulation. Classical randomized DJ needs only a few queries with tiny error probability, so the advantage over randomized algorithms is much smaller than over deterministic ones."
+ },
+ "grover": {
+  "success_vs_iterations_n6": {
+   "k": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "simulated": [
+    0.015624999999999986,
+    0.13482666015624956,
+    0.343895196914671,
+    0.591380150057371,
+    0.8163770193968881,
+    0.9635154816192002,
+    0.9965856807867856,
+    0.9074492475732463,
+    0.7180421010897272,
+    0.4749761562911567,
+    0.23806842303030792,
+    0.06562041378934245,
+    7.050584240359282e-05,
+    0.05755012184830743,
+    0.22391388755560032,
+    0.45822071999725256,
+    0.7028091721270758,
+    0.897487554553746
+   ],
+   "theory": [
+    0.015625,
+    0.13482666015625,
+    0.34389519691467285,
+    0.5913801500573754,
+    0.8163770193968958,
+    0.9635154816192113,
+    0.9965856807867991,
+    0.9074492475732605,
+    0.7180421010897398,
+    0.47497615629116585,
+    0.23806842303031323,
+    0.06562041378934405,
+    7.050584240359227e-05,
+    0.057550121848309224,
+    0.2239138875556072,
+    0.4582207199972677,
+    0.7028091721271007,
+    0.8974875545537798
+   ],
+   "optimal_k": 6
+  },
+  "scaling": [
+   {
+    "n": 4,
+    "N": 16,
+    "quantum_oracle_calls": 3,
+    "success_prob": 0.9613189697265625,
+    "classical_calls_this_run": 9,
+    "classical_expected_calls": 8.5,
+    "classical_worst_case": 16,
+    "query_ratio_expected": 2.8333333333333335,
+    "simulation_seconds": 0.00011131299925182248,
+    "classical_python_loop_seconds": 1.8829996406566352e-06
+   },
+   {
+    "n": 6,
+    "N": 64,
+    "quantum_oracle_calls": 6,
+    "success_prob": 0.9965856807867991,
+    "classical_calls_this_run": 33,
+    "classical_expected_calls": 32.5,
+    "classical_worst_case": 64,
+    "query_ratio_expected": 5.416666666666667,
+    "simulation_seconds": 2.7023000257031526e-05,
+    "classical_python_loop_seconds": 2.1710002329200506e-06
+   },
+   {
+    "n": 8,
+    "N": 256,
+    "quantum_oracle_calls": 12,
+    "success_prob": 0.9999470421032738,
+    "classical_calls_this_run": 129,
+    "classical_expected_calls": 128.5,
+    "classical_worst_case": 256,
+    "query_ratio_expected": 10.708333333333334,
+    "simulation_seconds": 3.892899985658005e-05,
+    "classical_python_loop_seconds": 5.8149998949375e-06
+   },
+   {
+    "n": 10,
+    "N": 1024,
+    "quantum_oracle_calls": 25,
+    "success_prob": 0.9994612447444077,
+    "classical_calls_this_run": 513,
+    "classical_expected_calls": 512.5,
+    "classical_worst_case": 1024,
+    "query_ratio_expected": 20.5,
+    "simulation_seconds": 0.00011242199980188161,
+    "classical_python_loop_seconds": 3.5523999940778594e-05
+   },
+   {
+    "n": 12,
+    "N": 4096,
+    "quantum_oracle_calls": 50,
+    "success_prob": 0.9999453461091224,
+    "classical_calls_this_run": 2049,
+    "classical_expected_calls": 2048.5,
+    "classical_worst_case": 4096,
+    "query_ratio_expected": 40.97,
+    "simulation_seconds": 0.0003995439992650063,
+    "classical_python_loop_seconds": 0.00010017499971581856
+   },
+   {
+    "n": 14,
+    "N": 16384,
+    "quantum_oracle_calls": 100,
+    "success_prob": 0.9999997811142232,
+    "classical_calls_this_run": 8193,
+    "classical_expected_calls": 8192.5,
+    "classical_worst_case": 16384,
+    "query_ratio_expected": 81.925,
+    "simulation_seconds": 0.0018768810004985426,
+    "classical_python_loop_seconds": 0.0004503129994191113
+   },
+   {
+    "n": 16,
+    "N": 65536,
+    "quantum_oracle_calls": 201,
+    "success_prob": 0.9999882596461666,
+    "classical_calls_this_run": 32769,
+    "classical_expected_calls": 32768.5,
+    "classical_worst_case": 65536,
+    "query_ratio_expected": 163.0273631840796,
+    "simulation_seconds": 0.026584693000586412,
+    "classical_python_loop_seconds": 0.0017387589996360475
+   },
+   {
+    "n": 18,
+    "N": 262144,
+    "quantum_oracle_calls": 402,
+    "success_prob": 0.9999978382258509,
+    "classical_calls_this_run": 131073,
+    "classical_expected_calls": 131072.5,
+    "classical_worst_case": 262144,
+    "query_ratio_expected": 326.05099502487565,
+    "simulation_seconds": 0.28939840700058994,
+    "classical_python_loop_seconds": 0.007614991999616905
+   },
+   {
+    "n": 20,
+    "N": 1048576,
+    "quantum_oracle_calls": 804,
+    "success_prob": 0.9999997569653353,
+    "classical_calls_this_run": 524289,
+    "classical_expected_calls": 524288.5,
+    "classical_worst_case": 1048576,
+    "query_ratio_expected": 652.1001243781094,
+    "simulation_seconds": 2.136900217999937,
+    "classical_python_loop_seconds": 0.02802470499955234
+   }
+  ],
+  "gates_per_iteration": "oracle (1 query) + 2n Hadamards + 2n X + one n-qubit controlled-Z; an n-qubit controlled-Z needs O(n) elementary gates with ancillas or O(n^2) without"
+ },
+ "qft_qpe": {
+  "qft_matches_dft_max_abs_error": {
+   "1": 8.659560562354932e-17,
+   "2": 2.6891698152134724e-16,
+   "3": 1.415262216750919e-15,
+   "4": 3.7830966782820685e-15,
+   "5": 5.6179506545216525e-15
+  },
+  "qft_gate_counts": {
+   "4": {
+    "hadamards": 4,
+    "controlled_phases": 6,
+    "swaps": 2
+   },
+   "8": {
+    "hadamards": 8,
+    "controlled_phases": 28,
+    "swaps": 4
+   },
+   "16": {
+    "hadamards": 16,
+    "controlled_phases": 120,
+    "swaps": 8
+   }
+  },
+  "qpe": [
+   {
+    "phi": 0.3125,
+    "t": 3,
+    "best_estimate": 0.25,
+    "abs_error": 0.0625,
+    "prob_best": 0.4105334745170026,
+    "prob_within_2_pow_minus_t": 0.821066949034005
+   },
+   {
+    "phi": 0.3125,
+    "t": 4,
+    "best_estimate": 0.3125,
+    "abs_error": 0.0,
+    "prob_best": 0.9999999999999989,
+    "prob_within_2_pow_minus_t": 0.9999999999999989
+   },
+   {
+    "phi": 0.3125,
+    "t": 5,
+    "best_estimate": 0.3125,
+    "abs_error": 0.0,
+    "prob_best": 0.9999999999999984,
+    "prob_within_2_pow_minus_t": 0.9999999999999984
+   },
+   {
+    "phi": 0.3125,
+    "t": 6,
+    "best_estimate": 0.3125,
+    "abs_error": 0.0,
+    "prob_best": 0.9999999999999978,
+    "prob_within_2_pow_minus_t": 0.9999999999999978
+   },
+   {
+    "phi": 0.3125,
+    "t": 8,
+    "best_estimate": 0.3125,
+    "abs_error": 0.0,
+    "prob_best": 0.9999999999999973,
+    "prob_within_2_pow_minus_t": 0.9999999999999973
+   },
+   {
+    "phi": 0.3125,
+    "t": 10,
+    "best_estimate": 0.3125,
+    "abs_error": 0.0,
+    "prob_best": 0.9999999999999969,
+    "prob_within_2_pow_minus_t": 0.9999999999999969
+   },
+   {
+    "phi": 0.3,
+    "t": 3,
+    "best_estimate": 0.25,
+    "abs_error": 0.04999999999999999,
+    "prob_best": 0.5775210180698604,
+    "prob_within_2_pow_minus_t": 0.836856637258288
+   },
+   {
+    "phi": 0.3,
+    "t": 4,
+    "best_estimate": 0.3125,
+    "abs_error": 0.012500000000000011,
+    "prob_best": 0.8755901975927103,
+    "prob_within_2_pow_minus_t": 0.9307385475140215
+   },
+   {
+    "phi": 0.3,
+    "t": 5,
+    "best_estimate": 0.3125,
+    "abs_error": 0.012500000000000011,
+    "prob_best": 0.5730812243784872,
+    "prob_within_2_pow_minus_t": 0.8279477305924006
+   },
+   {
+    "phi": 0.3,
+    "t": 6,
+    "best_estimate": 0.296875,
+    "abs_error": 0.003124999999999989,
+    "prob_best": 0.8751683167958484,
+    "prob_within_2_pow_minus_t": 0.9298927041453924
+   },
+   {
+    "phi": 0.3,
+    "t": 8,
+    "best_estimate": 0.30078125,
+    "abs_error": 0.0007812500000000111,
+    "prob_best": 0.8751419573461469,
+    "prob_within_2_pow_minus_t": 0.9298399771458891
+   },
+   {
+    "phi": 0.3,
+    "t": 10,
+    "best_estimate": 0.2998046875,
+    "abs_error": 0.0001953124999999889,
+    "prob_best": 0.8751403099121913,
+    "prob_within_2_pow_minus_t": 0.9298366822463183
+   }
+  ]
+ },
+ "shor": {
+  "rows": [
+   {
+    "N": 15,
+    "counting_qubits": 8,
+    "target_qubits": 4,
+    "total_qubits": 12,
+    "statevector_entries": 4096,
+    "bases_tried": 7,
+    "mean_p_factor_per_shot": 0.5654285714285714,
+    "fraction_of_bases_with_p_factor_gt_0": 0.8571428571428571,
+    "simulation_seconds_all_bases": 0.003202852000868006,
+    "classical_trial_division_steps": 2
+   },
+   {
+    "N": 21,
+    "counting_qubits": 10,
+    "target_qubits": 5,
+    "total_qubits": 15,
+    "statevector_entries": 32768,
+    "bases_tried": 11,
+    "mean_p_factor_per_shot": 0.3825454545454546,
+    "fraction_of_bases_with_p_factor_gt_0": 0.5454545454545454,
+    "simulation_seconds_all_bases": 0.017879378001453006,
+    "classical_trial_division_steps": 2
+   },
+   {
+    "N": 35,
+    "counting_qubits": 12,
+    "target_qubits": 6,
+    "total_qubits": 18,
+    "statevector_entries": 262144,
+    "bases_tried": 23,
+    "mean_p_factor_per_shot": 0.6072173913043478,
+    "fraction_of_bases_with_p_factor_gt_0": 0.782608695652174,
+    "simulation_seconds_all_bases": 0.43063133399846265,
+    "classical_trial_division_steps": 4
+   },
+   {
+    "N": 77,
+    "counting_qubits": 14,
+    "target_qubits": 7,
+    "total_qubits": 21,
+    "statevector_entries": 2097152,
+    "bases_tried": 59,
+    "mean_p_factor_per_shot": 0.36067796610169495,
+    "fraction_of_bases_with_p_factor_gt_0": 0.5084745762711864,
+    "simulation_seconds_all_bases": 16.914877381000224,
+    "classical_trial_division_steps": 6
+   }
+  ],
+  "note": "Modular exponentiation is applied as an oracle permutation, not compiled to gates. The simulation costs 2^(3L) memory, so it is exponentially more expensive than the classical algorithm it imitates; no speed-up can be observed."
+ },
+ "grover_noise": {
+  "rows": [
+   {
+    "p": 0.0,
+    "k1": 0.7812499999999989,
+    "k2": 0.9453124999999973
+   },
+   {
+    "p": 0.001,
+    "k1": 0.7673975738981164,
+    "k2": 0.9146691527281846
+   },
+   {
+    "p": 0.003,
+    "k1": 0.7405597822290957,
+    "k2": 0.8568802145541534
+   },
+   {
+    "p": 0.01,
+    "k1": 0.6551204133430347,
+    "k2": 0.6868378153066264
+   },
+   {
+    "p": 0.03,
+    "k1": 0.47074188480176027,
+    "k2": 0.3929087076693282
+   },
+   {
+    "p": 0.1,
+    "k1": 0.20209932595296806,
+    "k2": 0.1491244582638105
+   }
+  ],
+  "ideal_k2": 0.9453124999999999,
+  "random_guess": 0.125,
+  "classical_two_query_success": 0.25,
+  "note": "Synthetic model: depolarizing channel of probability p on each qubit a gate touches, one 3-qubit CCZ counted as a single gate (real hardware needs about 6 CNOTs for it, so real noise would be worse). Not a measurement on real hardware."
+ },
+ "qml": {
+  "moons": {
+   "qnn": {
+    "test_accuracy": {
+     "mean": 0.9480000000000001,
+     "std": 0.02445858177045886,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 2.3495613130000494,
+     "std": 0.05157057427187318,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 16,
+    "circuit_executions": {
+     "mean": 396300.0,
+     "std": 0.0,
+     "n": 5
+    }
+   },
+   "quantum_kernel_svm": {
+    "test_accuracy": {
+     "mean": 0.9266666666666667,
+     "std": 0.0076011695006609195,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 0.11280894320007065,
+     "std": 0.013789751849948182,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 13,
+    "circuit_executions": {
+     "mean": 32430.0,
+     "std": 2997.599039231231,
+     "n": 5
+    },
+    "chosen_feature_scales": [
+     0.5,
+     0.5,
+     0.25,
+     0.5,
+     0.25
+    ]
+   },
+   "rbf_svm": {
+    "test_accuracy": {
+     "mean": 0.9446666666666668,
+     "std": 0.017838784213679536,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 0.11800239760013938,
+     "std": 0.021270566966194823,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 32,
+    "circuit_executions": 0
+   },
+   "mlp": {
+    "test_accuracy": {
+     "mean": 0.932,
+     "std": 0.021457969252574805,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 0.0348424554000303,
+     "std": 0.009347747751768479,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 33,
+    "circuit_executions": 0
+   },
+   "logistic": {
+    "test_accuracy": {
+     "mean": 0.8653333333333334,
+     "std": 0.013097921802925678,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 0.002125020600215066,
+     "std": 0.00016539091737838234,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 3,
+    "circuit_executions": 0
+   }
+  },
+  "circles": {
+   "qnn": {
+    "test_accuracy": {
+     "mean": 0.974,
+     "std": 0.017048949136725913,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 2.4759255418000974,
+     "std": 0.08664617442189583,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 16,
+    "circuit_executions": {
+     "mean": 396300.0,
+     "std": 0.0,
+     "n": 5
+    }
+   },
+   "quantum_kernel_svm": {
+    "test_accuracy": {
+     "mean": 0.9786666666666666,
+     "std": 0.012578641509408794,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 0.11232740960022056,
+     "std": 0.008338650286331621,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 22,
+    "circuit_executions": {
+     "mean": 31110.0,
+     "std": 2548.411269791436,
+     "n": 5
+    },
+    "chosen_feature_scales": [
+     0.5,
+     0.25,
+     0.5,
+     0.5,
+     0.25
+    ]
+   },
+   "rbf_svm": {
+    "test_accuracy": {
+     "mean": 0.9926666666666666,
+     "std": 0.0038873012632302025,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 0.12438269639987994,
+     "std": 0.008797819486785532,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 16,
+    "circuit_executions": 0
+   },
+   "mlp": {
+    "test_accuracy": {
+     "mean": 0.9480000000000001,
+     "std": 0.016679994670929076,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 0.02920396460012853,
+     "std": 0.012636538780074796,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 33,
+    "circuit_executions": 0
+   },
+   "logistic": {
+    "test_accuracy": {
+     "mean": 0.43066666666666664,
+     "std": 0.04804627399127266,
+     "n": 5
+    },
+    "train_seconds": {
+     "mean": 0.002714680999815755,
+     "std": 0.000979031410889651,
+     "n": 5
+    },
+    "parameters_or_support_vectors": 3,
+    "circuit_executions": 0
+   }
+  },
+  "qnn_finite_shots_moons": [
+   {
+    "seed": 0,
+    "shots": 1,
+    "acc": 0.8305555555555557
+   },
+   {
+    "seed": 0,
+    "shots": 5,
+    "acc": 0.9173333333333334
+   },
+   {
+    "seed": 0,
+    "shots": 25,
+    "acc": 0.9444444444444443
+   },
+   {
+    "seed": 0,
+    "shots": 125,
+    "acc": 0.949
+   },
+   {
+    "seed": 0,
+    "shots": 625,
+    "acc": 0.9504444444444443
+   },
+   {
+    "seed": 1,
+    "shots": 1,
+    "acc": 0.836888888888889
+   },
+   {
+    "seed": 1,
+    "shots": 5,
+    "acc": 0.9181111111111111
+   },
+   {
+    "seed": 1,
+    "shots": 25,
+    "acc": 0.9548888888888887
+   },
+   {
+    "seed": 1,
+    "shots": 125,
+    "acc": 0.9564444444444444
+   },
+   {
+    "seed": 1,
+    "shots": 625,
+    "acc": 0.9591111111111112
+   },
+   {
+    "seed": 2,
+    "shots": 1,
+    "acc": 0.807888888888889
+   },
+   {
+    "seed": 2,
+    "shots": 5,
+    "acc": 0.9115555555555556
+   },
+   {
+    "seed": 2,
+    "shots": 25,
+    "acc": 0.9544444444444445
+   },
+   {
+    "seed": 2,
+    "shots": 125,
+    "acc": 0.9656666666666668
+   },
+   {
+    "seed": 2,
+    "shots": 625,
+    "acc": 0.9714444444444443
+   }
+  ],
+  "note": "Circuit executions count exact-expectation runs (shots = infinity in simulation); on hardware every run would need many shots. Quantum training times are simulator times and say nothing about hardware. Parameter counts for SVMs are numbers of support vectors."
+ }
+}

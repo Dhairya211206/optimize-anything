@@ -1,0 +1,17 @@
+[exp_dj_bv] 0.0s
+[exp_grover] 2.5s
+[exp_qft_qpe] 0.0s
+[exp_shor] 18.1s
+[exp_noise] 1.5s
+[algorithms] finished in 22.6s
+moons 0 {'qnn': 0.953, 'quantum_kernel_svm': 0.777, 'rbf_svm': 0.92, 'mlp': 0.927, 'logistic': 0.87}
+moons 1 {'qnn': 0.96, 'quantum_kernel_svm': 0.787, 'rbf_svm': 0.963, 'mlp': 0.897, 'logistic': 0.867}
+moons 2 {'qnn': 0.977, 'quantum_kernel_svm': 0.793, 'rbf_svm': 0.96, 'mlp': 0.963, 'logistic': 0.887}
+moons 3 {'qnn': 0.947, 'quantum_kernel_svm': 0.753, 'rbf_svm': 0.927, 'mlp': 0.937, 'logistic': 0.85}
+moons 4 {'qnn': 0.903, 'quantum_kernel_svm': 0.727, 'rbf_svm': 0.953, 'mlp': 0.937, 'logistic': 0.853}
+circles 0 {'qnn': 0.987, 'quantum_kernel_svm': 0.78, 'rbf_svm': 1.0, 'mlp': 0.943, 'logistic': 0.383}
+circles 1 {'qnn': 0.987, 'quantum_kernel_svm': 0.793, 'rbf_svm': 0.99, 'mlp': 0.923, 'logistic': 0.473}
+circles 2 {'qnn': 0.99, 'quantum_kernel_svm': 0.747, 'rbf_svm': 0.99, 'mlp': 0.967, 'logistic': 0.48}
+circles 3 {'qnn': 0.95, 'quantum_kernel_svm': 0.79, 'rbf_svm': 0.99, 'mlp': 0.94, 'logistic': 0.453}
+circles 4 {'qnn': 0.957, 'quantum_kernel_svm': 0.683, 'rbf_svm': 0.993, 'mlp': 0.967, 'logistic': 0.363}
+[qml] finished in 26.6s

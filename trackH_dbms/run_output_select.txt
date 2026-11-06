@@ -1,0 +1,21 @@
+budget 0.05 greedy_ratio: 10 idx, 4.0 MB, predicted 0.32s, measured saving 0.25s, speedup 1.50x, identical=True
+budget 0.05 knapsack_dp: 8 idx, 4.7 MB, predicted 0.32s, measured saving 0.24s, speedup 1.47x, identical=True
+budget 0.05 greedy_marginal: 9 idx, 5.0 MB, predicted 0.33s, measured saving 0.25s, speedup 1.52x, identical=True
+budget 0.05 ilp: 5 idx, 4.7 MB, predicted 0.33s, measured saving 0.24s, speedup 1.47x, identical=True
+budget 0.05 ilp_harm_aware: 4 idx, 3.0 MB, predicted 0.32s, measured saving 0.24s, speedup 1.48x, identical=True
+budget 0.10 greedy_ratio: 13 idx, 9.3 MB, predicted 0.33s, measured saving 0.25s, speedup 1.51x, identical=True
+budget 0.10 knapsack_dp: 13 idx, 9.3 MB, predicted 0.33s, measured saving 0.22s, speedup 1.41x, identical=True
+budget 0.10 greedy_marginal: 10 idx, 8.1 MB, predicted 0.33s, measured saving 0.08s, speedup 1.13x, identical=True
+budget 0.10 ilp: 4 idx, 10.1 MB, predicted 0.34s, measured saving 0.24s, speedup 1.48x, identical=True
+budget 0.10 ilp_harm_aware: 4 idx, 3.0 MB, predicted 0.32s, measured saving 0.22s, speedup 1.43x, identical=True
+budget 0.20 greedy_ratio: 15 idx, 19.9 MB, predicted 0.34s, measured saving 0.15s, speedup 1.26x, identical=True
+budget 0.20 knapsack_dp: 15 idx, 19.9 MB, predicted 0.34s, measured saving 0.15s, speedup 1.25x, identical=True
+budget 0.20 greedy_marginal: 12 idx, 19.0 MB, predicted 0.38s, measured saving -0.83s, speedup 0.47x, identical=True
+budget 0.20 ilp: 4 idx, 20.3 MB, predicted 0.38s, measured saving -1.18s, speedup 0.38x, identical=True
+budget 0.20 ilp_harm_aware: 4 idx, 3.0 MB, predicted 0.32s, measured saving 0.26s, speedup 1.55x, identical=True
+budget 0.40 greedy_ratio: 18 idx, 40.1 MB, predicted 0.39s, measured saving -0.06s, speedup 0.92x, identical=True
+budget 0.40 knapsack_dp: 18 idx, 40.1 MB, predicted 0.39s, measured saving -0.07s, speedup 0.92x, identical=True
+budget 0.40 greedy_marginal: 13 idx, 38.2 MB, predicted 0.40s, measured saving -0.67s, speedup 0.52x, identical=True
+budget 0.40 ilp: 8 idx, 37.6 MB, predicted 0.40s, measured saving -0.67s, speedup 0.52x, identical=True
+budget 0.40 ilp_harm_aware: 4 idx, 3.0 MB, predicted 0.32s, measured saving 0.24s, speedup 1.47x, identical=True
+[select] finished in 69.9s
