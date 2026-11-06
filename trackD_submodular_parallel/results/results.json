@@ -1,0 +1,504 @@
+{
+ "submodular": {
+  "guarantee": "greedy >= (1 - 1/e) OPT = 0.632 OPT requires monotone + submodular + f(empty) >= 0",
+  "conditions": {
+   "facility location": {
+    "trials": 3000,
+    "diminishing_returns_violations": 0,
+    "monotonicity_violations": 0,
+    "worst_dr_violation": 0.0
+   },
+   "relevance - redundancy (Track B)": {
+    "trials": 3000,
+    "diminishing_returns_violations": 0,
+    "monotonicity_violations": 2076,
+    "worst_dr_violation": 0.0
+   },
+   "relevance + synergy": {
+    "trials": 3000,
+    "diminishing_returns_violations": 2432,
+    "monotonicity_violations": 0,
+    "worst_dr_violation": 1.4340230688064262
+   }
+  },
+  "greedy_vs_optimum": {
+   "facility location (n=16, k=4, 10 instances)": {
+    "min": 0.9376468347568109,
+    "mean": 0.9700781921917843,
+    "meets_guarantee": true
+   },
+   "relevance - redundancy (Track B) (n=12)": [
+    {
+     "k": 3,
+     "greedy": 1.4757671301186093,
+     "optimum": 1.4757671301186093,
+     "ratio": 1.0
+    },
+    {
+     "k": 4,
+     "greedy": 1.633131304187653,
+     "optimum": 1.634198621841201,
+     "ratio": 0.9993468862112088
+    },
+    {
+     "k": 5,
+     "greedy": 1.5450520105484382,
+     "optimum": 1.5460299133520639,
+     "ratio": 0.9993674748494967
+    },
+    {
+     "k": 6,
+     "greedy": 1.3671875235631208,
+     "optimum": 1.3806510743409897,
+     "ratio": 0.9902484045186469
+    }
+   ],
+   "relevance + synergy (n=12)": [
+    {
+     "k": 3,
+     "greedy": 2.976912880446906,
+     "optimum": 2.976912880446906,
+     "ratio": 1.0
+    },
+    {
+     "k": 4,
+     "greedy": 4.491046624922159,
+     "optimum": 4.491046624922158,
+     "ratio": 1.0000000000000002
+    },
+    {
+     "k": 5,
+     "greedy": 5.022058914563103,
+     "optimum": 5.022058914563103,
+     "ratio": 1.0
+    },
+    {
+     "k": 6,
+     "greedy": 6.538765280310678,
+     "optimum": 6.538765280310678,
+     "ratio": 1.0
+    }
+   ]
+  },
+  "lazy_greedy": {
+   "n": 500,
+   "k": 20,
+   "standard_calls": 9811,
+   "lazy_calls": 2241,
+   "standard_seconds": 0.09474832199998673,
+   "lazy_seconds": 0.019118896000009045,
+   "same_value": true
+  }
+ },
+ "fedavg": {
+  "iid": {
+   "FedAvg E=1": {
+    "rounds": 40,
+    "communication_rounds": 40,
+    "sample_gradients": 8000,
+    "test_acc_round10": {
+     "mean": 0.85885,
+     "std": 0.024698987833512553
+    },
+    "test_acc_final": {
+     "mean": 0.8641500000000001,
+     "std": 0.027411949948881777
+    },
+    "test_loss_final": {
+     "mean": 0.4498071402669894,
+     "std": 0.020149465150039698
+    }
+   },
+   "FedAvg E=5": {
+    "rounds": 40,
+    "communication_rounds": 40,
+    "sample_gradients": 40000,
+    "test_acc_round10": {
+     "mean": 0.8644999999999999,
+     "std": 0.028429298267808174
+    },
+    "test_acc_final": {
+     "mean": 0.86545,
+     "std": 0.029241836467636565
+    },
+    "test_loss_final": {
+     "mean": 0.3290429967787206,
+     "std": 0.039704129440900585
+    }
+   },
+   "FedAvg E=20": {
+    "rounds": 40,
+    "communication_rounds": 40,
+    "sample_gradients": 160000,
+    "test_acc_round10": {
+     "mean": 0.865,
+     "std": 0.029181329647567488
+    },
+    "test_acc_final": {
+     "mean": 0.86615,
+     "std": 0.03018054008794408
+    },
+    "test_loss_final": {
+     "mean": 0.29807178648288724,
+     "std": 0.05221759144744561
+    }
+   },
+   "centralized SGD, same number of sequential steps as FedAvg E=5": {
+    "steps": 200,
+    "sample_gradients": 4000,
+    "communication_rounds_if_distributed": 200,
+    "test_acc_final": {
+     "mean": 0.8644999999999999,
+     "std": 0.028749347818689732
+    },
+    "test_loss_final": {
+     "mean": 0.33124321820504676,
+     "std": 0.03941427347127166
+    }
+   },
+   "centralized SGD, same total gradient work as FedAvg E=5": {
+    "steps": 2000,
+    "sample_gradients": 40000,
+    "communication_rounds_if_distributed": 2000,
+    "test_acc_final": {
+     "mean": 0.86805,
+     "std": 0.02863538021399403
+    },
+    "test_loss_final": {
+     "mean": 0.2967894017149754,
+     "std": 0.05464243507364638
+    }
+   }
+  },
+  "non_iid": {
+   "FedAvg E=1": {
+    "rounds": 40,
+    "communication_rounds": 40,
+    "sample_gradients": 8000,
+    "test_acc_round10": {
+     "mean": 0.7274,
+     "std": 0.022722565876238554
+    },
+    "test_acc_final": {
+     "mean": 0.7807,
+     "std": 0.037585702068738853
+    },
+    "test_loss_final": {
+     "mean": 0.4979793119034242,
+     "std": 0.0318516078257591
+    }
+   },
+   "FedAvg E=5": {
+    "rounds": 40,
+    "communication_rounds": 40,
+    "sample_gradients": 40000,
+    "test_acc_round10": {
+     "mean": 0.8146000000000001,
+     "std": 0.03647039895586556
+    },
+    "test_acc_final": {
+     "mean": 0.84055,
+     "std": 0.04004478742608081
+    },
+    "test_loss_final": {
+     "mean": 0.3696464794331504,
+     "std": 0.052038277459334044
+    }
+   },
+   "FedAvg E=20": {
+    "rounds": 40,
+    "communication_rounds": 40,
+    "sample_gradients": 160000,
+    "test_acc_round10": {
+     "mean": 0.85695,
+     "std": 0.03307468820714717
+    },
+    "test_acc_final": {
+     "mean": 0.8596999999999999,
+     "std": 0.03725164425901223
+    },
+    "test_loss_final": {
+     "mean": 0.3147429940455646,
+     "std": 0.06370599675143407
+    }
+   },
+   "centralized SGD, same number of sequential steps as FedAvg E=5": {
+    "steps": 200,
+    "sample_gradients": 4000,
+    "communication_rounds_if_distributed": 200,
+    "test_acc_final": {
+     "mean": 0.8311999999999999,
+     "std": 0.03978108847178516
+    },
+    "test_loss_final": {
+     "mean": 0.37868322724204045,
+     "std": 0.055322289451137055
+    }
+   },
+   "centralized SGD, same total gradient work as FedAvg E=5": {
+    "steps": 2000,
+    "sample_gradients": 40000,
+    "communication_rounds_if_distributed": 2000,
+    "test_acc_final": {
+     "mean": 0.84405,
+     "std": 0.0434259139224496
+    },
+    "test_loss_final": {
+     "mean": 0.33914969466142886,
+     "std": 0.08115799411884887
+    }
+   }
+  }
+ },
+ "multitask": {
+  "equal": {
+   "task1_rel_mse": {
+    "mean": 0.42996055040112047,
+    "std": 0.1713005443436782
+   },
+   "task2_rel_mse": {
+    "mean": 0.03899405881960956,
+    "std": 0.009621466306112046
+   },
+   "mean_rel_mse": {
+    "mean": 0.23447730461036498,
+    "std": 0.08868414224933419
+   },
+   "final_task_weights": [
+    1.0,
+    1.0
+   ]
+  },
+  "mgda": {
+   "task1_rel_mse": {
+    "mean": 0.026670580803770057,
+    "std": 0.01823851156666604
+   },
+   "task2_rel_mse": {
+    "mean": 0.6895948941388721,
+    "std": 0.23855497383920152
+   },
+   "mean_rel_mse": {
+    "mean": 0.35813273747132096,
+    "std": 0.11052668617203808
+   },
+   "final_task_weights": [
+    1.999992534557291,
+    7.465442708642911e-06
+   ]
+  },
+  "gradnorm": {
+   "task1_rel_mse": {
+    "mean": 0.18788634087170078,
+    "std": 0.08501713303104726
+   },
+   "task2_rel_mse": {
+    "mean": 0.07705588486547696,
+    "std": 0.023219642929486046
+   },
+   "mean_rel_mse": {
+    "mean": 0.13247111286858887,
+    "std": 0.05358454983765598
+   },
+   "final_task_weights": [
+    1.956004699820036,
+    0.04399530017996422
+   ]
+  },
+  "note": "test relative MSE = MSE / variance of that task's targets (0 = perfect, 1 = no better than the mean)"
+ },
+ "parallel": {
+  "cpu_cores": 2,
+  "note": "measured with real processes; only 2 cores, so speedup <= ~2",
+  "strong_scaling": {
+   "rows": [
+    {
+     "workers": 1,
+     "seconds": 0.6346589810000296,
+     "speedup": 1.0,
+     "efficiency": 1.0,
+     "amdahl_prediction_from_p2": 1.0
+    },
+    {
+     "workers": 2,
+     "seconds": 0.381737196000131,
+     "speedup": 1.662554730453387,
+     "efficiency": 0.8312773652266935,
+     "amdahl_prediction_from_p2": 1.6625547304533868
+    },
+    {
+     "workers": 4,
+     "seconds": 0.41372819100001834,
+     "speedup": 1.5339998453235726,
+     "efficiency": 0.38349996133089315,
+     "amdahl_prediction_from_p2": 2.486164882121844
+    }
+   ],
+   "serial_fraction_estimated_from_p2": 0.20296791640332357,
+   "caveat": "serial fraction inferred from the p=2 point; p=4 exceeds the 2 physical cores"
+  },
+  "weak_scaling": [
+   {
+    "workers": 1,
+    "seconds": 0.7262694075000127,
+    "scaled_speedup": 0.8738616475457401,
+    "scaled_efficiency": 0.8738616475457401
+   },
+   {
+    "workers": 2,
+    "seconds": 0.7569691049999392,
+    "scaled_speedup": 1.6768424941202338,
+    "scaled_efficiency": 0.8384212470601169
+   },
+   {
+    "workers": 4,
+    "seconds": 1.405709872999978,
+    "scaled_speedup": 1.8059458589291406,
+    "scaled_efficiency": 0.45148646473228515
+   }
+  ],
+  "load_balancing_measured_2_workers": {
+   "serial_seconds": 0.8677419250000185,
+   "ideal_makespan_2_workers": 0.4338709625000092,
+   "static blocks": {
+    "seconds": 0.7648777290000908,
+    "ratio_to_ideal": 1.7629152331208948
+   },
+   "static round-robin": {
+    "seconds": 0.461096131999966,
+    "ratio_to_ideal": 1.0627494620591398
+   },
+   "dynamic (shared queue)": {
+    "seconds": 0.5219693359999837,
+    "ratio_to_ideal": 1.203052015724543
+   },
+   "dynamic, longest first": {
+    "seconds": 0.5592127670001901,
+    "ratio_to_ideal": 1.2888918949033796
+   }
+  },
+  "scheduling_simulated_ratio_to_lower_bound": [
+   {
+    "workers": 4,
+    "lower_bound": 250.0,
+    "static_block": 1.067866874675316,
+    "round_robin": 1.0946639054759204,
+    "dynamic": 1.0068931691622807,
+    "lpt": 1.0000510224877368,
+    "work_stealing": 1.0177817767296822,
+    "steals": 33
+   },
+   {
+    "workers": 8,
+    "lower_bound": 125.0,
+    "static_block": 1.118480844961446,
+    "round_robin": 1.1865769809033206,
+    "dynamic": 1.0420379599040719,
+    "lpt": 1.0001041986000547,
+    "work_stealing": 1.0199754311590965,
+    "steals": 47
+   },
+   {
+    "workers": 16,
+    "lower_bound": 62.5,
+    "static_block": 1.373971416379799,
+    "round_robin": 1.429710631461095,
+    "dynamic": 1.252937632515033,
+    "lpt": 1.0003780845055428,
+    "work_stealing": 1.1205872960579484,
+    "steals": 70
+   },
+   {
+    "workers": 32,
+    "lower_bound": 31.25,
+    "static_block": 1.9700789997288406,
+    "round_robin": 1.7258752866242164,
+    "dynamic": 1.6744799759672706,
+    "lpt": 1.0005267832611071,
+    "work_stealing": 1.4633107590851404,
+    "steals": 113
+   }
+  ],
+  "overhead_vs_granularity_simulated": {
+   "dispatch_or_steal_cost": 0.05,
+   "rows": [
+    {
+     "mean_task_cost": 0.02,
+     "static_block": 1.1824898602272258,
+     "dynamic_with_dispatch_cost": 3.512548733829584,
+     "work_stealing": 1.095910593000433
+    },
+    {
+     "mean_task_cost": 0.1,
+     "static_block": 1.1824898602272258,
+     "dynamic_with_dispatch_cost": 1.5083285216202174,
+     "work_stealing": 1.0826808943335777
+    },
+    {
+     "mean_task_cost": 0.5,
+     "static_block": 1.182489860227226,
+     "dynamic_with_dispatch_cost": 1.1073037350150194,
+     "work_stealing": 1.0652111245269476
+    },
+    {
+     "mean_task_cost": 2.0,
+     "static_block": 1.182489860227226,
+     "dynamic_with_dispatch_cost": 1.0321941794169684,
+     "work_stealing": 1.0582086086002491
+    },
+    {
+     "mean_task_cost": 10.0,
+     "static_block": 1.1824898602272256,
+     "dynamic_with_dispatch_cost": 1.0122635046661108,
+     "work_stealing": 1.0587083672303406
+    }
+   ]
+  },
+  "pipeline_parallelism": {
+   "note": "stage work is time.sleep, so this measures overlap and queue overhead, not compute",
+   "rows": [
+    {
+     "stages": "balanced 3 x 30 ms",
+     "microbatches": 30,
+     "sequential_seconds": 2.6999999999999997,
+     "ideal_pipeline_seconds": 0.96,
+     "measured_seconds": 0.9762220170000546,
+     "measured_speedup": 2.7657642964221822,
+     "ideal_speedup": 2.8125
+    },
+    {
+     "stages": "unbalanced 20/60/20 ms",
+     "microbatches": 30,
+     "sequential_seconds": 3.0,
+     "ideal_pipeline_seconds": 1.84,
+     "measured_seconds": 1.8553392310000163,
+     "measured_speedup": 1.616954975065675,
+     "ideal_speedup": 1.6304347826086956
+    }
+   ]
+  },
+  "model_parallelism": {
+   "note": "x batch is sent to both workers on every call, so communication is included",
+   "rows": [
+    {
+     "hidden": 512,
+     "single_process_s": 0.010842887999842787,
+     "two_process_s": 0.03827318200001173,
+     "speedup": 0.28330249624500686
+    },
+    {
+     "hidden": 2048,
+     "single_process_s": 0.042589568000039435,
+     "two_process_s": 0.05059244999984003,
+     "speedup": 0.8418166742305245
+    },
+    {
+     "hidden": 8192,
+     "single_process_s": 0.1575198040000032,
+     "two_process_s": 0.18258881599990673,
+     "speedup": 0.8627023683645754
+    }
+   ]
+  }
+ }
+}

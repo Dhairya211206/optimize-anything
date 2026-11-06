@@ -1,0 +1,3 @@
+[submodular] finished in 1.1s
+[fedavg] finished in 5.7s
+[multitask] finished in 5.8s
