@@ -32,3 +32,6 @@ trackG_xv6/xv6-riscv/*.sym
 trackG_xv6/xv6-riscv/kernel/kernel
 trackG_xv6/xv6-riscv/user/_*
 trackG_xv6/xv6-riscv/fs.img
+
+
+.pytest_temp/
