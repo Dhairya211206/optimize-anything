@@ -1,0 +1,31 @@
+[grad] finished in 0.8s
+QAOA p=1 done
+QAOA p=2 done
+QAOA p=3 done
+[qaoa] finished in 220.5s
+barren deep (L=2n) 2 0.04851302832163874 0.03398317866117731
+barren deep (L=2n) 4 0.004745426388164066 0.005150713365459986
+barren deep (L=2n) 6 0.00032974946653636906 0.001253100398589347
+barren deep (L=2n) 8 3.031136666250581e-05 0.00032694280351149035
+barren deep (L=2n) 10 1.3322420258924013e-06 0.00020791572886489192
+barren deep (L=2n) 12 9.496777837799597e-07 4.923669821012272e-05
+barren shallow (L=2) 2 0.052752002588056186 0.026625421237461203
+barren shallow (L=2) 4 0.003656372595480985 0.004671028306881762
+barren shallow (L=2) 6 0.0009108787991470738 0.0021106305874244616
+barren shallow (L=2) 8 7.018255922986687e-05 0.0011609081477609387
+barren shallow (L=2) 10 1.6015986390040016e-05 0.0007757345291918635
+barren shallow (L=2) 12 4.1032933034688773e-07 0.0005366120787961095
+[barren] finished in 6.1s
+noise 0.0 0.7736299849303153
+noise 0.001 0.7722474403028778
+noise 0.003 0.7695163333590556
+noise 0.01 0.7603097625575082
+noise 0.03 0.736898983588855
+noise 0.1 0.6829562032856061
+[noise] finished in 13.6s
+[shots] finished in 12.3s
+vqe GD {'best_hyperparameter': 0.3, 'steps': 80, 'final_error': {'mean': 0.10658989399042743, 'std': 0.14804030822473563, 'best': 0.3968603606776826, 'worst': 0.00021535190190924425}, 'runs_reaching_tolerance': '1/5', 'executions_to_tolerance_median': 2970.0, 'total_executions_per_run': 7920}
+vqe Adam {'best_hyperparameter': 0.3, 'steps': 80, 'final_error': {'mean': 0.01108749205602333, 'std': 0.004879215501594842, 'best': 0.017144975275145136, 'worst': 0.003594246149628333}, 'runs_reaching_tolerance': '2/5', 'executions_to_tolerance_median': 5791.5, 'total_executions_per_run': 7920}
+vqe QNG {'best_hyperparameter': 0.03, 'steps': 80, 'final_error': {'mean': 0.06551465056078687, 'std': 0.057062729057548285, 'best': 0.16742910346837014, 'worst': 0.0044199643275293354}, 'runs_reaching_tolerance': '1/5', 'executions_to_tolerance_median': 7004.0, 'total_executions_per_run': 8240}
+vqe SPSA {'best_hyperparameter': 1.0, 'steps': 400, 'final_error': {'mean': 0.037753964414025454, 'std': 0.011500152141223295, 'best': 0.05111071159965341, 'worst': 0.01834490192761251}, 'runs_reaching_tolerance': '0/5', 'executions_to_tolerance_median': None, 'total_executions_per_run': 2400}
+[vqe] finished in 232.6s

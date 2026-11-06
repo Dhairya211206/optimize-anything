@@ -1,0 +1,366 @@
+{
+ "gradient_check": {
+  "p=1": {
+   "per_gate_param_shift_max_abs_error": 7.662489309723242e-09,
+   "naive_shared_shift_max_abs_error": 6.502862336058088,
+   "naive_shared_shift_median_abs_error": 3.5260455106501674
+  },
+  "p=2": {
+   "per_gate_param_shift_max_abs_error": 5.740298902878749e-09,
+   "naive_shared_shift_max_abs_error": 7.660807341380861,
+   "naive_shared_shift_median_abs_error": 2.472668664283389
+  }
+ },
+ "qaoa": {
+  "optimal_cut": 14.0,
+  "random_guess_ratio": 0.6428571428571429,
+  "random_guess_prob_optimal": 0.0078125,
+  "budget_circuit_evals": 4000,
+  "p1_grid_best": {
+   "gamma": 0.42358552632671365,
+   "beta": 1.270756578980141,
+   "expected_cut": 10.830819789024414,
+   "approx_ratio": 0.7736299849303153,
+   "prob_optimal": 0.06713281671663418
+  },
+  "p=1": {
+   "adam_lr": 0.3,
+   "spsa_a": 1.0,
+   "per_step_cost_param_shift": 53,
+   "adam_steps": 75,
+   "Adam + parameter-shift": {
+    "approx_ratio": {
+     "mean": 0.7505720901885036,
+     "std": 0.020883081446479632,
+     "best": 0.7737259859719803,
+     "worst": 0.7316313723943865
+    },
+    "prob_optimal": {
+     "mean": 0.05813209466993062,
+     "std": 0.01019476367275532,
+     "best": 0.07217301527802372,
+     "worst": 0.04861370842863938
+    },
+    "evals_used": 3975,
+    "prob_find_optimum_in_100_shots": 0.9960162210962137
+   },
+   "SPSA": {
+    "approx_ratio": {
+     "mean": 0.7440701393022812,
+     "std": 0.03078940082739113,
+     "best": 0.7737251951765798,
+     "worst": 0.6428674896408983
+    },
+    "prob_optimal": {
+     "mean": 0.0551815035007852,
+     "std": 0.013293551675461037,
+     "best": 0.06881685612690905,
+     "worst": 0.014987328937923842
+    },
+    "evals_used": 4000,
+    "prob_find_optimum_in_100_shots": 0.9849865212001342
+   }
+  },
+  "p=2": {
+   "adam_lr": 0.3,
+   "spsa_a": 0.5,
+   "per_step_cost_param_shift": 105,
+   "adam_steps": 38,
+   "Adam + parameter-shift": {
+    "approx_ratio": {
+     "mean": 0.7590558254102715,
+     "std": 0.04597628941327631,
+     "best": 0.8394247161770662,
+     "worst": 0.668080427084382
+    },
+    "prob_optimal": {
+     "mean": 0.09121375827560349,
+     "std": 0.05914711023155565,
+     "best": 0.22379029837414452,
+     "worst": 0.014030025541488848
+    },
+    "evals_used": 3990,
+    "prob_find_optimum_in_100_shots": 0.9744659841667127
+   },
+   "SPSA": {
+    "approx_ratio": {
+     "mean": 0.7677790338730083,
+     "std": 0.03987953412448304,
+     "best": 0.8414883930305869,
+     "worst": 0.6918526183064581
+    },
+    "prob_optimal": {
+     "mean": 0.09671980038668934,
+     "std": 0.06032375870855737,
+     "best": 0.2182669740968767,
+     "worst": 0.048926500087879896
+    },
+    "evals_used": 4000,
+    "prob_find_optimum_in_100_shots": 0.9973353650752401
+   }
+  },
+  "p=3": {
+   "adam_lr": 0.3,
+   "spsa_a": 1.0,
+   "per_step_cost_param_shift": 157,
+   "adam_steps": 25,
+   "Adam + parameter-shift": {
+    "approx_ratio": {
+     "mean": 0.758686143499244,
+     "std": 0.05554137088313076,
+     "best": 0.8412513815462521,
+     "worst": 0.6712865787249085
+    },
+    "prob_optimal": {
+     "mean": 0.09327410316593222,
+     "std": 0.0567774796980803,
+     "best": 0.21240748281068317,
+     "worst": 0.008629505533210437
+    },
+    "evals_used": 3925,
+    "prob_find_optimum_in_100_shots": 0.9690177066623928
+   },
+   "SPSA": {
+    "approx_ratio": {
+     "mean": 0.7543622460788908,
+     "std": 0.0708358715921949,
+     "best": 0.8886994697378533,
+     "worst": 0.6561046610987897
+    },
+    "prob_optimal": {
+     "mean": 0.0983512101836754,
+     "std": 0.0896921590051313,
+     "best": 0.322874714229633,
+     "worst": 0.004686862396494908
+    },
+    "evals_used": 4000,
+    "prob_find_optimum_in_100_shots": 0.8713066720953927
+   }
+  },
+  "random_sampling_prob_find_optimum_in_100_shots": 0.5435690025908804
+ },
+ "barren": {
+  "qubits": [
+   2,
+   4,
+   6,
+   8,
+   10,
+   12
+  ],
+  "samples": 200,
+  "series": {
+   "deep (L=2n)": {
+    "global_cost": [
+     0.04851302832163874,
+     0.004745426388164066,
+     0.00032974946653636906,
+     3.031136666250581e-05,
+     1.3322420258924013e-06,
+     9.496777837799597e-07
+    ],
+    "local_cost": [
+     0.03398317866117731,
+     0.005150713365459986,
+     0.001253100398589347,
+     0.00032694280351149035,
+     0.00020791572886489192,
+     4.923669821012272e-05
+    ],
+    "log2_slope_global": -1.6262497156591473,
+    "log2_slope_local": -0.8004610028539721
+   },
+   "shallow (L=2)": {
+    "global_cost": [
+     0.052752002588056186,
+     0.003656372595480985,
+     0.0009108787991470738,
+     7.018255922986687e-05,
+     1.6015986390040016e-05,
+     4.1032933034688773e-07
+    ],
+    "local_cost": [
+     0.026625421237461203,
+     0.004671028306881762,
+     0.0021106305874244616,
+     0.0011609081477609387,
+     0.0007757345291918635,
+     0.0005366120787961095
+    ],
+    "log2_slope_global": -1.6036180462884528,
+    "log2_slope_local": -0.38438083381061944
+   }
+  }
+ },
+ "noise": {
+  "params": [
+   0.42358552632671365,
+   1.270756578980141
+  ],
+  "exact_noiseless_ratio": 0.7736299849303153,
+  "random_guess_ratio": 0.6428571428571429,
+  "gates_per_circuit": 26,
+  "rows": [
+   {
+    "depolarizing_prob_per_gate": 0.0,
+    "expected_cut": 10.830819789024414,
+    "approx_ratio": 0.7736299849303153,
+    "seconds": 6.594329649000088
+   },
+   {
+    "depolarizing_prob_per_gate": 0.001,
+    "expected_cut": 10.81146416424029,
+    "approx_ratio": 0.7722474403028778,
+    "seconds": 1.5033662910000203
+   },
+   {
+    "depolarizing_prob_per_gate": 0.003,
+    "expected_cut": 10.773228667026778,
+    "approx_ratio": 0.7695163333590556,
+    "seconds": 0.7671972040000128
+   },
+   {
+    "depolarizing_prob_per_gate": 0.01,
+    "expected_cut": 10.644336675805114,
+    "approx_ratio": 0.7603097625575082,
+    "seconds": 0.8607753039999579
+   },
+   {
+    "depolarizing_prob_per_gate": 0.03,
+    "expected_cut": 10.31658577024397,
+    "approx_ratio": 0.736898983588855,
+    "seconds": 2.786544843999991
+   },
+   {
+    "depolarizing_prob_per_gate": 0.1,
+    "expected_cut": 9.561386845998486,
+    "approx_ratio": 0.6829562032856061,
+    "seconds": 0.8187075129999357
+   }
+  ]
+ },
+ "shots": {
+  "exact_energy": -10.830819789024414,
+  "single_shot_std": 1.5636070514483897,
+  "estimator": [
+   {
+    "shots": 10,
+    "empirical_std": 0.5102168384346231,
+    "predicted_std": 0.4944559648076992,
+    "mean_error": 0.013153122357746128
+   },
+   {
+    "shots": 100,
+    "empirical_std": 0.15432647932944699,
+    "predicted_std": 0.15636070514483896,
+    "mean_error": -0.009113544308918975
+   },
+   {
+    "shots": 1000,
+    "empirical_std": 0.0500559104069306,
+    "predicted_std": 0.049445596480769925,
+    "mean_error": 0.0046697890244136175
+   },
+   {
+    "shots": 10000,
+    "empirical_std": 0.016416688324858843,
+    "predicted_std": 0.0156360705144839,
+    "mean_error": -0.0003035443089203227
+   },
+   {
+    "shots": 100000,
+    "empirical_std": 0.0049434669654898,
+    "predicted_std": 0.0049445596480769925,
+    "mean_error": 4.0622357747821525e-05
+   }
+  ],
+  "spsa_with_shots_approx_ratio": {
+   "10 shots/evaluation": {
+    "mean": 0.7387682169396979,
+    "std": 0.02981660170580404,
+    "best": 0.7736714752170101,
+    "worst": 0.6376107889699536
+   },
+   "100 shots/evaluation": {
+    "mean": 0.7327501293711716,
+    "std": 0.0422509558151342,
+    "best": 0.7736911839802433,
+    "worst": 0.6427213316963611
+   },
+   "1000 shots/evaluation": {
+    "mean": 0.7294249400699843,
+    "std": 0.04533894888840014,
+    "best": 0.7737175705205368,
+    "worst": 0.6428400949306822
+   },
+   "exact expectation": {
+    "mean": 0.7330668906184137,
+    "std": 0.04241784687351306,
+    "best": 0.7736848646887642,
+    "worst": 0.6428297292903365
+   }
+  }
+ },
+ "vqe": {
+  "qubits": 4,
+  "layers": 3,
+  "n_params": 16,
+  "exact_ground_energy": -4.7587704831436355,
+  "steps": 80,
+  "tolerance": 0.01,
+  "optimizers": {
+   "GD": {
+    "best_hyperparameter": 0.3,
+    "steps": 80,
+    "final_error": {
+     "mean": 0.10658989399042743,
+     "std": 0.14804030822473563,
+     "min": 0.00021535190190924425,
+     "max": 0.3968603606776826
+    },
+    "runs_reaching_tolerance": "1/5",
+    "executions_to_tolerance_median": 2970.0,
+    "total_executions_per_run": 7920
+   },
+   "Adam": {
+    "best_hyperparameter": 0.3,
+    "steps": 80,
+    "final_error": {
+     "mean": 0.01108749205602333,
+     "std": 0.004879215501594842,
+     "min": 0.003594246149628333,
+     "max": 0.017144975275145136
+    },
+    "runs_reaching_tolerance": "2/5",
+    "executions_to_tolerance_median": 5791.5,
+    "total_executions_per_run": 7920
+   },
+   "QNG": {
+    "best_hyperparameter": 0.03,
+    "steps": 80,
+    "final_error": {
+     "mean": 0.06551465056078687,
+     "std": 0.057062729057548285,
+     "min": 0.0044199643275293354,
+     "max": 0.16742910346837014
+    },
+    "runs_reaching_tolerance": "1/5",
+    "executions_to_tolerance_median": 7004.0,
+    "total_executions_per_run": 8240
+   },
+   "SPSA": {
+    "best_hyperparameter": 1.0,
+    "steps": 400,
+    "final_error": {
+     "mean": 0.037753964414025454,
+     "std": 0.011500152141223295,
+     "min": 0.01834490192761251,
+     "max": 0.05111071159965341
+    },
+    "runs_reaching_tolerance": "0/5",
+    "executions_to_tolerance_median": null,
+    "total_executions_per_run": 2400
+   }
+  }
+ }
+}
