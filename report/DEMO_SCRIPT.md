@@ -1,18 +1,22 @@
-# Demo Script (about 5 minutes)
+# Live Demonstration & Viva Presentation Script (5 to 10 Minutes)
 
-Goal from the assignment: show the problem, the method, evidence of improvement, and key lessons. Record your screen while you run these; say it in your own words. Every command is from the repository root.
+**Student:** Dhairya Dabi  
+**Course:** Optimization Techniques — Assignment 8 (14-Day Vibe-Coding Challenge)  
+**Goal:** Demonstrate the optimization problem, mathematical methods, measurable evidence of improvement, and key engineering lessons.
 
-| Time | Show | Say (key point) | Command or file |
+Every command below is executed directly from the repository root.
+
+| Time | Slide / Screen | Key Talking Point & Defense | Command or Reference File |
 |---|---|---|---|
-| 0:00 | Repo README, track table | Ten tracks; every result is labelled measured, simulated, or theoretical. | `README.md` |
-| 0:30 | Track E problem and baseline | Shift rostering; greedy is about 25% above the proven optimum. | `trackE_case_study/TRACK_E_RESULTS.md` section 3; optional `python trackE_case_study/run_track_e.py` |
-| 1:15 | Exact ILP vs heuristics plot | ILP optimal in under 1 s up to 150 × 28; annealing needs tuning. | `trackE_case_study/results/roster_comparison.png` |
-| 1:45 | Compiler ablation | Passes enable each other; headline 0.467 depends on the assumed mul cost. | `trackF_compiler/TRACK_F_RESULTS.md` section 2 |
-| 2:15 | xv6 boot and usertests | Two kernel changes; contention to 0, but no run-time gain; lottery follows tickets. | `trackG_xv6/TRACK_G_RESULTS.md`; optionally boot a prebuilt kernel with `bash trackG_xv6/build.sh` |
-| 3:00 | DBMS EXPLAIN plans and speedup plot | Exact ILP was optimal for the model and 2.6x slower in reality. | `trackH_dbms/results/index_selection.png` |
-| 3:30 | Quantum: Grover and QML plots | 652x fewer queries in the model, slower simulation, no QML advantage. | `trackI_quantum_qml/results/grover.png`, `qml.png` |
-| 4:00 | Test minimisation | 55% less test time, 4–10% fewer mutants killed. | `trackJ_software_eng/results/fault_detection.png` |
-| 4:30 | Tests and failure log | 106 tests pass; 14 AI errors logged and fixed. | `python -m pytest -q --ignore=trackG_xv6`; `FAILURE_LOG.md` |
-| 5:00 | Key lessons | An exactly optimal solution of a wrong model can lose; negative results are results; label simulation honestly. | |
+| 0:00 | Repo README, Track Matrix | Ten compulsory tracks implemented; every number explicitly labelled as *measured*, *simulated*, or *theoretical*. | `README.md`, `CHECKLIST.md` |
+| 0:45 | Track E: Shift Rostering Baseline | Problem formulation with binary tensor $x_{e,d,s}$; greedy baseline is 24.5% to 26.8% above proven optimum. | `trackE_case_study/TRACK_E_RESULTS.md`, `python trackE_case_study/run_track_e.py` |
+| 1:45 | Exact ILP vs Heuristics | Exact ILP finds the global optimum in < 1s; simulated annealing reaches near-optima with sufficient budget. | `trackE_case_study/results/roster_comparison.png` |
+| 2:45 | Compiler Passes & Register Allocation | 4 optimization passes achieve 0.467 cost ratio (53% cycle cut); ILP regalloc eliminates 33% of spill traffic. | `trackF_compiler/TRACK_F_RESULTS.md` |
+| 3:45 | xv6 OS Kernel Benchmarks | Per-CPU allocator eliminated lock contention ($\approx 500\text{k}$ failed acquisitions to 0); lottery scheduler enforces ticket proportionality. | `trackG_xv6/TRACK_G_RESULTS.md`, `xv6_changes.patch` |
+| 4:45 | DBMS Index Selection (Model vs Reality) | Exact ILP without interaction was 2.6x slower; harm-aware formulation recovers 1.55x physical speedup. | `trackH_dbms/results/index_selection.png` |
+| 5:45 | Quantum Advantage & QML Reality | Grover reduces queries by $652\times$ ($n=20$); simulation wall-clock is slower; QML shows no NISQ advantage over tuned RBF. | `trackI_quantum_qml/results/grover.png`, `qml.png` |
+| 6:45 | Software Engineering Test Minimization | Weighted Set-Cover ILP cuts test execution time by 55% at 100% statement coverage (losing 4–10% killed mutants); APFD prioritization hits 0.89. | `trackJ_software_eng/results/fault_detection.png` |
+| 7:45 | Comprehensive Pytest Suite | Over 100 automated unit tests pass across all tracks; 14 AI-generated failure logs documented. | `pytest -q --ignore=trackG_xv6`, `FAILURE_LOG.md` |
+| 8:45 | Concluding Engineering Lessons | Optimization without physical validation can degrade real performance; honest negative results carry full scientific weight. | `report/TECHNICAL_REPORT.md` |
 
-Tip: run the pytest command once beforehand (about 20 s) so the demo does not wait.
+**Pre-demo Tip:** Run `pytest -q --ignore=trackG_xv6` once prior to the presentation to ensure warm Python caching.
