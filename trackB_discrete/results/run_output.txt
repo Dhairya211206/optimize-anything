@@ -1,0 +1,138 @@
+{
+ "capacity": 448,
+ "optimum": 682,
+ "solvers": {
+  "greedy": {
+   "value": 678,
+   "runtime_ms": 0.030018000018117164,
+   "gap_pct": 0.5865102639296188
+  },
+  "dp": {
+   "value": 682,
+   "runtime_ms": 0.06156300000270676,
+   "gap_pct": 0.0,
+   "table_cells": 9429
+  },
+  "bnb": {
+   "value": 682,
+   "runtime_ms": 0.11951899998052795,
+   "gap_pct": 0.0,
+   "nodes": 80,
+   "timed_out": false
+  },
+  "ilp": {
+   "value": 682,
+   "runtime_ms": 6.537984999994251,
+   "gap_pct": 0.0
+  },
+  "brute": {
+   "value": 682,
+   "runtime_ms": 197.9765039999961,
+   "gap_pct": 0.0
+  }
+ }
+}
+{"greedy": 2, "optimum": 15}
+
+ uncorrelated
+  n=  20 opt=   730 | greedy:     0.02ms gap=0.00% | dp:     0.06ms gap=0.00% | bnb:     0.08ms gap=0.00% nodes=35 | ilp:     4.68ms gap=0.00% 
+  n=  50 opt=  1851 | greedy:     0.03ms gap=0.16% | dp:     0.17ms gap=0.00% | bnb:     0.50ms gap=0.00% nodes=439 | ilp:    41.62ms gap=0.00% 
+  n= 100 opt=  3846 | greedy:     0.04ms gap=0.00% | dp:     0.54ms gap=0.00% | bnb:     0.81ms gap=0.00% nodes=174 | ilp:     7.89ms gap=0.00% 
+  n= 200 opt=  7507 | greedy:     0.07ms gap=0.00% | dp:     1.89ms gap=0.00% | bnb:     2.88ms gap=0.00% nodes=483 | ilp:    11.14ms gap=0.00% 
+  n= 400 opt= 14150 | greedy:     0.14ms gap=0.04% | dp:     9.83ms gap=0.00% | bnb:    12.38ms gap=0.00% nodes=2093 | ilp:   146.21ms gap=0.00% 
+
+ strongly_correlated
+  n=  20 opt=   523 | greedy:     0.02ms gap=8.03% | dp:     0.07ms gap=0.00% | bnb:     0.45ms gap=0.00% nodes=511 | ilp:    21.73ms gap=0.00% 
+  n=  30 opt=   824 | greedy:     0.04ms gap=4.37% | dp:     0.09ms gap=0.00% | bnb:     0.69ms gap=0.00% nodes=782 | ilp:    13.75ms gap=0.00% 
+  n=  40 opt=  1077 | greedy:     0.05ms gap=0.37% | dp:     0.14ms gap=0.00% | bnb:     0.44ms gap=0.00% nodes=268 | ilp:     7.80ms gap=0.00% 
+  n=  50 opt=  1345 | greedy:     0.02ms gap=3.42% | dp:     0.17ms gap=0.00% | bnb:    16.44ms gap=0.00% nodes=21159 | ilp:     6.44ms gap=0.00% 
+{
+ "nodes": 8,
+ "edges": 18,
+ "exact_cut": 14.0,
+ "ilp_cut": 14,
+ "optimal_assignment": [
+  1,
+  0,
+  0,
+  1,
+  1,
+  1,
+  0,
+  0
+ ],
+ "ising_energy_at_optimum": -14.0,
+ "n_optimal_assignments": 2,
+ "hill_climb": {
+  "mean": 13.3,
+  "std": 0.9000000000000001,
+  "success_rate": 0.5
+ },
+ "annealing": {
+  "mean": 14.0,
+  "std": 0.0,
+  "success_rate": 1.0
+ }
+}
+{
+ "edges": 91,
+ "exact_cut": 62.0,
+ "ilp_cut": 62,
+ "hill_climb": {
+  "mean": 59.36,
+  "std": 1.9774731350893242,
+  "success_rate": 0.24
+ },
+ "annealing": {
+  "mean": 62.0,
+  "std": 0.0,
+  "success_rate": 1.0
+ }
+}
+{
+ "k=4": {
+  "exact_selected": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "exact_objective": 1.634198621841201,
+  "greedy_selected": [
+   0,
+   1,
+   3,
+   6
+  ],
+  "greedy_objective": 1.633131304187653,
+  "sa_objective_mean": 1.6004223576483483,
+  "sa_objective_std": 0.07693994409487398,
+  "sa_reaches_exact": 0.16666666666666666,
+  "sa_cardinality_ok": 1.0
+ },
+ "k=6": {
+  "exact_selected": [
+   1,
+   2,
+   3,
+   4,
+   8,
+   11
+  ],
+  "exact_objective": 1.3806510743409899,
+  "greedy_selected": [
+   0,
+   1,
+   3,
+   6,
+   8,
+   11
+  ],
+  "greedy_objective": 1.3671875235631208,
+  "sa_objective_mean": 1.3560608281676314,
+  "sa_objective_std": 0.027283751782986355,
+  "sa_reaches_exact": 0.1,
+  "sa_cardinality_ok": 1.0
+ }
+}
+{"k=4": [{"penalty": 0.0, "n_selected": 4, "feasible": true}, {"penalty": 0.05, "n_selected": 4, "feasible": true}, {"penalty": 0.1, "n_selected": 4, "feasible": true}, {"penalty": 0.25, "n_selected": 4, "feasible": true}, {"penalty": 0.5, "n_selected": 4, "feasible": true}, {"penalty": 1.0, "n_selected": 4, "feasible": true}, {"penalty": 2.0, "n_selected": 4, "feasible": true}, {"penalty": 5.0, "n_selected": 4, "feasible": true}], "k=6": [{"penalty": 0.0, "n_selected": 4, "feasible": false}, {"penalty": 0.05, "n_selected": 5, "feasible": false}, {"penalty": 0.1, "n_selected": 5, "feasible": false}, {"penalty": 0.25, "n_selected": 6, "feasible": true}, {"penalty": 0.5, "n_selected": 6, "feasible": true}, {"penalty": 1.0, "n_selected": 6, "feasible": true}, {"penalty": 2.0, "n_selected": 6, "feasible": true}, {"penalty": 5.0, "n_selected": 6, "feasible": true}]}
