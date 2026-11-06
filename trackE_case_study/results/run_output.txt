@@ -1,0 +1,20 @@
+size W=20, D=7
+  W=20 D=7 seed=0: greedy feasible=True obj=35.2 ilp obj=27.87805855610634 gap=0.0 t=0.0s
+  W=20 D=7 seed=1: greedy feasible=True obj=28.3 ilp obj=23.1041469905775 gap=0.0 t=0.0s
+  W=20 D=7 seed=2: greedy feasible=True obj=49.4 ilp obj=34.88596104547914 gap=0.0 t=0.1s
+  W=20 D=7 seed=3: greedy feasible=True obj=33.3 ilp obj=30.373563499948364 gap=0.0 t=0.1s
+  W=20 D=7 seed=4: greedy feasible=True obj=44.7 ilp obj=36.09409269020736 gap=0.0 t=0.0s
+size W=40, D=14
+  W=40 D=14 seed=0: greedy feasible=True obj=159.9 ilp obj=122.5886081530555 gap=0.0 t=0.0s
+  W=40 D=14 seed=1: greedy feasible=True obj=125.2 ilp obj=110.89263209495448 gap=0.0 t=0.0s
+  W=40 D=14 seed=2: greedy feasible=True obj=124.8 ilp obj=100.23034738710604 gap=0.0 t=0.0s
+  W=40 D=14 seed=3: greedy feasible=True obj=132.5 ilp obj=99.44712576766256 gap=0.0 t=0.0s
+  W=40 D=14 seed=4: greedy feasible=True obj=127.5 ilp obj=105.27150825210212 gap=0.0 t=0.1s
+size W=80, D=14
+  W=80 D=14 seed=0: greedy feasible=True obj=200.2 ilp obj=158.87994563964796 gap=0.0 t=0.1s
+  W=80 D=14 seed=1: greedy feasible=True obj=187.9 ilp obj=146.62072669950206 gap=0.0 t=0.1s
+  W=80 D=14 seed=2: greedy feasible=True obj=199.0 ilp obj=164.22045843712598 gap=0.0 t=0.1s
+size W=150, D=28
+  W=150 D=28 seed=0: greedy feasible=True obj=862.2 ilp obj=669.7282858965044 gap=0.0 t=0.5s
+  W=150 D=28 seed=1: greedy feasible=True obj=896.3 ilp obj=710.6698312884816 gap=0.0 t=0.5s
+  W=150 D=28 seed=2: greedy feasible=True obj=746.2 ilp obj=593.9157735009185 gap=0.0 t=1.2s

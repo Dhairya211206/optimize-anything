@@ -1,0 +1,1270 @@
+{
+ "note": "synthetic instances; ILP via scipy milp/HiGHS with a 30 s limit; annealing/hill climbing start from the greedy roster",
+ "sizes": {
+  "20x7": {
+   "workers": 20,
+   "days": 7,
+   "sa_iterations": 100000,
+   "instances": 5,
+   "summary": {
+    "ilp": {
+     "objective": {
+      "mean": 30.46716455646374,
+      "std": 4.735279112112973,
+      "n": 5
+     },
+     "seconds": {
+      "mean": 0.04140755719995468,
+      "std": 0.03139231246104783,
+      "n": 5
+     },
+     "proven_optimal": 5,
+     "of": 5,
+     "reported_gap": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5
+     }
+    },
+    "greedy": {
+     "feasible": 5,
+     "of": 5,
+     "shortfall_total": 0,
+     "seconds": {
+      "mean": 0.0010274243999901956,
+      "std": 6.643603812491201e-05,
+      "n": 5
+     },
+     "objective_when_feasible": {
+      "mean": 38.18887393263243,
+      "std": 7.729547181280139,
+      "n": 5
+     },
+     "gap_to_ilp_pct_when_feasible": {
+      "mean": 24.79841295347695,
+      "std": 10.201406459734123,
+      "n": 5
+     }
+    },
+    "hill_climb": {
+     "feasible_runs": 15,
+     "of": 15,
+     "seconds": {
+      "mean": 1.1594468844667063,
+      "std": 0.09036701819184195,
+      "n": 5
+     },
+     "objective": {
+      "mean": 36.2620876744089,
+      "std": 6.024687372617608,
+      "n": 5
+     },
+     "gap_to_ilp_pct": {
+      "mean": 19.058822114578913,
+      "std": 6.311219553477806,
+      "n": 5
+     }
+    },
+    "annealing": {
+     "feasible_runs": 15,
+     "of": 15,
+     "seconds": {
+      "mean": 1.404919713400007,
+      "std": 0.05761734904440496,
+      "n": 5
+     },
+     "objective": {
+      "mean": 32.43883198966123,
+      "std": 4.550647625435023,
+      "n": 5
+     },
+     "gap_to_ilp_pct": {
+      "mean": 6.7441681322794,
+      "std": 2.0085249414805424,
+      "n": 5
+     }
+    }
+   },
+   "raw": [
+    {
+     "seed": 0,
+     "greedy": {
+      "seconds": 0.0010516310001094098,
+      "pref": 32.152464650647985,
+      "spread": 3,
+      "objective": 35.152464650647985,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.016063560000020516,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 27.87805855610634,
+      "dual_bound": 27.87805855610634,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 24.87805855610634,
+      "spread": 3,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 34.152464650647985,
+       "std": 0.0,
+       "n": 3
+      },
+      "seconds": 1.0529281700000108
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 30.433973526011346,
+       "std": 1.4696892932132692,
+       "n": 3
+      },
+      "seconds": 1.3281961280000967
+     }
+    },
+    {
+     "seed": 1,
+     "greedy": {
+      "seconds": 0.0009504119998382521,
+      "pref": 25.332975143190545,
+      "spread": 3,
+      "objective": 28.332975143190545,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.015804616999957943,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 23.1041469905775,
+      "dual_bound": 23.1041469905775,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 22.1041469905775,
+      "spread": 1,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 28.33297514319055,
+       "std": 3.552713678800501e-15,
+       "n": 3
+      },
+      "seconds": 1.243937105000062
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 25.209581730684818,
+       "std": 0.854190000920084,
+       "n": 3
+      },
+      "seconds": 1.4108997656666513
+     }
+    },
+    {
+     "seed": 2,
+     "greedy": {
+      "seconds": 0.0011395409999295225,
+      "pref": 45.44095839656724,
+      "spread": 4,
+      "objective": 49.44095839656724,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.0769446249998964,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 34.88596104547914,
+      "dual_bound": 34.88596104547914,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 31.885961045479142,
+      "spread": 3,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 42.47369377211625,
+       "std": 0.471404520791035,
+       "n": 3
+      },
+      "seconds": 1.259118264333362
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 36.88581339655854,
+       "std": 0.36824436410069866,
+       "n": 3
+      },
+      "seconds": 1.4013663249999506
+     }
+    },
+    {
+     "seed": 3,
+     "greedy": {
+      "seconds": 0.001022496000132378,
+      "pref": 29.333758677575798,
+      "spread": 4,
+      "objective": 33.3337586775758,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.08263817200008816,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 30.373563499948364,
+      "dual_bound": 30.373563499948368,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 29.373563499948364,
+      "spread": 1,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 32.3337586775758,
+       "std": 0.0,
+       "n": 3
+      },
+      "seconds": 1.1891731006667214
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 32.00162590358519,
+       "std": 0.5747885739374832,
+       "n": 3
+      },
+      "seconds": 1.5049326399999547
+     }
+    },
+    {
+     "seed": 4,
+     "greedy": {
+      "seconds": 0.0009730419999414153,
+      "pref": 41.684212795180606,
+      "spread": 3,
+      "objective": 44.684212795180606,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.01558681199981038,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 36.09409269020736,
+      "dual_bound": 36.094092690207354,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 34.09409269020736,
+      "spread": 2,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 44.01754612851394,
+       "std": 0.9428090415820634,
+       "n": 3
+      },
+      "seconds": 1.052077782333375
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 37.66316539146626,
+       "std": 0.47534580762821294,
+       "n": 3
+      },
+      "seconds": 1.3792037083333828
+     }
+    }
+   ]
+  },
+  "40x14": {
+   "workers": 40,
+   "days": 14,
+   "sa_iterations": 200000,
+   "instances": 5,
+   "summary": {
+    "ilp": {
+     "objective": {
+      "mean": 107.68604433097615,
+      "std": 8.5048902879129,
+      "n": 5
+     },
+     "seconds": {
+      "mean": 0.04701743540003918,
+      "std": 0.002779667329291719,
+      "n": 5
+     },
+     "proven_optimal": 5,
+     "of": 5,
+     "reported_gap": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 5
+     }
+    },
+    "greedy": {
+     "feasible": 5,
+     "of": 5,
+     "shortfall_total": 0,
+     "seconds": {
+      "mean": 0.0035222959999373416,
+      "std": 0.00011628646029025118,
+      "n": 5
+     },
+     "objective_when_feasible": {
+      "mean": 133.9998853625035,
+      "std": 13.257736988594697,
+      "n": 5
+     },
+     "gap_to_ilp_pct_when_feasible": {
+      "mean": 24.45941550941732,
+      "std": 7.19457696230442,
+      "n": 5
+     }
+    },
+    "hill_climb": {
+     "feasible_runs": 15,
+     "of": 15,
+     "seconds": {
+      "mean": 2.3829315637333366,
+      "std": 0.11998287920967401,
+      "n": 5
+     },
+     "objective": {
+      "mean": 129.93615193260158,
+      "std": 13.195386410866421,
+      "n": 5
+     },
+     "gap_to_ilp_pct": {
+      "mean": 20.70635800005129,
+      "std": 7.9853168215162995,
+      "n": 5
+     }
+    },
+    "annealing": {
+     "feasible_runs": 15,
+     "of": 15,
+     "seconds": {
+      "mean": 2.8155812952666563,
+      "std": 0.09065061613766827,
+      "n": 5
+     },
+     "objective": {
+      "mean": 118.43811951208127,
+      "std": 9.601746764134706,
+      "n": 5
+     },
+     "gap_to_ilp_pct": {
+      "mean": 9.971358093353878,
+      "std": 1.1918271985680926,
+      "n": 5
+     }
+    }
+   },
+   "raw": [
+    {
+     "seed": 0,
+     "greedy": {
+      "seconds": 0.0034924459998819657,
+      "pref": 155.93990713431893,
+      "spread": 4,
+      "objective": 159.93990713431893,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.045415241000000606,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 122.5886081530555,
+      "dual_bound": 122.58860815305547,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 119.5886081530555,
+      "spread": 3,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 154.60657380098561,
+       "std": 1.247219128924647,
+       "n": 3
+      },
+      "seconds": 2.2952753000000334
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 134.9660853132752,
+       "std": 1.7527150179259336,
+       "n": 3
+      },
+      "seconds": 2.725850576666744
+     }
+    },
+    {
+     "seed": 1,
+     "greedy": {
+      "seconds": 0.0034222859999317734,
+      "pref": 121.1980651726668,
+      "spread": 4,
+      "objective": 125.1980651726668,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.04411097399997743,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 110.89263209495448,
+      "dual_bound": 110.8926320949545,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 107.89263209495448,
+      "spread": 3,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 120.53139850600013,
+       "std": 0.4714045207910317,
+       "n": 3
+      },
+      "seconds": 2.529803795666718
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 121.66237014454845,
+       "std": 1.3266854727825488,
+       "n": 3
+      },
+      "seconds": 2.8082265093332808
+     }
+    },
+    {
+     "seed": 2,
+     "greedy": {
+      "seconds": 0.0034815230001186137,
+      "pref": 119.84677540603448,
+      "spread": 5,
+      "objective": 124.84677540603448,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.04486625100003039,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 100.23034738710604,
+      "dual_bound": 100.23034738710604,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 97.23034738710604,
+      "spread": 3,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 117.64671791520499,
+       "std": 0.3462839082969492,
+       "n": 3
+      },
+      "seconds": 2.197190423333268
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 108.15729583568674,
+       "std": 1.230615181797695,
+       "n": 3
+      },
+      "seconds": 2.72144205099994
+     }
+    },
+    {
+     "seed": 3,
+     "greedy": {
+      "seconds": 0.0037499139998544706,
+      "pref": 126.53922778861116,
+      "spread": 6,
+      "objective": 132.53922778861116,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.04970943800003624,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 99.44712576766256,
+      "dual_bound": 99.44712576766254,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 97.44712576766256,
+      "spread": 2,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 131.4524345222645,
+       "std": 1.1036843554519322,
+       "n": 3
+      },
+      "seconds": 2.435698850999946
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 110.03845785658326,
+       "std": 2.538700363591185,
+       "n": 3
+      },
+      "seconds": 2.8571736423333127
+     }
+    },
+    {
+     "seed": 4,
+     "greedy": {
+      "seconds": 0.0034653109998998843,
+      "pref": 121.4754513108862,
+      "spread": 6,
+      "objective": 127.4754513108862,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.05098527300015121,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 105.27150825210212,
+      "dual_bound": 105.27150825210208,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 100.27150825210212,
+      "spread": 5,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 125.44363491855269,
+       "std": 1.012231432093586,
+       "n": 3
+      },
+      "seconds": 2.4566894486667175
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 117.36638841031275,
+       "std": 2.0814378721836633,
+       "n": 3
+      },
+      "seconds": 2.965213697000005
+     }
+    }
+   ]
+  },
+  "80x14": {
+   "workers": 80,
+   "days": 14,
+   "sa_iterations": 300000,
+   "instances": 3,
+   "summary": {
+    "ilp": {
+     "objective": {
+      "mean": 156.57371025875867,
+      "std": 7.367798428889999,
+      "n": 3
+     },
+     "seconds": {
+      "mean": 0.09389367466663619,
+      "std": 0.007934378997206826,
+      "n": 3
+     },
+     "proven_optimal": 3,
+     "of": 3,
+     "reported_gap": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 3
+     }
+    },
+    "greedy": {
+     "feasible": 3,
+     "of": 3,
+     "shortfall_total": 0,
+     "seconds": {
+      "mean": 0.007553548333438205,
+      "std": 0.0007749361617416757,
+      "n": 3
+     },
+     "objective_when_feasible": {
+      "mean": 195.723143997716,
+      "std": 5.524453646801074,
+      "n": 3
+     },
+     "gap_to_ilp_pct_when_feasible": {
+      "mean": 25.1285014758555,
+      "std": 2.93047921850313,
+      "n": 3
+     }
+    },
+    "hill_climb": {
+     "feasible_runs": 9,
+     "of": 9,
+     "seconds": {
+      "mean": 3.656098692666647,
+      "std": 0.12653948894844771,
+      "n": 3
+     },
+     "objective": {
+      "mean": 189.400114398091,
+      "std": 8.872416386650967,
+      "n": 3
+     },
+     "gap_to_ilp_pct": {
+      "mean": 21.00484588906644,
+      "std": 3.0497334754178174,
+      "n": 3
+     }
+    },
+    "annealing": {
+     "feasible_runs": 9,
+     "of": 9,
+     "seconds": {
+      "mean": 4.232116974222233,
+      "std": 0.13002408371041202,
+      "n": 3
+     },
+     "objective": {
+      "mean": 178.11819491229724,
+      "std": 6.646176053895387,
+      "n": 3
+     },
+     "gap_to_ilp_pct": {
+      "mean": 13.836123081001984,
+      "std": 2.4615530551167906,
+      "n": 3
+     }
+    }
+   },
+   "raw": [
+    {
+     "seed": 0,
+     "greedy": {
+      "seconds": 0.007337074000133725,
+      "pref": 196.23125484980054,
+      "spread": 4,
+      "objective": 200.23125484980054,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.09428225100009513,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 158.87994563964796,
+      "dual_bound": 158.87994563964793,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 154.87994563964796,
+      "spread": 4,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 198.26216605092557,
+       "std": 2.7847120848859213,
+       "n": 3
+      },
+      "seconds": 3.581595782666606
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 175.99399170697566,
+       "std": 3.372825894957657,
+       "n": 3
+      },
+      "seconds": 4.35905299833333
+     }
+    },
+    {
+     "seed": 1,
+     "greedy": {
+      "seconds": 0.008592184999997698,
+      "pref": 179.943051605414,
+      "spread": 8,
+      "objective": 187.943051605414,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.10341114799985007,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 146.62072669950206,
+      "dual_bound": 146.62072669950206,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 140.62072669950206,
+      "spread": 6,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 177.27638493874738,
+       "std": 0.4714045207910384,
+       "n": 3
+      },
+      "seconds": 3.8342591633333236
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 171.25102764791018,
+       "std": 3.536549065618459,
+       "n": 3
+      },
+      "seconds": 4.053432523000008
+     }
+    },
+    {
+     "seed": 2,
+     "greedy": {
+      "seconds": 0.006731386000183193,
+      "pref": 192.9951255379334,
+      "spread": 6,
+      "objective": 198.9951255379334,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.08398762499996337,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 164.22045843712598,
+      "dual_bound": 164.22045843712596,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 160.22045843712598,
+      "spread": 4,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 192.66179220460003,
+       "std": 1.2472191289246624,
+       "n": 3
+      },
+      "seconds": 3.5524411320000127
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 187.10956538200594,
+       "std": 1.8410849404483165,
+       "n": 3
+      },
+      "seconds": 4.283865401333363
+     }
+    }
+   ]
+  },
+  "150x28": {
+   "workers": 150,
+   "days": 28,
+   "sa_iterations": 400000,
+   "instances": 3,
+   "summary": {
+    "ilp": {
+     "objective": {
+      "mean": 658.1046302286348,
+      "std": 48.368099203085684,
+      "n": 3
+     },
+     "seconds": {
+      "mean": 0.7309344993333676,
+      "std": 0.36477256867620633,
+      "n": 3
+     },
+     "proven_optimal": 3,
+     "of": 3,
+     "reported_gap": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 3
+     }
+    },
+    "greedy": {
+     "feasible": 3,
+     "of": 3,
+     "shortfall_total": 0,
+     "seconds": {
+      "mean": 0.030850790333336892,
+      "std": 0.0065123286185069405,
+      "n": 3
+     },
+     "objective_when_feasible": {
+      "mean": 834.9233184442651,
+      "std": 64.24070379391324,
+      "n": 3
+     },
+     "gap_to_ilp_pct_when_feasible": {
+      "mean": 26.836946752852707,
+      "std": 1.361114278390456,
+      "n": 3
+     }
+    },
+    "hill_climb": {
+     "feasible_runs": 9,
+     "of": 9,
+     "seconds": {
+      "mean": 4.818126876222222,
+      "std": 0.10325543644587326,
+      "n": 3
+     },
+     "objective": {
+      "mean": 805.6305739153586,
+      "std": 65.13733673305408,
+      "n": 3
+     },
+     "gap_to_ilp_pct": {
+      "mean": 22.34941887213364,
+      "std": 1.4562530993837803,
+      "n": 3
+     }
+    },
+    "annealing": {
+     "feasible_runs": 9,
+     "of": 9,
+     "seconds": {
+      "mean": 5.739417093777774,
+      "std": 0.15738771781673752,
+      "n": 3
+     },
+     "objective": {
+      "mean": 834.9233184442651,
+      "std": 64.24070379391324,
+      "n": 3
+     },
+     "gap_to_ilp_pct": {
+      "mean": 26.836946752852707,
+      "std": 1.361114278390456,
+      "n": 3
+     }
+    }
+   },
+   "raw": [
+    {
+     "seed": 0,
+     "greedy": {
+      "seconds": 0.026761445000147432,
+      "pref": 852.2220527275209,
+      "spread": 10,
+      "objective": 862.2220527275209,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.45153006900000037,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 669.7282858965044,
+      "dual_bound": 669.728285896505,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 663.7282858965044,
+      "spread": 6,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 831.4453376089609,
+       "std": 2.5431173133823517,
+       "n": 3
+      },
+      "seconds": 4.903436547666767
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 862.2220527275209,
+       "std": 0.0,
+       "n": 3
+      },
+      "seconds": 5.649180900333401
+     }
+    },
+    {
+     "seed": 1,
+     "greedy": {
+      "seconds": 0.04004204100010611,
+      "pref": 888.3165149968839,
+      "spread": 8,
+      "objective": 896.3165149968839,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 0.4950859010000386,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 710.6698312884816,
+      "dual_bound": 710.6698312884831,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 704.6698312884816,
+      "spread": 6,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 869.3032641277788,
+       "std": 7.791824162054209,
+       "n": 3
+      },
+      "seconds": 4.8781084019999525
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 896.3165149968839,
+       "std": 0.0,
+       "n": 3
+      },
+      "seconds": 5.608326755333413
+     }
+    },
+    {
+     "seed": 2,
+     "greedy": {
+      "seconds": 0.025748884999757138,
+      "pref": 737.2313876083903,
+      "spread": 9,
+      "objective": 746.2313876083903,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "ilp": {
+      "seconds": 1.246187528000064,
+      "status": 0,
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "objective": 593.9157735009185,
+      "dual_bound": 593.9157735009203,
+      "gap": 0.0,
+      "proven_optimal": true,
+      "pref": 587.9157735009185,
+      "spread": 6,
+      "shortfall": 0,
+      "availability_violations": 0,
+      "weekly_violations": 0,
+      "rest_violations": 0,
+      "violations": 0,
+      "feasible": true
+     },
+     "hill_climb": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 716.1431200093363,
+       "std": 2.0023509265065815,
+       "n": 3
+      },
+      "seconds": 4.672835678999945
+     },
+     "annealing": {
+      "feasible_runs": 3,
+      "of": 3,
+      "objective": {
+       "mean": 746.2313876083903,
+       "std": 0.0,
+       "n": 3
+      },
+      "seconds": 5.96074362566651
+     }
+    }
+   ]
+  }
+ },
+ "fairness_sensitivity_40x14": [
+  {
+   "lam": 0.0,
+   "preference_cost": 118.66248405207104,
+   "spread": 6,
+   "proven_optimal": true,
+   "seconds": 0.04228157200032001
+  },
+  {
+   "lam": 1.0,
+   "preference_cost": 119.5886081530555,
+   "spread": 3,
+   "proven_optimal": true,
+   "seconds": 0.04976551699974152
+  },
+  {
+   "lam": 3.0,
+   "preference_cost": 121.07754291455848,
+   "spread": 2,
+   "proven_optimal": true,
+   "seconds": 0.0649113560002661
+  },
+  {
+   "lam": 10.0,
+   "preference_cost": 121.07754291455848,
+   "spread": 2,
+   "proven_optimal": true,
+   "seconds": 5.366705820999869
+  }
+ ],
+ "annealing_sensitivity_150x28_seed0": {
+  "ilp_objective": 669.7282858965044,
+  "greedy_objective": 862.2220527275209,
+  "rows": [
+   {
+    "iters": 400000,
+    "t0": 2.0,
+    "objective": 862.2220527275209,
+    "gap_to_ilp_pct": 28.74206911737983,
+    "seconds": 5.5959967090002465
+   },
+   {
+    "iters": 400000,
+    "t0": 0.5,
+    "objective": 824.6666290144636,
+    "gap_to_ilp_pct": 23.13450788636728,
+    "seconds": 6.347994795999966
+   },
+   {
+    "iters": 400000,
+    "t0": 0.2,
+    "objective": 819.8399245122173,
+    "gap_to_ilp_pct": 22.413811955810118,
+    "seconds": 5.7332122009997875
+   },
+   {
+    "iters": 1500000,
+    "t0": 0.5,
+    "objective": 741.7524986028268,
+    "gap_to_ilp_pct": 10.754243806487896,
+    "seconds": 21.081644908999806
+   }
+  ],
+  "note": "single instance, single seed: indicative only"
+ },
+ "ilp_scaling_probe": [
+  {
+   "workers": 300,
+   "days": 28,
+   "variables": 25200,
+   "seconds": 0.8104217179998159,
+   "proven_optimal": true,
+   "gap": 0.0,
+   "objective": 1298.9517694048586
+  },
+  {
+   "workers": 600,
+   "days": 28,
+   "variables": 50400,
+   "seconds": 1.8250053890001254,
+   "proven_optimal": true,
+   "gap": 0.0,
+   "objective": 2473.3644885744125
+  }
+ ]
+}
