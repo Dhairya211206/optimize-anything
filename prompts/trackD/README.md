@@ -1,6 +1,6 @@
 # Track D: Submodular, Parallel, and Distributed Optimization — Prompt Log
 
-**Tool:** Claude (claude.ai), Claude 3.5 Sonnet | **Date:** 2026-11-04  
+**Tool:** Claude (claude.ai), Claude Sonnet 5.5 | **Date:** 2026-11-04  
 **Track Focus:** Submodularity Guarantees, Parallel Scaling & Overhead (Amdahl's/Gustafson's Laws), Federated Learning (FedAvg), and Multi-Task Gradient Balancing (MGDA/GradNorm)
 
 ---

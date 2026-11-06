@@ -1,6 +1,6 @@
 # Track B: Discrete Optimization & QUBO/Ising — Prompt Log
 
-**Primary Tool:** Claude 3.5 Sonnet | **Comparison Tool:** Google Antigravity (Gemini 3.8 Flash)  
+**Primary Tool:** Claude Sonnet 5.5 | **Comparison Tool:** Google Antigravity (Gemini 3.8 Flash)  
 **Date:** 2026-11-04 (Track implementation), 2026-11-05 (Tool comparison)  
 **Track Focus:** Combinatorial Optimization (Exact vs Heuristic), QUBO/Ising Formulations, Constraint Penalties, and Annealing
 
@@ -51,7 +51,7 @@ You are an expert combinatorial optimization engineer. Implement Track B (Discre
 
 ## Tool-Comparison Benchmark Prompt (Executed on Claude & Antigravity)
 
-On 2026-11-05, a rigorous, self-contained prompt was given to both **Claude 3.5 Sonnet** and **Gemini 3.8 Flash (via Google Antigravity)** to evaluate code generation, mathematical derivation, and one-shot correctness:
+On 2026-11-05, a rigorous, self-contained prompt was given to both **Claude Sonnet 5.5** and **Gemini 3.8 Flash (via Google Antigravity)** to evaluate code generation, mathematical derivation, and one-shot correctness:
 
 ```
 Write a Python 3 file maxcut_qubo.py (numpy only) that does the following.
@@ -68,7 +68,7 @@ Run the tests and show the output. Do not use any libraries other than numpy and
 
 ### Tool Comparison Outcome:
 * **Google Antigravity (Gemini 3.8 Flash):** Passed all 3 pytest tests on its **first attempt** (`3 passed in 1.65s`) with zero errors, producing an exact mathematical formulation of $Q = A - \text{diag}(d)$ and $E_{\text{Ising}}(s)$.
-* **Claude 3.5 Sonnet:** First draft suffered an incremental energy-update bug in the annealer flip loop (Failure Log #14), requiring a prompt revision before passing all tests.
+* **Claude Sonnet 5.5:** First draft suffered an incremental energy-update bug in the annealer flip loop (Failure Log #14), requiring a prompt revision before passing all tests.
 * Full detailed analysis: See [`TOOL_COMPARISON.md`](../../TOOL_COMPARISON.md).
 
 ---

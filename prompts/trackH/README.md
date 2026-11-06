@@ -1,6 +1,6 @@
 # Track H: DBMS Optimization — Prompt Log
 
-**Tool:** Claude (claude.ai), Claude 3.5 Sonnet | **Date:** 2026-11-04  
+**Tool:** Claude (claude.ai), Claude Sonnet 5.5 | **Date:** 2026-11-04  
 **Track Focus:** Relational Database Query Optimization, Physical Index Selection under Storage Constraints, and Workload Benchmarking
 
 ---

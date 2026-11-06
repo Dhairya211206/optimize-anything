@@ -1,6 +1,6 @@
 # Track A: Continuous Optimization — Prompt Log
 
-**Tool:** Claude (claude.ai), Claude 3.5 Sonnet | **Date:** 2026-11-04  
+**Tool:** Claude (claude.ai), Claude Sonnet 5.5 | **Date:** 2026-11-04  
 **Track Focus:** First- and Second-Order Continuous Optimization, Neural Backpropagation, and Loss Landscapes
 
 ---

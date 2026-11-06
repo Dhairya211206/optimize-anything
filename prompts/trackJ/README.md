@@ -1,6 +1,6 @@
 # Track J: Software-Engineering Optimization — Prompt Log
 
-**Tool:** Claude (claude.ai), Claude 3.5 Sonnet | **Date:** 2026-11-04  
+**Tool:** Claude (claude.ai), Claude Sonnet 5.5 | **Date:** 2026-11-04  
 **Track Focus:** Test-Suite Minimization (Weighted Set-Cover ILP & Greedy), Fault-Detection Prioritization (APFD), and AST Mutation Testing
 
 ---
@@ -67,6 +67,6 @@ You are an expert software engineering and optimization researcher. Implement Tr
 ## Verification Note
 
 * **6 pytest tests pass** (`python -m pytest trackJ_software_eng -q`).
-* Exact ILP reduces test suite execution time by **41.2%** while preserving **100.0%** statement coverage.
-* Additional Coverage Prioritization achieves an APFD of **0.87**, significantly outperforming Random (0.64) and Reversed (0.23) orderings.
+* Exact ILP reduces summed test suite execution time by **55%** while preserving **100.0%** statement coverage; the minimized suites lost **4% to 10%** of the mutants they could kill.
+* Additional Coverage Prioritization achieves an APFD of **0.89** (most-new-lines order), significantly outperforming Random (**0.81**) and Reversed (**0.23**) orderings.
 * Results and APFD fault-detection progression curves detailed in `TRACK_J_RESULTS.md`.

@@ -50,20 +50,20 @@ Please follow the mandatory 6-stage problem-solving methodology:
 |---|---|---|---|---|
 | [**Track A**](trackA/README.md) | Continuous Optimization | Convex & non-convex function landscapes, 2-layer MLP loss | GD, SGD, Momentum, NAG, AdaGrad, RMSProp, Adam, Newton, Gauss-Newton, Backprop, Fisher/HVP | Loss, runtime, iterations to $10^{-6}$ tolerance, learning-rate sensitivity |
 | [**Track B**](trackB/README.md) | Discrete Optimization & QUBO | 0/1 Knapsack, Max-Cut graph partitioning, Feature Selection | Greedy ratio, Dynamic Programming, Branch & Bound, ILP, QUBO/Ising, Simulated Annealing | Cut value, knapsack value, runtime, assignment validity |
-| [**Track C**](trackC/README.md) | Quantum Optimization | Max-Cut QUBO on QAOA, Ground state energy on VQE | QAOA ($p \ge 1$), VQE, Parameter-shift rule, SPSA, Quantum Natural Gradient (QNG) | Energy expectation, gradient variance (barren plateaus), shot noise impact |
+| [**Track C**](trackC/README.md) | Quantum Optimization | Max-Cut QUBO on QAOA, 4-qubit Ising chain on VQE | QAOA ($p \ge 1$), VQE, Parameter-shift rule, SPSA, Quantum Natural Gradient (QNG) | Energy expectation, gradient variance (barren plateaus), shot noise impact |
 | [**Track D**](trackD/README.md) | Submodular, Parallel & Distributed | Maximum coverage / sensor placement, distributed learning | Submodular Greedy, Lazy Greedy, Amdahl/Gustafson parallel speedup, FedAvg, MGDA, GradNorm | $(1 - 1/e)$ approximation bound, parallel efficiency, communication rounds |
-| [**Track E**](trackE/README.md) | Main Case Study | Hospital / Workforce Shift Rostering (Open Domain) | Strategy selection table, Greedy heuristic, Simulated Annealing, Exact ILP | Hard constraint violations, overtime penalty score, runtime across scales |
-| [**Track F**](trackF/README.md) | Compiler Optimization | Mini-compiler bytecode IR passes & Register Allocation | Constant Folding/Prop, Dead Code Elimination, CSE, LICM, Graph-Coloring & ILP RegAlloc | Dynamic instruction count, execution cycles, binary size, compile time |
+| [**Track E**](trackE/README.md) | Main Case Study | Manufacturing Plant Shift Rostering (Open Domain) | Strategy selection table, Greedy heuristic, Simulated Annealing, Exact ILP | Preference-plus-fairness cost, solver optimality gap, runtime across scales |
+| [**Track F**](trackF/README.md) | Compiler Optimization | Mini-compiler bytecode IR passes & Register Allocation | Constant Folding/Prop, Dead Code Elimination, CSE, LICM, Linear Scan, Greedy & ILP RegAlloc | Dynamic instruction count, execution cycles, binary size, compile time |
 | [**Track G**](trackG/README.md) | xv6 Operating System | Kernel memory allocation & multi-core CPU scheduling | Per-CPU freelist allocator with batch stealing, Lottery scheduling with tickets | Throughput, lock contention, allocation latency, fairness proportionality |
 | [**Track H**](trackH/README.md) | DBMS Optimization | Index selection under disk storage budget (TPC-H-like) | Greedy Cost-Benefit, Greedy Marginal Gain, Knapsack DP, Exact ILP | Query execution latency, EXPLAIN plan cost, index storage overhead |
 | [**Track I**](trackI/README.md) | Quantum Algorithms & QML | Algorithmic speedup & classification advantage | Grover vs linear search, QNN data re-uploading, Quantum Kernel SVM vs classical RBF | Query count, gate count, wall-clock time, classification accuracy |
-| [**Track J**](trackJ/README.md) | Software Engineering | Test-suite minimization & fault-detection prioritization | Weighted Set-Cover ILP, Greedy Set-Cover, Additional Coverage Prioritization (APFD) | Test-suite execution duration, reduction ratio, statement coverage, APFD |
+| [**Track J**](trackJ/README.md) | Software Engineering | Test-suite minimization & fault-detection prioritization | Weighted Set-Cover ILP, Greedy Set-Cover, Additional Coverage Prioritization (APFD) | 55% execution time reduction, line coverage, APFD (0.89), mutants killed |
 
 ---
 
 ## 3. Session & Tool Usage Summary
 
-The implementation was developed through AI-assisted coding sessions using **Claude 3.5 Sonnet** (for full pipeline scaffolding and experiments) and **Gemini 3.8 Flash** via Google Antigravity (for the multi-tool comparison on Track B Max-Cut QUBO).
+The implementation was developed through AI-assisted coding sessions using **Claude Sonnet 5.5** (for full pipeline scaffolding and experiments) and **Gemini 3.8 Flash** via Google Antigravity (for the multi-tool comparison on Track B Max-Cut QUBO).
 
 * **AI Tools Register**: See [`AI_TOOLS_REGISTER.md`](../AI_TOOLS_REGISTER.md) for full version details, dates, and track coverage.
 * **Failure Log**: See [`FAILURE_LOG.md`](../FAILURE_LOG.md) for documented instances where AI suggestions were corrected.

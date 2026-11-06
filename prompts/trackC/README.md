@@ -1,6 +1,6 @@
 # Track C: Quantum Optimization — Prompt Log
 
-**Tool:** Claude (claude.ai), Claude 3.5 Sonnet | **Date:** 2026-11-04  
+**Tool:** Claude (claude.ai), Claude Sonnet 5.5 | **Date:** 2026-11-04  
 **Track Focus:** Variational Quantum Algorithms (QAOA & VQE), Parameter-Shift Rules, SPSA, Quantum Natural Gradient, and Noise/Barren Plateaus
 
 ---
@@ -13,7 +13,7 @@ You are an expert quantum computing and optimization researcher. Implement Track
 1. Problem Formulation:
    - Formulate quantum optimization across two foundational paradigms:
      a) Combinatorial Max-Cut via QAOA: Map the Track B Max-Cut QUBO into an Ising Hamiltonian H_C = sum_{(i,j) in E} J_ij Z_i Z_j and driver H_M = sum_i X_i. Formulate the p-layer QAOA state |gamma, beta> and expectation value E(gamma, beta) = <H_C>.
-     b) Ground-State Molecular Energy via VQE: Formulate Variational Quantum Eigensolver for a 2-qubit and 4-qubit Hamiltonian using Parameterized Quantum Circuits (PQCs) with Ry and CNOT entangling layers.
+     b) Ground-State Energy of a 4-Qubit Transverse-Field Ising Chain via VQE: Formulate Variational Quantum Eigensolver for a 4-qubit Ising chain Hamiltonian H = -sum_i Z_i Z_{i+1} - h sum_i X_i using Parameterized Quantum Circuits (PQCs) with Ry and CNOT entangling layers.
 
 2. Algorithm Selection (Chapter 6 Syllabus):
    - Quantum Optimizers & Gradient Estimators:

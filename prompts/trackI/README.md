@@ -1,6 +1,6 @@
 # Track I: Quantum Algorithms and QML Advantage — Prompt Log
 
-**Tool:** Claude (claude.ai), Claude 3.5 Sonnet | **Date:** 2026-11-04  
+**Tool:** Claude (claude.ai), Claude Sonnet 5.5 | **Date:** 2026-11-04  
 **Track Focus:** Quantum Circuit Simulation, Algorithmic Complexity Advantage (Grover vs Linear Search), and QML vs Classical Baselines
 
 ---
