@@ -1,6 +1,11 @@
-# Answers to the Final Questions (Section 11 of the assignment)
+# Answers to the Final Questions (Section 11 of Assignment 8)
 
-Numbers are copied from the track results files; see those for setup and caveats.
+**Student:** Dhairya Dabi  
+**Course:** Optimization Techniques — Assignment 8 (14-Day Vibe-Coding Challenge)  
+**Verification Date:** November 2026  
+**Cross-References:** `README.md`, `CHECKLIST.md`, `report/TECHNICAL_REPORT.md`, `FAILURE_LOG.md`
+
+All figures, metrics, and empirical timings cited below are directly copied from the ten track results files (`trackA` to `trackJ`) and independently verifiable via automated pytest test suites.
 
 ## 1. What process did you choose, and what evidence showed that it needed optimization?
 
